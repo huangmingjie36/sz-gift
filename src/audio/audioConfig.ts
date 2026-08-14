@@ -26,7 +26,7 @@ export const audioConfig: {
     title: "FC Bayern Anthem",
     artist: "—",
     src: "/audio/bayern.mp3",
-    startAt: null, // 待人工填写：高潮段秒数
+    startAt: 0, // 成品已从 45s 高潮段裁剪（源文件保留在 src/data/audio-source/）
   },
   screen: {
     title: "Wonderful Tonight",

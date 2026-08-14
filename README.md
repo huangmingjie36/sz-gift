@@ -36,9 +36,12 @@ ENTER 后启动声音。右下角 ♪ 开关，mute 状态被记住。
 | ACT II FOOTBALL | FC Bayern 队歌 | `startAt: null`（待人工填高潮秒数） |
 | ACT III SCREEN | Eric Clapton《Wonderful Tonight》 | 0:00（开头吉他） |
 
-音频文件放入 `public/audio/`：`music.mp3` / `bayern.mp3` / `screen.mp3`。
-配置在 `src/audio/audioConfig.ts`。切换逻辑在 `src/audio/AudioDirector.tsx`：
-MUSIC→FOOTBALL 快速 fadeout + 停顿 + 硬进；FOOTBALL→SCREEN 渐退 + 吉他进入。
+音频已就绪（B 站 Hi-Res 源，已裁剪）：
+- `public/audio/music.mp3` — 才二十三（完整 3:45）
+- `public/audio/bayern.mp3` — 拜仁队歌（从 45s 高潮段起，2:55）
+- `public/audio/screen.mp3` — Wonderful Tonight（完整 3:43）
+源文件保留在 `src/data/audio-source/`；重裁剪可改 `scripts/audio-prep.mjs` 的 START_AT 后重跑。
+切换逻辑在 `src/audio/AudioDirector.tsx`：MUSIC→FOOTBALL 快速 fadeout + 停顿 + 硬进；FOOTBALL→SCREEN 渐退 + 吉他进入。
 
 ## 专辑（FEATURED RECORDS，均有数据支撑）
 

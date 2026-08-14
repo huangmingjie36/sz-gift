@@ -18,20 +18,25 @@ import { existsSync } from "node:fs";
 
 const FF = "/Users/huangmingjie/Library/Python/3.9/lib/python/site-packages/imageio_ffmpeg/binaries/ffmpeg-macos-aarch64-v7.1";
 const AUDIO_DIR = "public/audio";
-const START_AT = null; // ← 拜仁高潮秒数，例如 90.5
+const START_AT = 45; // ← 拜仁高潮秒数（用户确认：45s）
 const VOL = 0.9;
 
 function findSource(name) {
-  for (const f of [`source-${name}.mp3`, `source-${name}.m4a`, `source-${name}.flac`, `source-${name}.wav`]) {
+  for (const f of [`source-${name}.mp3`, `source-${name}.m4a`, `source-${name}.m4s`, `source-${name}.flac`, `source-${name}.wav`]) {
     if (existsSync(`${AUDIO_DIR}/${f}`)) return `${AUDIO_DIR}/${f}`;
   }
   return null;
 }
 
 function probeDuration(src) {
-  const out = execFileSync(FF, ["-i", src, "-f", "null", "-"], { stdio: ["ignore", "pipe", "pipe"] }).toString();
-  const m = out.match(/Duration: (\d+):(\d+):([\d.]+)/);
-  return m ? Number(m[1]) * 3600 + Number(m[2]) * 60 + Number(m[3]) : 30;
+  try {
+    execFileSync(FF, ["-i", src], { stdio: ["ignore", "pipe", "pipe"] });
+  } catch (e) {
+    const err = (e.stderr || Buffer.from("")).toString();
+    const m = err.match(/Duration: (\d+):(\d+):([\d.]+)/);
+    if (m) return Number(m[1]) * 3600 + Number(m[2]) * 60 + Number(m[3]);
+  }
+  return 30;
 }
 
 function build(name, startAt, fadeIn, fadeOut, maxDur = null) {
