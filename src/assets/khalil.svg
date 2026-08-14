@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="kb" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#F1E9D6"/>
+      <stop offset="100%" stop-color="#D9C9A8"/>
+    </linearGradient>
+    <radialGradient id="kw" cx="70%" cy="18%" r="50%">
+      <stop offset="0%" stop-color="#FFF4DC" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#FFF4DC" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="kv" cx="38%" cy="35%" r="80%">
+      <stop offset="0%" stop-color="#3A2A1E"/>
+      <stop offset="60%" stop-color="#211711"/>
+      <stop offset="100%" stop-color="#150E09"/>
+    </radialGradient>
+    <radialGradient id="kl" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#C25A32"/>
+      <stop offset="100%" stop-color="#8F3D20"/>
+    </radialGradient>
+    <filter id="knoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="800" height="1000" fill="url(#kb)"/>
+  <rect width="800" height="1000" fill="url(#kw)"/>
+  <g transform="translate(330 490)">
+    <circle r="332" fill="url(#kv)"/>
+    <circle r="332" fill="none" stroke="#1A120B" stroke-opacity="0.6" stroke-width="2"/>
+    <g fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1.6">
+      <circle r="302"/><circle r="282"/><circle r="262"/><circle r="242"/><circle r="222"/>
+      <circle r="202"/><circle r="182"/><circle r="162"/><circle r="142"/><circle r="122"/>
+    </g>
+    <path d="M 60 -250 A 332 332 0 0 1 332 30 L 332 -70 A 332 332 0 0 0 150 -286 Z" fill="#FFFFFF" opacity="0.07"/>
+    <path d="M -120 240 A 332 332 0 0 0 230 -180 L 160 -214 A 332 332 0 0 1 -170 190 Z" fill="#FFFFFF" opacity="0.045"/>
+    <circle r="74" fill="url(#kl)"/>
+    <circle r="74" fill="none" stroke="#1B0F08" stroke-opacity="0.55" stroke-width="2"/>
+    <circle r="58" fill="none" stroke="#1B0F08" stroke-opacity="0.25" stroke-width="1"/>
+    <circle r="9" fill="#120B06"/>
+  </g>
+  <g transform="translate(742 70)">
+    <line x1="0" y1="0" x2="-148" y2="292" stroke="#241A12" stroke-width="10" stroke-linecap="round"/>
+    <circle r="26" fill="#241A12"/>
+    <circle r="26" fill="none" stroke="#B3542F" stroke-width="2"/>
+    <circle r="6" fill="#0E0906"/>
+  </g>
+  <rect width="800" height="1000" filter="url(#knoise)" opacity="0.07"/>
+</svg>

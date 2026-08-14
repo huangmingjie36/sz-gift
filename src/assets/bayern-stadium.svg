@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620">
+  <defs>
+    <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B0A09"/>
+      <stop offset="100%" stop-color="#171411"/>
+    </linearGradient>
+    <linearGradient id="rw" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4052F" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#D4052F" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bm" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#FFF6E0" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FFF6E0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="pf" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#161F18"/>
+      <stop offset="100%" stop-color="#0F1611"/>
+    </linearGradient>
+    <filter id="snoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="620" fill="url(#sk)"/>
+  <rect y="360" width="1200" height="260" fill="url(#rw)"/>
+  <g>
+    <path d="M 0 330 L 1200 330 L 1200 470 L 0 470 Z" fill="#0E0C0A"/>
+    <path d="M 40 470 L 1160 470 L 1200 620 L 0 620 Z" fill="#191612"/>
+    <g stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1">
+      <line x1="0" y1="360" x2="1200" y2="360"/>
+      <line x1="0" y1="390" x2="1200" y2="390"/>
+      <line x1="0" y1="420" x2="1200" y2="420"/>
+      <line x1="0" y1="450" x2="1200" y2="450"/>
+      <line x1="40" y1="500" x2="1160" y2="500"/>
+      <line x1="40" y1="545" x2="1160" y2="545"/>
+      <line x1="40" y1="590" x2="1160" y2="590"/>
+    </g>
+  </g>
+  <path d="M 190 620 L 1010 620 L 940 480 L 260 480 Z" fill="url(#pf)"/>
+  <g stroke="#FFFFFF" stroke-opacity="0.16" fill="none" stroke-width="1.5">
+    <line x1="600" y1="480" x2="600" y2="620"/>
+    <ellipse cx="600" cy="550" rx="120" ry="70"/>
+    <path d="M 190 620 L 190 560 L 300 560 L 300 620"/>
+    <path d="M 1010 620 L 1010 560 L 900 560 L 900 620"/>
+  </g>
+  <g class="flood f1">
+    <rect x="92" y="70" width="10" height="260" fill="#0D0B09"/>
+    <rect x="74" y="48" width="46" height="28" rx="4" fill="#0D0B09"/>
+    <rect x="80" y="52" width="34" height="20" rx="2" fill="#FFF3D6" class="lamp" opacity="0"/>
+    <path d="M 97 74 L 420 300 L 540 300 Z" fill="url(#bm)" class="beam" opacity="0"/>
+  </g>
+  <g class="flood f2">
+    <rect x="382" y="64" width="10" height="266" fill="#0D0B09"/>
+    <rect x="364" y="42" width="46" height="28" rx="4" fill="#0D0B09"/>
+    <rect x="370" y="46" width="34" height="20" rx="2" fill="#FFF3D6" class="lamp" opacity="0"/>
+    <path d="M 387 68 L 420 300 L 540 300 Z" fill="url(#bm)" class="beam" opacity="0"/>
+  </g>
+  <g class="flood f3">
+    <rect x="782" y="64" width="10" height="266" fill="#0D0B09"/>
+    <rect x="764" y="42" width="46" height="28" rx="4" fill="#0D0B09"/>
+    <rect x="770" y="46" width="34" height="20" rx="2" fill="#FFF3D6" class="lamp" opacity="0"/>
+    <path d="M 787 68 L 660 300 L 780 300 Z" fill="url(#bm)" class="beam" opacity="0"/>
+  </g>
+  <g class="flood f4">
+    <rect x="1082" y="70" width="10" height="260" fill="#0D0B09"/>
+    <rect x="1064" y="48" width="46" height="28" rx="4" fill="#0D0B09"/>
+    <rect x="1070" y="52" width="34" height="20" rx="2" fill="#FFF3D6" class="lamp" opacity="0"/>
+    <path d="M 1087 74 L 660 300 L 780 300 Z" fill="url(#bm)" class="beam" opacity="0"/>
+  </g>
+  <rect width="1200" height="620" filter="url(#snoise)" opacity="0.08"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="cb" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#F4EFE3"/>
+      <stop offset="100%" stop-color="#E6DCC6"/>
+    </linearGradient>
+    <radialGradient id="cm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F0DCAE" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#F0DCAE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cnoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="800" height="1000" fill="url(#cb)"/>
+  <circle cx="548" cy="224" r="150" fill="url(#cm)"/>
+  <circle cx="548" cy="224" r="86" fill="none" stroke="#191613" stroke-opacity="0.1" stroke-width="1"/>
+  <circle cx="548" cy="224" r="66" fill="none" stroke="#191613" stroke-opacity="0.08" stroke-width="1"/>
+  <line x1="130" y1="640" x2="672" y2="640" stroke="#191613" stroke-opacity="0.14" stroke-width="1"/>
+  <path d="M 150 640 Q 320 530 664 578" fill="none" stroke="#191613" stroke-opacity="0.1" stroke-width="1.6"/>
+  <path d="M 150 640 Q 320 690 664 640" fill="none" stroke="#191613" stroke-opacity="0.06" stroke-width="1.2"/>
+  <circle cx="228" cy="716" r="3" fill="#191613" opacity="0.22"/>
+  <circle cx="252" cy="716" r="3" fill="#191613" opacity="0.16"/>
+  <circle cx="276" cy="716" r="3" fill="#191613" opacity="0.1"/>
+  <rect width="800" height="1000" filter="url(#cnoise)" opacity="0.06"/>
+</svg>
