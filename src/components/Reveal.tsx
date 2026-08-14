@@ -1,4 +1,4 @@
-import { motion, type HTMLMotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -10,7 +10,8 @@ type RevealProps = {
   duration?: number;
   amount?: number;
   className?: string;
-} & Omit<HTMLMotionProps<"div">, "children">;
+  as?: "div" | "li" | "span" | "figure" | "article";
+};
 
 /** 轻量 scroll-reveal：上移淡入 */
 export function Reveal({
@@ -20,19 +21,19 @@ export function Reveal({
   duration = 1.1,
   amount = 0.35,
   className,
-  ...rest
+  as = "div",
 }: RevealProps) {
+  const Tag = motion[as];
   return (
-    <motion.div
+    <Tag
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount }}
       transition={{ duration, delay, ease: EASE }}
-      {...rest}
     >
       {children}
-    </motion.div>
+    </Tag>
   );
 }
 

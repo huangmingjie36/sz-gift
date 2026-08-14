@@ -3,12 +3,14 @@ import { ChapterBar } from "./components/ChapterBar";
 import { Cursor } from "./components/Cursor";
 import { Grain } from "./components/Grain";
 import { destroyLenis, initLenis } from "./lib/scroll";
-import { Bayern } from "./sections/Bayern";
+import { Core } from "./sections/Core";
+import { DeepCuts } from "./sections/DeepCuts";
+import { Dna } from "./sections/Dna";
 import { Ending } from "./sections/Ending";
-import { Fragments } from "./sections/Fragments";
-import { Friends } from "./sections/Friends";
+import { LivingRoom } from "./sections/LivingRoom";
+import { Matchday } from "./sections/Matchday";
 import { Opening } from "./sections/Opening";
-import { Sound } from "./sections/Sound";
+import { RecordRoom } from "./sections/RecordRoom";
 import { You } from "./sections/You";
 import "./styles/global.css";
 
@@ -25,10 +27,12 @@ export default function App() {
       <ChapterBar />
       <main>
         <Opening />
-        <Sound />
-        <Friends />
-        <Bayern />
-        <Fragments />
+        <Core />
+        <RecordRoom />
+        <LivingRoom />
+        <Matchday />
+        <DeepCuts />
+        <Dna />
         <You />
         <Ending />
       </main>

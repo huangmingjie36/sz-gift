@@ -1,7 +1,7 @@
 // ============================================================
-//  THE PRIVATE UNIVERSE OF [NAME]
-//  统一内容文件 — 之后替换真实姓名 / 照片 / 歌单 / 碎片时，
-//  主要改这一个文件 + src/assets 里的图片。
+//  THE PRIVATE UNIVERSE OF [NAME] — 真实文化数据版
+//  数据来源：豆瓣公开收藏（111 音乐 / 118 影视）+ QQ音乐「我喜欢」
+//  采集日期：2026-08（只读）
 // ============================================================
 
 import jayArt from "../assets/jay.svg";
@@ -9,36 +9,32 @@ import khalilArt from "../assets/khalil.svg";
 import cheerArt from "../assets/cheer.svg";
 import friendsTv from "../assets/friends-tv.svg";
 import stadiumArt from "../assets/bayern-stadium.svg";
-import fragmentA from "../assets/fragment-a.svg";
-import fragmentB from "../assets/fragment-b.svg";
-import fragmentC from "../assets/fragment-c.svg";
 
 export const meta = {
-  name: "[NAME]",
+  name: "ppppettis_",
+  displayName: "他",
   volume: "VOL. 001",
   year: "2026",
   origin: "SHENZHEN",
   originZh: "深圳",
+  dataNote: "SOURCED FROM DOUBAN + QQ MUSIC — 2026",
 };
 
 // ------------------------------------------------------------
-//  章节索引（底部导航用）
+//  章节索引
 // ------------------------------------------------------------
-export type Chapter = {
-  id: string;
-  no: string;
-  title: string;
-  label: string;
-};
+export type Chapter = { id: string; no: string; title: string; label: string };
 
 export const chapters: Chapter[] = [
   { id: "opening", no: "000", title: "OPENING", label: "THE PRIVATE UNIVERSE" },
-  { id: "sound", no: "001", title: "SIDE A — SOUND", label: "音乐 · 精神背景音" },
-  { id: "friends", no: "002", title: "THE ONE WHERE...", label: "老友记 · 陪伴" },
-  { id: "bayern", no: "003", title: "MIA SAN MIA.", label: "拜仁 · 每个周末" },
-  { id: "fragments", no: "004", title: "FRAGMENTS", label: "碎片 · 待整理" },
-  { id: "you", no: "005", title: "YOU, ACCORDING TO ME", label: "关于你" },
-  { id: "ending", no: "006", title: "MADE FOR YOU, IN SHENZHEN.", label: "深圳特产" },
+  { id: "core", no: "001", title: "THE CORE", label: "核心 · 反复回来的东西" },
+  { id: "record", no: "002", title: "THE RECORD ROOM", label: "唱片房 · 音乐" },
+  { id: "living", no: "003", title: "THE LIVING ROOM", label: "客厅 · 老友记与剧集" },
+  { id: "matchday", no: "004", title: "MIA SAN MIA.", label: "比赛日 · 拜仁与德国" },
+  { id: "deepcuts", no: "005", title: "DEEP CUTS", label: "深藏曲目 · 冷门" },
+  { id: "dna", no: "006", title: "CULTURAL DNA", label: "文化基因" },
+  { id: "you", no: "007", title: "YOU, ACCORDING TO ME", label: "关于你" },
+  { id: "ending", no: "008", title: "MADE FOR YOU, IN SHENZHEN.", label: "深圳特产" },
 ];
 
 // ------------------------------------------------------------
@@ -47,126 +43,273 @@ export const chapters: Chapter[] = [
 export const opening = {
   volume: "ARCHIVE 000 — COMPILED IN SHENZHEN",
   kicker: "THE PRIVATE UNIVERSE",
-  name: meta.name,
-  sub: ["Music. Football. Stories.", "And all the things that stayed."],
+  name: "A FRIEND",
+  sub: ["A map of the things he kept coming back to.", "音乐 · 影视 · 足球 · 那些反复回去的东西。"],
   enter: "ENTER",
   foot: "深圳 — 2026 — FOR A FRIEND",
   scroll: "SCROLL",
 };
 
 // ------------------------------------------------------------
-//  CHAPTER 01 — SIDE A / SOUND
+//  THE CORE — 核心对象
 // ------------------------------------------------------------
-export type Artist = {
+export type CoreItem = {
   id: string;
-  tag: string;
   name: string;
-  sub: string;
-  meta: string;
-  zh: string;
+  en: string;
+  kind: string;
   note: string;
-  image: string;
-  imageAlt: string;
+  evidence: string;
+  image?: string;
 };
 
-export const sound = {
-  chapter: "CHAPTER 01 — ARCHIVE 001",
-  side: "SIDE A",
+export const core: CoreItem[] = [
+  {
+    id: "jay",
+    name: "周杰伦",
+    en: "JAY CHOU",
+    kind: "MEMORY / 青春",
+    note: "2000s 华语流行的黄金年代，一张 CD 就是一个夏天。",
+    evidence: "豆瓣 6 张五星 · QQ 收藏 4 张专辑",
+    image: jayArt,
+  },
+  {
+    id: "khalil",
+    name: "方大同",
+    en: "KHALIL FONG",
+    kind: "GROOVE / 灵魂",
+    note: "Soul 与 R&B 的锚点——旋律先到，身体跟上。",
+    evidence: "豆瓣 6 张五星 · QQ 收藏 5 张专辑",
+    image: khalilArt,
+  },
+  {
+    id: "cheer",
+    name: "陈绮贞",
+    en: "CHEER CHEN",
+    kind: "POETRY / 独处",
+    note: "数量与五星率都最高的音乐人。独处的时候，世界才安静下来。",
+    evidence: "豆瓣 8 张五星 · 收藏 10 张",
+    image: cheerArt,
+  },
+  {
+    id: "faye",
+    name: "王菲",
+    en: "FAYE WONG",
+    kind: "DIVA / 九十年代",
+    note: "华语女声的神坛。天空、唱游、只爱陌生人，全部五星。",
+    evidence: "豆瓣 4 张五星 · QQ 收藏 4 张专辑",
+  },
+  {
+    id: "friends",
+    name: "老友记",
+    en: "FRIENDS",
+    kind: "COMFORT / 陪伴",
+    note: "2023 年夏天，一个月把十季全部刷完，每一季都是五星。",
+    evidence: "十季全部五星 · “amazing！”",
+  },
+  {
+    id: "bayern",
+    name: "拜仁慕尼黑",
+    en: "FC BAYERN MÜNCHEN",
+    kind: "MATCHDAY / 忠诚",
+    note: "有些球队不是你「关注」的。是每个周末，你总会回来。",
+    evidence: "长期球迷 · 豆瓣小组佐证",
+  },
+  {
+    id: "germany",
+    name: "德国国家队",
+    en: "DIE MANNSCHAFT",
+    kind: "ROT-WEISS / 执念",
+    note: "另一种红白。另一种从很久以前留下来的执念。",
+    evidence: "与拜仁同源的忠诚",
+  },
+];
+
+// ------------------------------------------------------------
+//  THE RECORD ROOM — 音乐
+// ------------------------------------------------------------
+export const recordRoom = {
+  chapter: "CHAPTER 02 — ARCHIVE 002",
+  side: "THE RECORD ROOM",
   word: "SOUND",
   intro: [
-    "有些歌不是因为最好听才留下来。",
-    "是因为听得太久以后，它已经变成了生活的一部分。",
+    "111 张豆瓣收藏，55 张五星。",
+    "他给接近一半的音乐打了五星——不是随便听听，是反复听，然后决定留下。",
   ],
-  introNote: "MUSIC IS NOT A LABEL — IT IS THE BACKGROUND OF A PERSON.",
   ticker: [
-    "JAY CHOU",
-    "KHALIL FONG",
-    "CHEER CHEN",
-    "2000 — ∞",
-    "SIDE A",
-    "MORE VOICES TBA",
+    "JAY CHOU", "KHALIL FONG", "CHEER CHEN", "FAYE WONG", "FEMALE VOICES",
+    "1997 — 2009", "5-STAR ×55", "ON REPEAT",
   ],
-  artists: [
-    {
-      id: "jay",
-      tag: "ARCHIVE 001",
-      name: "JAY CHOU",
-      sub: "MEMORY / 青春",
-      meta: "2000s — CD — 夜晚",
-      zh: "青春的记忆里，大概都有一张 CD。",
-      note: "占位文案 —— 以后补上真正属于他的那几张专辑。",
-      image: jayArt,
-      imageAlt: "占位图 — 夜晚 / CD",
-    },
-    {
-      id: "khalil",
-      tag: "ARCHIVE 002",
-      name: "KHALIL FONG",
-      sub: "GROOVE / 灵魂",
-      meta: "SOUL — R&B — VINYL",
-      zh: "灵魂出窍的时刻，通常是旋律先到。",
-      note: "占位文案 —— 待替换。",
-      image: khalilArt,
-      imageAlt: "占位图 — 黑胶 / 温暖",
-    },
-    {
-      id: "cheer",
-      tag: "ARCHIVE 003",
-      name: "CHEER CHEN",
-      sub: "POETRY / 独处",
-      meta: "INDIE — ACOUSTIC — DIARY",
-      zh: "独处的时候，世界才安静下来。",
-      note: "占位文案 —— 待替换。",
-      image: cheerArt,
-      imageAlt: "占位图 — 纸张 / 安静",
-    },
-  ],
-  voices: {
-    title: "OTHER VOICES",
-    zh: "那些还没有被写进这里的女声、独立音乐、深夜歌单……",
-    rows: [
-      { no: "01", name: "UNNAMED VOICE #01", note: "深夜歌单 · TBA" },
-      { no: "02", name: "INDIE ARCHIVE", note: "待补充" },
-      { no: "03", name: "A QUIET VOICE", note: "待补充" },
-      { no: "04", name: "MORE TO COME", note: "TBA" },
+  fiveStarCount: 55,
+  totalCount: 111,
+
+  three: {
+    title: "THE THREE",
+    zh: "三位最核心的音乐人，构成这张专辑的骨架。",
+    items: [
+      { name: "JAY CHOU", zh: "周杰伦", stars: 6, tag: "MEMORY / 青春", line: "叶惠美 · 七里香 · 十一月的萧邦", image: jayArt },
+      { name: "KHALIL FONG", zh: "方大同", stars: 6, tag: "GROOVE / 灵魂", line: "Soulboy · 未来 · 橙月 · 15", image: khalilArt },
+      { name: "CHEER CHEN", zh: "陈绮贞", stars: 8, tag: "POETRY / 独处", line: "让我想一想 · 吉他手 · 华丽的冒险", image: cheerArt },
     ],
-    end: "THIS LIST IS NOT FINISHED. IT NEVER WILL BE.",
+  },
+
+  faye: {
+    name: "FAYE WONG",
+    zh: "王菲",
+    stars: 4,
+    tag: "THE FOURTH VOICE / 九十年代",
+    line: "天空 · 王菲 · 唱游 · 只爱陌生人 —— 全部五星",
+  },
+
+  voices: {
+    title: "FEMALE VOICES",
+    zh: "他的音乐宇宙里，女声是绝对主角。超过一半的收藏来自她们。",
+    groups: [
+      {
+        name: "INDIE / 创作系",
+        en: "THE QUIET ONES",
+        members: ["陈绮贞", "陈珊妮", "何欣穗", "魏如萱", "万玲琳", "张玉华", "轻日记"],
+      },
+      {
+        name: "华语 Diva",
+        en: "THE VOICES",
+        members: ["王菲", "张惠妹", "蔡依林", "田馥甄", "萧亚轩", "戴佩妮", "徐佳莹", "林忆莲", "顺子", "蔡琴", "江美琪", "卫兰"],
+      },
+      {
+        name: "Soul / R&B / Jazz",
+        en: "THE GROOVE",
+        members: ["Alicia Keys", "Adele", "Norah Jones", "Corinne Bailey Rae", "Aretha Franklin", "小野丽莎", "Laufey", "宇多田光", "蔡健雅"],
+      },
+    ],
+  },
+
+  onRepeat: {
+    title: "ON REPEAT",
+    zh: "QQ 音乐「我喜欢」里，高频出现的片段。",
+    items: [
+      { song: "关于小熊", artist: "蛋堡", note: "收敛水" },
+      { song: "爱爱爱", artist: "方大同", note: "爱爱爱" },
+      { song: "矜持", artist: "王菲", note: "天空" },
+      { song: "会不会", artist: "陈绮贞", note: "让我想一想" },
+      { song: "无人知晓", artist: "田馥甄", note: "无人知晓" },
+      { song: "After 17", artist: "陈绮贞", note: "After 17" },
+      { song: "真夏の果実", artist: "南方之星", note: "真夏的果实" },
+      { song: "If I Ain't Got You", artist: "Alicia Keys", note: "The Diary of Alicia Keys" },
+      { song: "BIRDS OF A FEATHER", artist: "Billie Eilish", note: "HIT ME HARD AND SOFT" },
+      { song: "至少还有你", artist: "林忆莲", note: "林忆莲's" },
+      { song: "怀念", artist: "王菲", note: "王菲" },
+      { song: "最熟悉的陌生人", artist: "萧亚轩", note: "Elva 同名专辑" },
+    ],
+  },
+
+  fiveStar: {
+    title: "5-STAR RECORDS",
+    zh: "豆瓣上主动给出五星的唱片。比“听过”更接近喜欢。",
+    items: [
+      { name: "Groupies 吉他手", artist: "陈绮贞", year: "2002" },
+      { name: "叶惠美", artist: "周杰伦", year: "2003" },
+      { name: "Soulboy", artist: "方大同", year: "2005" },
+      { name: "天空", artist: "王菲", year: "1994" },
+      { name: "收敛水", artist: "蛋堡", year: "2009" },
+      { name: "The Dark Side of the Moon", artist: "Pink Floyd", year: "1973" },
+      { name: "Undercurrent", artist: "Bill Evans & Jim Hall", year: "1962" },
+      { name: "爱情的尽头", artist: "伍佰 & China Blue", year: "1996" },
+      { name: "David Tao 同名专辑", artist: "陶喆", year: "1997" },
+      { name: "华丽的冒险", artist: "陈绮贞", year: "2005" },
+      { name: "未来", artist: "方大同", year: "2007" },
+      { name: "HIT ME HARD AND SOFT", artist: "Billie Eilish", year: "2024" },
+      { name: "Typical of Me", artist: "Laufey", year: "2021" },
+      { name: "完美的呻吟", artist: "陈珊妮", year: "2000" },
+      { name: "橙月", artist: "方大同", year: "2008" },
+      { name: "无人知晓", artist: "田馥甄", year: "2020" },
+    ],
+  },
+
+  era: {
+    title: "ERA MAP",
+    zh: "音乐收藏的年代分布——峰值在 1997–2009，华语流行的黄金期。",
+    // 年份: 收藏数（豆瓣，抽样年份）
+    years: [
+      { y: "1994", n: 1 }, { y: "1997", n: 5 }, { y: "1998", n: 4 }, { y: "1999", n: 3 },
+      { y: "2000", n: 4 }, { y: "2002", n: 4 }, { y: "2003", n: 7 }, { y: "2004", n: 8 },
+      { y: "2005", n: 6 }, { y: "2007", n: 8 }, { y: "2008", n: 4 }, { y: "2009", n: 5 },
+      { y: "2011", n: 5 }, { y: "2018", n: 7 }, { y: "2020", n: 2 }, { y: "2021", n: 2 },
+      { y: "2024", n: 2 }, { y: "2025", n: 1 },
+    ],
+    note: "老歌反复听，新声也在听。",
   },
 };
 
 // ------------------------------------------------------------
-//  CHAPTER 02 — THE ONE WHERE...
+//  THE LIVING ROOM — 影视
 // ------------------------------------------------------------
-export const friends = {
-  chapter: "CHAPTER 02 — ARCHIVE 002",
+export const livingRoom = {
+  chapter: "CHAPTER 03 — ARCHIVE 003",
   kicker: "THE ONE WHERE",
   title: "HE WATCHED IT AGAIN.",
-  zh: ["又看了一遍。", "当然，大概还会再看。"],
-  meta: "RECORDED ON VHS — 1994 — CENTRAL PERK",
-  note: "It's the one where the sofa never moves, the coffee is always warm, and nobody ever really leaves.",
-  episodes: "SEASON 1 — EPISODE ∞ · REWATCH #12",
+  zh: ["2023 年 7 月 19 日到 8 月 16 日，", "他把《老友记》十季全部看完，每一季都打了五星。"],
+  meta: "FRIENDS — 1994 — CENTRAL PERK — REWATCH ∞",
+  quote: "amazing！🥳",
+  quoteNote: "第九季短评，2023-08-16",
+  episodes: "10 SEASONS · ALL 5-STAR · ONE MONTH",
   button: "HOW YOU DOIN'?",
   quotes: [
-    "Could I BE any more of a placeholder?",
-    "The one where the coffee was always warm.",
-    "It's not a show. It's a rewatch loop.",
+    "Could I BE any more of a rewatch?",
+    "The one where he watched it again. And again.",
+    "It's not a show. It's a place he goes back to.",
     "Pivot. Pivot. Pivot. —— 大概是在说人生吧。",
     "No one told you life was gonna be this way. So watch it again.",
   ],
-  tvAlt: "占位图 — CRT / VHS",
   tv: friendsTv,
+  tvAlt: "CRT / VHS 占位图",
+
+  after: {
+    title: "AFTER FRIENDS",
+    zh: "情景喜剧是起点，但他一路看下去了。",
+    shows: [
+      { name: "生活大爆炸", en: "THE BIG BANG THEORY", seasons: "S1–5", stars: "★★★★★", note: "2025 年补完" },
+      { name: "怪奇物语", en: "STRANGER THINGS", seasons: "S1–5", stars: "★★★★★", note: "2024 → 2026" },
+      { name: "IT 狂人", en: "THE IT CROWD", seasons: "S1–3", stars: "★★★★☆", note: "2026 年，从 3 星看到 5 星" },
+      { name: "老爸老妈的浪漫史", en: "HIMYM", seasons: "S1", stars: "★★★★★", note: "2025" },
+      { name: "极限挑战", en: "GO! GO!", seasons: "S1–2", stars: "★★★★★", note: "2026，综艺也是反复看的" },
+      { name: "漫长的季节", en: "THE LONG SEASON", seasons: "1", stars: "★★★★★", note: "2024，华语剧" },
+    ],
+  },
+
+  films: {
+    title: "THE SCREEN",
+    zh: "118 部看过，65 部五星。挑几部代表：",
+    items: [
+      { name: "让子弹飞", year: "2010", tag: "华语 · 喜剧" },
+      { name: "功夫", year: "2004", tag: "周星驰 · 喜剧" },
+      { name: "花样年华", year: "2000", tag: "王家卫" },
+      { name: "重庆森林", year: "1994", tag: "王家卫" },
+      { name: "低俗小说", year: "1994", tag: "塔伦蒂诺" },
+      { name: "这个杀手不太冷", year: "1994", tag: "吕克·贝松" },
+      { name: "情书", year: "1995", tag: "岩井俊二" },
+      { name: "爱在黎明破晓前", year: "1995", tag: "Before Sunrise" },
+      { name: "机器人总动员", year: "2008", tag: "皮克斯" },
+      { name: "疯狂动物城", year: "2016", tag: "迪士尼" },
+      { name: "触不可及", year: "2011", tag: "法国" },
+      { name: "狩猎", year: "2012", tag: "麦斯·米科尔森" },
+      { name: "被解救的姜戈", year: "2012", tag: "昆汀" },
+      { name: "复仇者联盟 4", year: "2019", tag: "漫威" },
+      { name: "漫长的季节", year: "2023", tag: "华语剧" },
+    ],
+  },
 };
 
 // ------------------------------------------------------------
-//  CHAPTER 03 — MIA SAN MIA.
+//  MATCHDAY — 足球
 // ------------------------------------------------------------
-export const bayern = {
-  chapter: "CHAPTER 03 — ARCHIVE 003",
+export const matchday = {
+  chapter: "CHAPTER 04 — ARCHIVE 004",
   club: "FC BAYERN MÜNCHEN",
   clubSub: "FUSSBALL-CLUB BAYERN E.V. — MÜNCHEN",
   motto: "MIA SAN MIA.",
   zh: ["有些球队不是你「关注」的。", "是每个周末，你总会回来。"],
-  matchday: {
+  stadium: stadiumArt,
+  match: {
     label: "MATCHDAY — ALLIANZ ARENA",
     home: "FCB",
     score: "4 — 0",
@@ -177,36 +320,79 @@ export const bayern = {
     title: "DIE MANNSCHAFT",
     sub: "GERMANY NATIONAL TEAM — DFB",
     zh: ["另一种红白。", "另一种从很久以前留下来的执念。"],
-    meta: ["EST. 1908", "4 × WORLD CHAMPION", "ROT — WEISS"],
+    meta: ["EST. 1900 · FCB", "4 × WORLD CHAMPION · GER", "ROT — WEISS"],
   },
-  stadiumAlt: "占位图 — 安联球场 / 泛光灯",
-  stadium: stadiumArt,
+  note: "最喜欢的球员、入坑年份、经典比赛——这些等你来补。",
 };
 
 // ------------------------------------------------------------
-//  CHAPTER 04 — FRAGMENTS
+//  DEEP CUTS — 冷门但完整画像
 // ------------------------------------------------------------
-export const fragments = {
-  chapter: "CHAPTER 04 — ARCHIVE 004",
-  title: "FRAGMENTS",
-  zh: ["碎片。还没有被整理好的东西。", "合照、聊天截图、私人梗、一次旅行、傻逼瞬间。"],
-  // 以后这里会换成真正的照片与共同记忆。
-  polaroids: [
-    { img: fragmentA, caption: "00 — 待扫描 · 2000s", rotate: -3 },
-    { img: fragmentB, caption: "某次旅行 — 待补充", rotate: 2 },
-    { img: fragmentC, caption: "未命名 — 待定", rotate: -2 },
+export const deepCuts = {
+  chapter: "CHAPTER 05 — ARCHIVE 005",
+  title: "DEEP CUTS",
+  zh: "那些第一眼不会定义他的东西，却让画像完整。",
+  items: [
+    { name: "陈珊妮", work: "完美的呻吟 / 趁记忆消失之前", tag: "另类女声 · 2000 / 2024", note: "从《完美的呻吟》到 2024 新作，冷门但一直没走。" },
+    { name: "蛋堡", work: "收敛水 / Winter Sweet / 关于小熊", tag: "中文说唱 · 2009", note: "诗意的嘻哈。QQ 音乐「我喜欢」里的第一首是《关于小熊》。" },
+    { name: "Tizzy Bac", work: "什么事都叫我分心", tag: "钢琴摇滚 · 2003", note: "用钢琴弹摇滚的台湾乐队。" },
+    { name: "向日葵乐队", work: "生活在别处", tag: "独立 · 现场感", note: "「活人感重，颓废又美好」——这句是他说张震岳的，但气质很像。" },
+    { name: "张玉华", work: "同名专辑", tag: "千禧年女声 · 2002", note: "一首《原谅》就够了。他收藏了整张。" },
+    { name: "超兽武装", work: "仁者无敌 / 勇者无惧", tag: "冷门国漫 · 2011", note: "两部都给了五星。童年的执念。" },
+    { name: "南京照相馆", work: "2025", tag: "纪录片", note: "2025 年新片，五星。" },
+    { name: "Keb' Mo'", work: "Suitcase", tag: "蓝调 · 2006", note: "美式蓝调，藏在他的华语宇宙角落。" },
   ],
-  note: "这里会放：聊天截图 / 一句话 / 很普通但重要的照片。",
-  ticket: { from: "SHENZHEN", to: "某处", note: "单程 · 日期未定 · 不打算退" },
-  filmstrip: ["00A", "01A", "02A", "03A", "04A"],
-  stamp: "TO BE\nDEVELOPED",
 };
 
 // ------------------------------------------------------------
-//  CHAPTER 05 — YOU, ACCORDING TO ME
+//  CULTURAL DNA
+// ------------------------------------------------------------
+export type DnaItem = { key: string; word: string; zh: string; evidence: string[] };
+
+export const dna: DnaItem[] = [
+  {
+    key: "NOSTALGIA",
+    word: "怀旧",
+    zh: "他不是被困在过去，而是清楚地知道自己从哪里来。",
+    evidence: ["1997–2009 华语黄金期是收藏主峰", "周杰伦《叶惠美》《七里香》《十一月的萧邦》反复五星", "1994–95 电影经典：低俗小说 / 情书 / 这个杀手不太冷"],
+  },
+  {
+    key: "FEMALE VOICE",
+    word: "女声",
+    zh: "超过一半的收藏来自女声。他的宇宙里，她们是主角。",
+    evidence: ["陈绮贞 8 张五星 · 王菲 4 张五星", "从华语 Diva 到 Indie 创作系到 R&B/Soul", "Adele · Norah Jones · Laufey · 小野丽莎"],
+  },
+  {
+    key: "GROOVE",
+    word: "律动",
+    zh: "灵魂出窍的时刻，通常是旋律先到。",
+    evidence: ["方大同 6 张五星：Soulboy / 未来 / 橙月 / 15", "蛋堡《收敛水》《Winter Sweet》", "Bill Evans《Undercurrent》· Adele《21》"],
+  },
+  {
+    key: "INTIMACY",
+    word: "私密",
+    zh: "独处的时候，世界才安静下来。",
+    evidence: ["陈绮贞、陈珊妮、何欣穗、魏如萱……独立创作系女声", "深夜歌单式的收藏习惯", "田馥甄《无人知晓》五星"],
+  },
+  {
+    key: "REPETITION",
+    word: "重看",
+    zh: "有些东西，值得一遍又一遍地回去。",
+    evidence: ["2023 年一个月刷完《老友记》十季，全部五星", "多季剧集全部补完：生活大爆炸 S1-5 / 怪奇物语 S1-5", "老专辑反复听、反复五星"],
+  },
+  {
+    key: "LOYALTY",
+    word: "忠诚",
+    zh: "喜欢的球队、喜欢的音乐人，都是很多年的事。",
+    evidence: ["拜仁慕尼黑 + 德国国家队 · 长期球迷", "周杰伦 / 陈绮贞 / 方大同 / 王菲 十年如一", "剧集从第一季追到最新一季"],
+  },
+];
+
+// ------------------------------------------------------------
+//  YOU, ACCORDING TO ME
 // ------------------------------------------------------------
 export const you = {
-  chapter: "CHAPTER 05 — ARCHIVE 005",
+  chapter: "CHAPTER 07 — ARCHIVE 007",
   kicker: "YOU, ACCORDING TO ME",
   lines: [
     "You like old songs,",
@@ -215,7 +401,7 @@ export const you = {
   ],
   zh: ["好像总有一些东西，", "值得一遍又一遍地回去。"],
   end: "Maybe that's the point.",
-  vertical: "FOR [NAME] — 深圳 → MÜNCHEN",
+  vertical: "FOR P., 深圳 → MÜNCHEN",
 };
 
 // ------------------------------------------------------------
@@ -229,5 +415,5 @@ export const ending = {
     { text: "Compiled with friendship.", kind: "meta" },
   ],
   seal: "深圳",
-  foot: "A GIFT — COMPILED IN SHENZHEN — VOL. 001 — FOR [NAME]",
+  foot: "A GIFT — COMPILED IN SHENZHEN — VOL. 001",
 };

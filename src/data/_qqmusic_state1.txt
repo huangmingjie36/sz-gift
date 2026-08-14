@@ -1,0 +1,297 @@
+Window: "", App: QQ音乐.
+0 标准窗口 ID: QQMianWindow, Secondary Actions: Raise
+	1 面板 标题栏
+		2 按钮 关闭
+		3 按钮 最小化
+	4 滚动区
+		5 外框
+			6 row (selectable, expanded) Secondary Actions: Collapse, Description: 推荐
+乐馆
+刷歌
+AI伴听
+areaAddDarkThin
+			7 row (selectable, expanded) Description: 我的音乐, Secondary Actions: Collapse
+			8 row (selectable) 喜欢
+			9 row (selectable) 最近
+			10 row (selectable) 本地
+			11 row (selectable, expanded) Value: |, Secondary Actions: Collapse, 自建歌单
+收藏歌单, Description: 自建歌单
+收藏歌单
+添加新歌单
+	12 面板 个人中心
+		13 文本 Description: 用户名:点击登录, Value: Adores
+	14 面板 标题栏
+		15 按钮 Description: 上一步, Help: 后退
+		16 按钮 Description: 下一步, Help: 前进
+		17 按钮 刷新
+		18 文本框 搜索
+	19 面板 播放控制栏
+		20 按钮 上一首
+		21 按钮 播放
+		22 按钮 下一首
+		23 按钮 Description: 播放模式（顺序播放）, Help: 顺序播放
+		24 文本 QQ音乐 - 听我想听
+		25 按钮 Description: 添加到我喜欢, Help: 喜欢
+		26 按钮 更多操作
+		27 按钮 评论
+		28 按钮 音效选择（音效未打开）
+		29 按钮 播放列表
+	30 按钮 更多
+	31 按钮 Description: 皮肤, Help: 换肤
+	32 滚动区
+		33 HTML内容 Description: QQ音乐, URL: y.qq.com/wk_v17/#/profile?uin=ownkow-loe4qNv**
+			34 标题 ppppettis_ 83 勋章, Value: 1
+				35 文本 ppppettis_
+				36 图像
+				37 图像
+				38 text 83 勋章
+			39 文本 暂无
+			40 container
+				41 文本 粉丝：
+				42 link 3, Value: javascript:;
+				43 文本 关注：
+				44 link 32, Value: javascript:;
+			45 文本 关注
+			46 container
+				47 text 我喜欢 创建的歌单 32
+			48 container
+				49 link 歌曲, Value: javascript:;
+				50 link 歌单, Value: javascript:;
+				51 link 专辑, Value: javascript:;
+				52 link 视频, Value: javascript:;
+			53 container
+				54 link The Diary Of Alicia Keys (Expanded Edition) 播放, Value: javascript:;
+				55 标题 The Diary Of Alicia Keys (Expanded Edition), Value: 3
+					56 link The Diary Of Alicia Keys (Expanded Edition), Value: javascript:;
+				57 link Alicia Keys, Value: javascript:;
+				58 link 阿岳正传 播放, Value: javascript:;
+				59 标题 阿岳正传, Value: 3
+					60 link 阿岳正传, Value: javascript:;
+				61 link 张震岳, Value: javascript:;
+				62 link 21 (Explicit) 播放, Value: javascript:;
+				63 标题 21 (Explicit), Value: 3
+					64 link 21 (Explicit), Value: javascript:;
+				65 link Adele, Value: javascript:;
+				66 link First Love 播放, Value: javascript:;
+				67 标题 First Love, Value: 3
+					68 link First Love, Value: javascript:;
+				69 link 宇多田光, Value: javascript:;
+				70 link My Space 播放, Value: javascript:;
+				71 标题 My Space, Value: 3
+					72 link My Space, Value: javascript:;
+				73 link 蔡健雅, Value: javascript:;
+				74 link 张玉华同名专辑 播放, Value: javascript:;
+				75 标题 张玉华同名专辑, Value: 3
+					76 link 张玉华同名专辑, Value: javascript:;
+				77 link 张玉华, Value: javascript:;
+				78 link UGLY BEAUTY 播放, Value: javascript:;
+				79 标题 UGLY BEAUTY, Value: 3
+					80 link UGLY BEAUTY, Value: javascript:;
+				81 link 蔡依林, Value: javascript:;
+				82 link Winter Sweet 播放, Value: javascript:;
+				83 标题 Winter Sweet, Value: 3
+					84 link Winter Sweet, Value: javascript:;
+				85 link 蛋堡, Value: javascript:;
+				86 link 一场小聪明 播放, Value: javascript:;
+				87 标题 一场小聪明, Value: 3
+					88 link 一场小聪明, Value: javascript:;
+				89 link 轻日记, Value: javascript:;
+				90 link 你不要那样看着我的眼睛 播放, Value: javascript:;
+				91 标题 你不要那样看着我的眼睛, Value: 3
+					92 link 你不要那样看着我的眼睛, Value: javascript:;
+				93 link 蔡琴, Value: javascript:;
+				94 link 爱情的尽头 播放, Value: javascript:;
+				95 标题 爱情的尽头, Value: 3
+					96 link 爱情的尽头, Value: javascript:;
+				97 link 伍佰 & China Blue, Value: javascript:;
+				98 link Suitcase 播放, Value: javascript:;
+				99 标题 Suitcase, Value: 3
+					100 link Suitcase, Value: javascript:;
+				101 link Keb' Mo', Value: javascript:;
+				102 link x (Deluxe Edition) 播放, Value: javascript:;
+				103 标题 x (Deluxe Edition), Value: 3
+					104 link x (Deluxe Edition), Value: javascript:;
+				105 link Ed Sheeran, Value: javascript:;
+				106 link 周杰伦的床边故事 播放, Value: javascript:;
+				107 标题 周杰伦的床边故事, Value: 3
+					108 link 周杰伦的床边故事, Value: javascript:;
+				109 link 周杰伦, Value: javascript:;
+				110 link 王菲 播放, Value: javascript:;
+				111 标题 王菲, Value: 3
+					112 link 王菲, Value: javascript:;
+				113 link 王菲, Value: javascript:;
+				114 link 第五大道 播放, Value: javascript:;
+				115 标题 第五大道, Value: 3
+					116 link 第五大道, Value: javascript:;
+				117 link 萧亚轩, Value: javascript:;
+				118 link 天空 播放, Value: javascript:;
+				119 标题 天空, Value: 3
+					120 link 天空, Value: javascript:;
+				121 link 王菲, Value: javascript:;
+				122 link The Dark Side of the Moon (Explicit) 播放, Value: javascript:;
+				123 标题 The Dark Side of the Moon (Explicit), Value: 3
+					124 link The Dark Side of the Moon (Explicit), Value: javascript:;
+				125 link Pink Floyd, Value: javascript:;
+				126 link So Damn Happy 播放, Value: javascript:;
+				127 标题 So Damn Happy, Value: 3
+					128 link So Damn Happy, Value: javascript:;
+				129 link Aretha Franklin, Value: javascript:;
+				130 link LOVE, LOVE, LOVE 播放, Value: javascript:;
+				131 标题 LOVE, LOVE, LOVE, Value: 3
+					132 link LOVE, LOVE, LOVE, Value: javascript:;
+				133 link Stephen Sanchez, Value: javascript:;
+				134 link 藏着并不等于遗忘 播放, Value: javascript:;
+				135 标题 藏着并不等于遗忘, Value: 3
+					136 link 藏着并不等于遗忘, Value: javascript:;
+				137 link 魏如萱, Value: javascript:;
+				138 link Atruprncss – EP 播放, Value: javascript:;
+				139 标题 Atruprncss – EP, Value: 3
+					140 link Atruprncss – EP, Value: javascript:;
+				141 link Akia, Value: javascript:;
+				142 link Songs In The Key Of Life 播放, Value: javascript:;
+				143 标题 Songs In The Key Of Life, Value: 3
+					144 link Songs In The Key Of Life, Value: javascript:;
+				145 link Stevie Wonder, Value: javascript:;
+				146 link 生活在别处 播放, Value: javascript:;
+				147 标题 生活在别处, Value: 3
+					148 link 生活在别处, Value: javascript:;
+				149 link 向日葵乐队, Value: javascript:;
+				150 link Corinne Bailey Rae 播放, Value: javascript:;
+				151 标题 Corinne Bailey Rae, Value: 3
+					152 link Corinne Bailey Rae, Value: javascript:;
+				153 link Corinne Bailey Rae, Value: javascript:;
+				154 link 她的。发光摇摆 播放, Value: javascript:;
+				155 标题 她的。发光摇摆, Value: 3
+					156 link 她的。发光摇摆, Value: javascript:;
+				157 link 何欣穗, Value: javascript:;
+				158 link 无人知晓 播放, Value: javascript:;
+				159 标题 无人知晓, Value: 3
+					160 link 无人知晓, Value: javascript:;
+				161 link 田馥甄, Value: javascript:;
+				162 link 温式效应 播放, Value: javascript:;
+				163 标题 温式效应, Value: 3
+					164 link 温式效应, Value: javascript:;
+				165 link 温岚, Value: javascript:;
+				166 link My Love 播放, Value: javascript:;
+				167 标题 My Love, Value: 3
+					168 link My Love, Value: javascript:;
+				169 link 田馥甄, Value: javascript:;
+				170 link 趁记忆消失之前 Before the memories Fade [Acoustic Live Session] 播放, Value: javascript:;
+				171 标题 趁记忆消失之前 Before the memories Fade [Acoustic Live Session], Value: 3
+					172 link 趁记忆消失之前 Before the memories Fade [Acoustic Live Session], Value: javascript:;
+				173 link 陈珊妮, Value: javascript:;
+				174 link HIT ME HARD AND SOFT 播放, Value: javascript:;
+				175 标题 HIT ME HARD AND SOFT, Value: 3
+					176 link HIT ME HARD AND SOFT, Value: javascript:;
+				177 link Billie Eilish, Value: javascript:;
+				178 link Robynn & Kendy 播放, Value: javascript:;
+				179 标题 Robynn & Kendy, Value: 3
+					180 link Robynn & Kendy, Value: javascript:;
+				181 link Robynn & Kendy, Value: javascript:;
+				182 link My Love 播放, Value: javascript:;
+				183 标题 My Love, Value: 3
+					184 link My Love, Value: javascript:;
+				185 link 卫兰, Value: javascript:;
+				186 link 完美的呻吟 播放, Value: javascript:;
+				187 标题 完美的呻吟, Value: 3
+					188 link 完美的呻吟, Value: javascript:;
+				189 link 陈珊妮, Value: javascript:;
+				190 link Undercurrent 播放, Value: javascript:;
+				191 标题 Undercurrent, Value: 3
+					192 link Undercurrent, Value: javascript:;
+				193 link Bill Evans, Value: javascript:;
+				194 link HITNRUN Phase Two 播放, Value: javascript:;
+				195 标题 HITNRUN Phase Two, Value: 3
+					196 link HITNRUN Phase Two, Value: javascript:;
+				197 link Prince, Value: javascript:;
+				198 link 15 播放, Value: javascript:;
+				199 标题 15, Value: 3
+					200 link 15, Value: javascript:;
+				201 link 方大同, Value: javascript:;
+				202 link Jambalaya -Bossa Americana- 播放, Value: javascript:;
+				203 标题 Jambalaya -Bossa Americana-, Value: 3
+					204 link Jambalaya -Bossa Americana-, Value: javascript:;
+				205 link 小野丽莎, Value: javascript:;
+				206 link 活出生命Live演唱会 (Live) 播放, Value: javascript:;
+				207 标题 活出生命Live演唱会 (Live), Value: 3
+					208 link 活出生命Live演唱会 (Live), Value: javascript:;
+				209 link 张学友, Value: javascript:;
+				210 link In Rainbows 播放, Value: javascript:;
+				211 标题 In Rainbows, Value: 3
+					212 link In Rainbows, Value: javascript:;
+				213 link Radiohead, Value: javascript:;
+				214 link 只爱陌生人 播放, Value: javascript:;
+				215 标题 只爱陌生人, Value: 3
+					216 link 只爱陌生人, Value: javascript:;
+				217 link 王菲, Value: javascript:;
+				218 link Typical of Me EP 播放, Value: javascript:;
+				219 标题 Typical of Me EP, Value: 3
+					220 link Typical of Me EP, Value: javascript:;
+				221 link Laufey, Value: javascript:;
+				222 link Abbey Road (Remastered) 播放, Value: javascript:;
+				223 标题 Abbey Road (Remastered), Value: 3
+					224 link Abbey Road (Remastered), Value: javascript:;
+				225 link The Beatles, Value: javascript:;
+				226 link 摩天动物园 播放, Value: javascript:;
+				227 标题 摩天动物园, Value: 3
+					228 link 摩天动物园, Value: javascript:;
+				229 link G.E.M. 邓紫棋, Value: javascript:;
+				230 link 爱爱爱 播放, Value: javascript:;
+				231 标题 爱爱爱, Value: 3
+					232 link 爱爱爱, Value: javascript:;
+				233 link 方大同, Value: javascript:;
+				234 link 未来 播放, Value: javascript:;
+				235 标题 未来, Value: 3
+					236 link 未来, Value: javascript:;
+				237 link 方大同, Value: javascript:;
+				238 link Groupies 吉他手 播放, Value: javascript:;
+				239 标题 Groupies 吉他手, Value: 3
+					240 link Groupies 吉他手, Value: javascript:;
+				241 link 陈绮贞, Value: javascript:;
+				242 link Come Away With Me 播放, Value: javascript:;
+				243 标题 Come Away With Me, Value: 3
+					244 link Come Away With Me, Value: javascript:;
+				245 link Norah Jones, Value: javascript:;
+				246 link 橙月 播放, Value: javascript:;
+				247 标题 橙月, Value: 3
+					248 link 橙月, Value: javascript:;
+				249 link 方大同, Value: javascript:;
+				250 link Eason Chan Duo Concert 2010 播放, Value: javascript:;
+				251 标题 Eason Chan Duo Concert 2010, Value: 3
+					252 link Eason Chan Duo Concert 2010, Value: javascript:;
+				253 link 陈奕迅, Value: javascript:;
+				254 link 15 Khalil Fong Live in Hong Kong 2011 播放, Value: javascript:;
+				255 标题 15 Khalil Fong Live in Hong Kong 2011, Value: 3
+					256 link 15 Khalil Fong Live in Hong Kong 2011, Value: javascript:;
+				257 link 方大同, Value: javascript:;
+				258 link 唱游 播放, Value: javascript:;
+				259 标题 唱游, Value: 3
+					260 link 唱游, Value: javascript:;
+				261 link 王菲, Value: javascript:;
+				262 link 叶惠美 播放, Value: javascript:;
+				263 标题 叶惠美, Value: 3
+					264 link 叶惠美, Value: javascript:;
+				265 link 周杰伦, Value: javascript:;
+				266 link 七里香 播放, Value: javascript:;
+				267 标题 七里香, Value: 3
+					268 link 七里香, Value: javascript:;
+				269 link 周杰伦, Value: javascript:;
+				270 link 十一月的萧邦 播放, Value: javascript:;
+				271 标题 十一月的萧邦, Value: 3
+					272 link 十一月的萧邦, Value: javascript:;
+				273 link 周杰伦, Value: javascript:;
+				274 link Nine Track Mind 播放, Value: javascript:;
+				275 标题 Nine Track Mind, Value: 3
+					276 link Nine Track Mind, Value: javascript:;
+				277 link Charlie Puth, Value: javascript:;
+				278 link Voicenotes 播放, Value: javascript:;
+				279 标题 Voicenotes, Value: 3
+					280 link Voicenotes, Value: javascript:;
+				281 link Charlie Puth, Value: javascript:;
+	282 全屏幕按钮 Help: 此按钮也可以执行缩放窗口的操作, Secondary Actions: 缩放窗口
+283 menu bar
+	284 QQ音乐
+	285 编辑
+	286 播放控制
+	287 窗口
+	288 帮助

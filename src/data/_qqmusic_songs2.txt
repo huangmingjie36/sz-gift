@@ -1,0 +1,555 @@
+Window: "", App: QQ音乐.
+0 标准窗口 ID: QQMianWindow, Secondary Actions: Raise
+	1 面板 标题栏
+		2 按钮 关闭
+		3 按钮 最小化
+	4 滚动区
+		5 外框
+			6 row (selectable, expanded) Secondary Actions: Collapse, Description: 推荐
+乐馆
+刷歌
+AI伴听
+areaAddDarkThin
+			7 row (selectable, expanded) Description: 我的音乐, Secondary Actions: Collapse
+			8 row (selectable) 喜欢
+			9 row (selectable) 最近
+			10 row (selectable) 本地
+			11 row (selectable, expanded) Value: |, Secondary Actions: Collapse, 自建歌单
+收藏歌单, Description: 自建歌单
+收藏歌单
+添加新歌单
+	12 面板 个人中心
+		13 文本 Description: 用户名:点击登录, Value: Adores
+	14 面板 标题栏
+		15 按钮 Description: 上一步, Help: 后退
+		16 按钮 Description: 下一步, Help: 前进
+		17 按钮 刷新
+		18 文本框 搜索
+	19 面板 播放控制栏
+		20 按钮 上一首
+		21 按钮 播放
+		22 按钮 下一首
+		23 按钮 Description: 播放模式（顺序播放）, Help: 顺序播放
+		24 文本 QQ音乐 - 听我想听
+		25 按钮 Description: 添加到我喜欢, Help: 喜欢
+		26 按钮 更多操作
+		27 按钮 评论
+		28 按钮 音效选择（音效未打开）
+		29 按钮 播放列表
+	30 按钮 更多
+	31 按钮 Description: 皮肤, Help: 换肤
+	32 滚动区
+		33 HTML内容 Description: QQ音乐, URL: …
+			34 标题 ppppettis_ 83 勋章, Value: 1
+				35 文本 ppppettis_
+				36 图像
+				37 图像
+				38 text 83 勋章
+			39 文本 暂无
+			40 container
+				41 文本 粉丝：
+				42 link 3, Value: javascript:;
+				43 文本 关注：
+				44 link 32, Value: javascript:;
+			45 文本 关注
+			46 container
+				47 text 我喜欢 创建的歌单 32
+			48 container
+				49 link 歌曲, Value: javascript:;
+				50 link 歌单, Value: javascript:;
+				51 link 专辑, Value: javascript:;
+				52 link 视频, Value: javascript:;
+			53 container
+				54 container 歌曲
+				55 text 歌手 专辑
+			56 container
+				57 container 关于小熊
+
+其他版本可播
+					58 link 收藏, Value: javascript:;
+					59 文本 关于小熊
+					60 文本 其他版本可播
+					61 link 播放, Value: javascript:;
+					62 link 添加到, Value: javascript:;
+					63 link 下载, Value: javascript:;
+					64 link 更多操作, Value: javascript:;
+					65 link 蛋堡, Value: javascript:;
+					66 link 收敛水, Value: javascript:;
+				67 container 我得走了
+
+其他版本可播
+					68 link 收藏, Value: javascript:;
+					69 文本 我得走了
+					70 文本 其他版本可播
+					71 link 播放, Value: javascript:;
+					72 link 添加到, Value: javascript:;
+					73 link 下载, Value: javascript:;
+					74 link 更多操作, Value: javascript:;
+					75 link 顺子, Value: javascript:;
+					76 link I'M NOT A STAR, Value: javascript:;
+				77 container 会不会
+
+其他版本可播
+					78 link 收藏, Value: javascript:;
+					79 文本 会不会
+					80 文本 其他版本可播
+					81 link 播放, Value: javascript:;
+					82 link 添加到, Value: javascript:;
+					83 link 下载, Value: javascript:;
+					84 link 更多操作, Value: javascript:;
+					85 link 陈绮贞, Value: javascript:;
+					86 link 让我想一想, Value: javascript:;
+				87 container 一场小聪明
+					88 link 收藏, Value: javascript:;
+					89 文本 一场小聪明
+					90 link 播放, Value: javascript:;
+					91 link 添加到, Value: javascript:;
+					92 link 下载, Value: javascript:;
+					93 link 更多操作, Value: javascript:;
+					94 link 轻日记, Value: javascript:;
+					95 link 一场小聪明, Value: javascript:;
+				96 container 例外
+					97 link 收藏, Value: javascript:;
+					98 文本 例外
+					99 link 播放, Value: javascript:;
+					100 link 添加到, Value: javascript:;
+					101 link 下载, Value: javascript:;
+					102 link 更多操作, Value: javascript:;
+					103 link 陈依依, Value: javascript:;
+					104 link 回音谷, Value: javascript:;
+				105 container 十九八七…
+					106 link 收藏, Value: javascript:;
+					107 文本 十九八七…
+					108 link 播放, Value: javascript:;
+					109 link 添加到, Value: javascript:;
+					110 link 下载, Value: javascript:;
+					111 link 更多操作, Value: javascript:;
+					112 link 方大同, Value: javascript:;
+					113 link 未来, Value: javascript:;
+				114 container 矜持
+					115 link 收藏, Value: javascript:;
+					116 文本 矜持
+					117 link 播放, Value: javascript:;
+					118 link 添加到, Value: javascript:;
+					119 link 下载, Value: javascript:;
+					120 link 更多操作, Value: javascript:;
+					121 link 王菲, Value: javascript:;
+					122 link 天空, Value: javascript:;
+				123 container 爱爱爱
+					124 link 收藏, Value: javascript:;
+					125 文本 爱爱爱
+					126 link 播放, Value: javascript:;
+					127 link 添加到, Value: javascript:;
+					128 link 下载, Value: javascript:;
+					129 link 更多操作, Value: javascript:;
+					130 link 方大同, Value: javascript:;
+					131 link 爱爱爱, Value: javascript:;
+				132 container 在意这件事
+					133 link 收藏, Value: javascript:;
+					134 文本 在意这件事
+					135 link 播放, Value: javascript:;
+					136 link 添加到, Value: javascript:;
+					137 link 下载, Value: javascript:;
+					138 link 更多操作, Value: javascript:;
+					139 link 徐佳莹, Value: javascript:;
+					140 link 给, Value: javascript:;
+				141 container Little Song
+					142 link 收藏, Value: javascript:;
+					143 文本 Little Song
+					144 link 播放, Value: javascript:;
+					145 link 添加到, Value: javascript:;
+					146 link 下载, Value: javascript:;
+					147 link 更多操作, Value: javascript:;
+					148 link 向日葵乐队, Value: javascript:;
+					149 link 生活在别处, Value: javascript:;
+				150 container 怀念
+					151 link 收藏, Value: javascript:;
+					152 文本 怀念
+					153 link 播放, Value: javascript:;
+					154 link 添加到, Value: javascript:;
+					155 link 下载, Value: javascript:;
+					156 link 更多操作, Value: javascript:;
+					157 link 王菲, Value: javascript:;
+					158 link 王菲, Value: javascript:;
+				159 container 相对无言
+					160 link 收藏, Value: javascript:;
+					161 文本 相对无言
+					162 link 播放, Value: javascript:;
+					163 link 添加到, Value: javascript:;
+					164 link 下载, Value: javascript:;
+					165 link 更多操作, Value: javascript:;
+					166 link 萧亚轩, Value: javascript:;
+					167 link 第五大道, Value: javascript:;
+				168 container 地下铁
+					169 link 收藏, Value: javascript:;
+					170 文本 地下铁
+					171 link 播放, Value: javascript:;
+					172 link 添加到, Value: javascript:;
+					173 link 下载, Value: javascript:;
+					174 link 更多操作, Value: javascript:;
+					175 link 梁雨恩, Value: javascript:;
+					176 link Under The Sun, Value: javascript:;
+				177 container My Love
+					178 link 收藏, Value: javascript:;
+					179 文本 My Love
+					180 link 播放, Value: javascript:;
+					181 link 添加到, Value: javascript:;
+					182 link 下载, Value: javascript:;
+					183 link 更多操作, Value: javascript:;
+					184 link 田馥甄, Value: javascript:;
+					185 link My Love, Value: javascript:;
+				186 container 没有发生的爱情
+					187 link 收藏, Value: javascript:;
+					188 文本 没有发生的爱情
+					189 link 播放, Value: javascript:;
+					190 link 添加到, Value: javascript:;
+					191 link 下载, Value: javascript:;
+					192 link 更多操作, Value: javascript:;
+					193 link 谢安琪, Value: javascript:;
+					194 link 第二个家, Value: javascript:;
+				195 container 还是要幸福
+					196 link 收藏, Value: javascript:;
+					197 文本 还是要幸福
+					198 link 播放, Value: javascript:;
+					199 link 添加到, Value: javascript:;
+					200 link 下载, Value: javascript:;
+					201 link 更多操作, Value: javascript:;
+					202 link 田馥甄, Value: javascript:;
+					203 link My Love, Value: javascript:;
+				204 container 无人知晓
+					205 link 收藏, Value: javascript:;
+					206 文本 无人知晓
+					207 link 播放, Value: javascript:;
+					208 link 添加到, Value: javascript:;
+					209 link 下载, Value: javascript:;
+					210 link 更多操作, Value: javascript:;
+					211 link 田馥甄, Value: javascript:;
+					212 link 无人知晓, Value: javascript:;
+				213 container 你就不要想起我
+					214 link 收藏, Value: javascript:;
+					215 文本 你就不要想起我
+					216 link 播放, Value: javascript:;
+					217 link 添加到, Value: javascript:;
+					218 link 下载, Value: javascript:;
+					219 link 更多操作, Value: javascript:;
+					220 link 田馥甄, Value: javascript:;
+					221 link 渺小, Value: javascript:;
+				222 container 最熟悉的陌生人
+					223 link 收藏, Value: javascript:;
+					224 文本 最熟悉的陌生人
+					225 link 播放, Value: javascript:;
+					226 link 添加到, Value: javascript:;
+					227 link 下载, Value: javascript:;
+					228 link 更多操作, Value: javascript:;
+					229 link 萧亚轩, Value: javascript:;
+					230 link 萧亚轩 同名专辑, Value: javascript:;
+				231 container 不要爱我 (Live)
+					232 link 收藏, Value: javascript:;
+					233 文本 不要爱我 (Live)
+					234 link 播放, Value: javascript:;
+					235 link 添加到, Value: javascript:;
+					236 link 下载, Value: javascript:;
+					237 link 更多操作, Value: javascript:;
+					238 link 陈珊妮, Value: javascript:;
+					239 link Happy Together 2003 现场作品限量版歌, Value: javascript:;
+				240 container 旅行的意义（《格子间女人》电视剧插曲）
+
+其他版本可播
+					241 link 收藏, Value: javascript:;
+					242 container
+						243 text 旅行的意义 （ 《格子间女人》电视剧插曲 ）
+					244 文本 其他版本可播
+					245 link 播放, Value: javascript:;
+					246 link 添加到, Value: javascript:;
+					247 link 下载, Value: javascript:;
+					248 link 更多操作, Value: javascript:;
+					249 link 陈绮贞, Value: javascript:;
+					250 link 旅行的意义, Value: javascript:;
+				251 container 兄妹
+					252 link 收藏, Value: javascript:;
+					253 文本 兄妹
+					254 link 播放, Value: javascript:;
+					255 link 添加到, Value: javascript:;
+					256 link 下载, Value: javascript:;
+					257 link 更多操作, Value: javascript:;
+					258 link 陈奕迅, Value: javascript:;
+					259 link 黑白灰, Value: javascript:;
+				260 container 如果·爱（《如果·爱》电影插曲）
+					261 link 收藏, Value: javascript:;
+					262 container
+						263 text 如果·爱 （ 《如果·爱》电影插曲 ）
+					264 link 播放, Value: javascript:;
+					265 link 添加到, Value: javascript:;
+					266 link 下载, Value: javascript:;
+					267 link 更多操作, Value: javascript:;
+					268 link 张学友, Value: javascript:;
+					269 link 如果·爱 电影原声带, Value: javascript:;
+				270 container 幻觉
+					271 link 收藏, Value: javascript:;
+					272 文本 幻觉
+					273 link 播放, Value: javascript:;
+					274 link 添加到, Value: javascript:;
+					275 link 下载, Value: javascript:;
+					276 link 更多操作, Value: javascript:;
+					277 link 陈珊妮, Value: javascript:;
+					278 link 完美的呻吟, Value: javascript:;
+				279 container 慢歌1
+					280 link 收藏, Value: javascript:;
+					281 文本 慢歌1
+					282 link 播放, Value: javascript:;
+					283 link 添加到, Value: javascript:;
+					284 link 下载, Value: javascript:;
+					285 link 更多操作, Value: javascript:;
+					286 link 陈绮贞, Value: javascript:;
+					287 link 还是会寂寞, Value: javascript:;
+				288 container 偷偷
+ /
+					289 link 收藏, Value: javascript:;
+					290 文本 偷偷
+					291 link 播放, Value: javascript:;
+					292 link 添加到, Value: javascript:;
+					293 link 下载, Value: javascript:;
+					294 link 更多操作, Value: javascript:;
+					295 link 蛋堡, Value: javascript:;
+					296 文本  / 
+					297 link 阎韦伶, Value: javascript:;
+					298 link Winter Sweet, Value: javascript:;
+				299 container BIRDS OF A FEATHER
+					300 link 收藏, Value: javascript:;
+					301 文本 BIRDS OF A FEATHER
+					302 link 播放, Value: javascript:;
+					303 link 添加到, Value: javascript:;
+					304 link 下载, Value: javascript:;
+					305 link 更多操作, Value: javascript:;
+					306 link Billie Eilish, Value: javascript:;
+					307 link HIT ME HARD AND SOFT, Value: javascript:;
+				308 container Begging You (Guide ver.)(feat. 효빈)
+ /
+					309 link 收藏, Value: javascript:;
+					310 文本 Begging You (Guide ver.)(feat. 효빈)
+					311 link 播放, Value: javascript:;
+					312 link 添加到, Value: javascript:;
+					313 link 下载, Value: javascript:;
+					314 link 更多操作, Value: javascript:;
+					315 link 2LSON, Value: javascript:;
+					316 文本  / 
+					317 link 孝彬 (효빈), Value: javascript:;
+					318 link Begging You, Value: javascript:;
+				319 container Sugar（2015年维多利亚的秘密泳装秀秀场音乐）
+					320 link 收藏, Value: javascript:;
+					321 container
+						322 text Sugar （ 2015年维多利亚的秘密泳装秀秀场音乐 ）
+					323 link 播放, Value: javascript:;
+					324 link 添加到, Value: javascript:;
+					325 link 下载, Value: javascript:;
+					326 link 更多操作, Value: javascript:;
+					327 link Maroon 5, Value: javascript:;
+					328 link V (Deluxe Version), Value: javascript:;
+				329 container センチメンタル・キス (Acoustic ver.)
+					330 link 收藏, Value: javascript:;
+					331 文本 センチメンタル・キス (Acoustic ver.)
+					332 link 播放, Value: javascript:;
+					333 link 添加到, Value: javascript:;
+					334 link 下载, Value: javascript:;
+					335 link 更多操作, Value: javascript:;
+					336 link 汐れいら, Value: javascript:;
+					337 link センチメンタル・キス (Acoustic ver.), Value: javascript:;
+				338 container 海滩
+					339 link 收藏, Value: javascript:;
+					340 文本 海滩
+					341 link 播放, Value: javascript:;
+					342 link 添加到, Value: javascript:;
+					343 link 下载, Value: javascript:;
+					344 link 更多操作, Value: javascript:;
+					345 link 温岚, Value: javascript:;
+					346 link 温式效应, Value: javascript:;
+				347 container 至少还有你
+					348 link 收藏, Value: javascript:;
+					349 文本 至少还有你
+					350 link 播放, Value: javascript:;
+					351 link 添加到, Value: javascript:;
+					352 link 下载, Value: javascript:;
+					353 link 更多操作, Value: javascript:;
+					354 link 林忆莲, Value: javascript:;
+					355 link 林忆莲's, Value: javascript:;
+				356 container Yumeji's Theme (电影花样年华/ Instrumental)（《花样年华》电影原声带）
+					357 link 收藏, Value: javascript:;
+					358 container
+						359 text Yumeji's Theme (电影花样年华/ Instrumental) （ 《花样年华》电影原声带 ）
+					360 link 播放, Value: javascript:;
+					361 link 添加到, Value: javascript:;
+					362 link 下载, Value: javascript:;
+					363 link 更多操作, Value: javascript:;
+					364 link Shigueru Umebayashi, Value: javascript:;
+					365 link 花样年华 (电影原声大碟), Value: javascript:;
+				366 container After 17
+
+其他版本可播
+					367 link 收藏, Value: javascript:;
+					368 文本 After 17
+					369 文本 其他版本可播
+					370 link 播放, Value: javascript:;
+					371 link 添加到, Value: javascript:;
+					372 link 下载, Value: javascript:;
+					373 link 更多操作, Value: javascript:;
+					374 link 陈绮贞, Value: javascript:;
+					375 link After 17, Value: javascript:;
+				376 container 叫我怎么说
+					377 link 收藏, Value: javascript:;
+					378 文本 叫我怎么说
+					379 link 播放, Value: javascript:;
+					380 link 添加到, Value: javascript:;
+					381 link 下载, Value: javascript:;
+					382 link 更多操作, Value: javascript:;
+					383 link 方大同, Value: javascript:;
+					384 link Soulboy, Value: javascript:;
+				385 container 任我行
+					386 link 收藏, Value: javascript:;
+					387 文本 任我行
+					388 link 播放, Value: javascript:;
+					389 link 添加到, Value: javascript:;
+					390 link 下载, Value: javascript:;
+					391 link 更多操作, Value: javascript:;
+					392 link 陈奕迅, Value: javascript:;
+					393 link The Key, Value: javascript:;
+				394 container 吟游诗人
+					395 link 收藏, Value: javascript:;
+					396 文本 吟游诗人
+					397 link 播放, Value: javascript:;
+					398 link 添加到, Value: javascript:;
+					399 link 下载, Value: javascript:;
+					400 link 更多操作, Value: javascript:;
+					401 link 陈奕迅, Value: javascript:;
+					402 link ?, Value: javascript:;
+				403 container 你要的爱
+					404 link 收藏, Value: javascript:;
+					405 文本 你要的爱
+					406 link 播放, Value: javascript:;
+					407 link 添加到, Value: javascript:;
+					408 link 下载, Value: javascript:;
+					409 link 更多操作, Value: javascript:;
+					410 link 戴佩妮, Value: javascript:;
+					411 link 怎样, Value: javascript:;
+				412 container 暖
+					413 link 收藏, Value: javascript:;
+					414 文本 暖
+					415 link 播放, Value: javascript:;
+					416 link 添加到, Value: javascript:;
+					417 link 下载, Value: javascript:;
+					418 link 更多操作, Value: javascript:;
+					419 link 方大同, Value: javascript:;
+					420 link 未来, Value: javascript:;
+				421 container 推翻
+					422 link 收藏, Value: javascript:;
+					423 文本 推翻
+					424 link 播放, Value: javascript:;
+					425 link 添加到, Value: javascript:;
+					426 link 下载, Value: javascript:;
+					427 link 更多操作, Value: javascript:;
+					428 link 王菲, Value: javascript:;
+					429 link 只爱陌生人, Value: javascript:;
+				430 container 终身美丽（《瘦身男女》电影主题曲）
+					431 link 收藏, Value: javascript:;
+					432 container
+						433 text 终身美丽 （ 《瘦身男女》电影主题曲 ）
+					434 link 播放, Value: javascript:;
+					435 link 添加到, Value: javascript:;
+					436 link 下载, Value: javascript:;
+					437 link 更多操作, Value: javascript:;
+					438 link 郑秀文, Value: javascript:;
+					439 link Shocking Pink, Value: javascript:;
+				440 container Street by Street
+					441 link 收藏, Value: javascript:;
+					442 文本 Street by Street
+					443 link 播放, Value: javascript:;
+					444 link 添加到, Value: javascript:;
+					445 link 下载, Value: javascript:;
+					446 link 更多操作, Value: javascript:;
+					447 link Laufey, Value: javascript:;
+					448 link Typical of Me EP, Value: javascript:;
+				449 container Come Together (Remastered 2009)
+					450 link 收藏, Value: javascript:;
+					451 文本 Come Together (Remastered 2009)
+					452 link 播放, Value: javascript:;
+					453 link 添加到, Value: javascript:;
+					454 link 下载, Value: javascript:;
+					455 link 更多操作, Value: javascript:;
+					456 link The Beatles, Value: javascript:;
+					457 link Abbey Road (Remastered), Value: javascript:;
+				458 container 真夏の果実 (真夏的果实)
+
+其他版本可播
+					459 link 收藏, Value: javascript:;
+					460 文本 真夏の果実 (真夏的果实)
+					461 文本 其他版本可播
+					462 link 播放, Value: javascript:;
+					463 link 添加到, Value: javascript:;
+					464 link 下载, Value: javascript:;
+					465 link 更多操作, Value: javascript:;
+					466 link 絢香 (あやか), Value: javascript:;
+					467 link 遊音倶楽部 ~1st grade~, Value: javascript:;
+				468 container 真的想见你
+					469 link 收藏, Value: javascript:;
+					470 文本 真的想见你
+					471 link 播放, Value: javascript:;
+					472 link 添加到, Value: javascript:;
+					473 link 下载, Value: javascript:;
+					474 link 更多操作, Value: javascript:;
+					475 link CoCo李玟, Value: javascript:;
+					476 link 李玟CoCo同名粤语专辑, Value: javascript:;
+				477 container 够不够
+					478 link 收藏, Value: javascript:;
+					479 文本 够不够
+					480 link 播放, Value: javascript:;
+					481 link 添加到, Value: javascript:;
+					482 link 下载, Value: javascript:;
+					483 link 更多操作, Value: javascript:;
+					484 link 方大同, Value: javascript:;
+					485 link 未来, Value: javascript:;
+				486 container 心动（《怦然星动》电影推广曲）
+					487 link 收藏, Value: javascript:;
+					488 container
+						489 text 心动 （ 《怦然星动》电影推广曲 ）
+					490 link 播放, Value: javascript:;
+					491 link 添加到, Value: javascript:;
+					492 link 下载, Value: …
+					493 link 更多操作, Value: …
+					494 link 陈洁仪, Value: …
+					495 link 重译, Value: …
+				496 container 又是艳阳天
+ /
+					497 link 收藏, Value: …
+					498 文本 又是艳阳天
+					499 link 播放, Value: …
+					500 link 添加到, Value: …
+					501 link 下载, Value: …
+					502 link 更多操作, Value: …
+					503 link 郭静, Value: …
+					504 文本  / 
+					505 link 韦礼安, Value: …
+					506 link 陪着我的时候想着她, Value: …
+				507 container 走
+					508 link 收藏, Value: …
+					509 文本 走
+					510 link 播放, Value: …
+					511 link 添加到, Value: …
+					512 link 下载, Value: …
+					513 link 更多操作, Value: …
+					514 link 温岚, Value: …
+					515 link 蓝色雨, Value: …
+				516 container If I Ain't Got You
+					517 link 收藏, Value: …
+					518 文本 If I Ain't Got You
+					519 link 播放, Value: …
+					520 link 添加到, Value: …
+					521 link 下载, Value: …
+					522 link 更多操作, Value: …
+					523 link Alicia Keys, Value: …
+					524 link The Diary Of Alicia Keys (Expanded Edition), Value: …
+	525 全屏幕按钮 Help: 此按钮也可以执行缩放窗口的操作, Secondary Actions: 缩放窗口
+526 menu bar
+	527 QQ音乐
+	528 编辑
+	529 播放控制
+	530 窗口
+	531 帮助

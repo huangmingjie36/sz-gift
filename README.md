@@ -1,8 +1,8 @@
-# THE PRIVATE UNIVERSE OF [NAME]
+# THE PRIVATE UNIVERSE OF A FRIEND
 
-一份编译于深圳的私人数字礼物 —— V0 视觉原型。
+一份编译于深圳的私人数字礼物 —— 基于豆瓣 + QQ 音乐真实收藏数据。
 
-> A gift compiled in Shenzhen.
+> A map of the things he kept coming back to.
 
 ## 运行
 
@@ -13,33 +13,32 @@ npm run build    # 产物构建（tsc + vite）
 npm run preview  # 预览构建产物
 ```
 
+## 章节
+
+OPENING → THE CORE → THE RECORD ROOM → THE LIVING ROOM → MATCHDAY → DEEP CUTS → CULTURAL DNA → YOU, ACCORDING TO ME → MADE IN SHENZHEN
+
 ## 目录
 
 ```
 src/
-  data/content.ts    ← 所有文字 / 章节 / 占位内容都在这里，替换内容优先改它
-  assets/            ← 占位图（SVG），以后换成真实照片/歌单封面
-  components/        ← Grain / Cursor / Reveal / Ticker / ChapterBar / Stadium …
-  sections/          ← Opening · Sound · Friends · Bayern · Fragments · You · Ending
-  styles/global.css  ← 设计系统：色彩、字号、动效、各章节排版
-  lib/scroll.ts      ← Lenis 平滑滚动单例
+  data/content.ts        ← 全部展示数据（真实收藏，便于替换）
+  data/_douban_music_raw.json  ← 豆瓣音乐 111 张原始采集
+  data/_douban_movie_raw.json  ← 豆瓣影视 118 部原始采集
+  data/_qqmusic_*.txt    ← QQ音乐「我喜欢」采集记录
+  components/            ← Grain / Cursor / Reveal / Ticker / ChapterBar / Stadium …
+  sections/              ← Core / RecordRoom / LivingRoom / Matchday / DeepCuts / Dna / You / Ending
+  styles/global.css      ← 设计系统
+CULTURAL_PROFILE.md      ← 文化分析档案
 ```
 
-## 以后要替换的内容（全部集中在 `src/data/content.ts`）
+## 数据来源（只读采集，2026-08）
 
-- 主人公姓名：`meta.name`
-- 三位音乐人：`sound.artists`
-- 老友记随机短句：`friends.quotes`
-- Fragments 碎片：`fragments.polaroids` / `fragments.note` / `fragments.ticket`
-- 结尾文案：`ending`
-- 图片：把 `src/assets/*.svg` 换成真实图片，并在 `content.ts` 里替换 import 即可
+- 豆瓣：听过的音乐 111 张 / 看过的影视 118 部（含评分、短评、收藏日期）
+- QQ 音乐「我喜欢」：专辑 56 张 / 歌曲 44 首（采集时 Mac 锁屏，歌单未采）
+- 分析结论见 `CULTURAL_PROFILE.md`
 
 ## 预览截图
 
 ```bash
 node scripts/shoot.mjs   # 生成 .shots/ 下各章节截图（需要本机 Chrome）
 ```
-
-## 设计基调
-
-Editorial · Cinematic · Analog · Minimal —— 不追模板感，宁可少，宁可留白。
