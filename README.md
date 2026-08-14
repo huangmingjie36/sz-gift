@@ -54,3 +54,13 @@ ENTER 后启动声音。右下角 ♪ 开关，mute 状态被记住。
 - 豆瓣 111 音乐 / 118 影视原始采集：`src/data/_douban_*`
 - QQ 音乐「我喜欢」+ 32 歌单：`src/data/_qqmusic_*`
 - 照片来源元数据：`src/assets/photos/*.json`
+
+---
+
+## Production（V8）
+
+- **线上地址**：https://huangmingjie36.github.io/sz-gift/
+- **部署方式**：GitHub Pages（gh-pages 分支，静态托管）
+- **重新部署**：`node scripts/deploy.mjs`（npm run build → 推 gh-pages 分支 → Pages 自动更新）
+- **self-contained**：图片/音频/字体 fallback 全部随站发布，无第三方图片依赖、无 localhost、无本地路径
+- **OG**：title「陈标聪」+ 极简 og.png（不剧透）
