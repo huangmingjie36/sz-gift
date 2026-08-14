@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { RecordShelf } from "../components/RecordShelf";
 import type { Artist } from "../data/scenes";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -14,10 +15,10 @@ export function ArtistScene({ artist, index }: { artist: Artist; index: number }
     <div className={`scene-inner artist-scene artist-scene--${artist.id}`}>
       <header className="scene-head">
         <span className="meta">ACT I — MUSIC</span>
-        <span className="meta">0{index + 2} / 05</span>
+        <span className="meta">0{index + 1} / 04</span>
       </header>
 
-      {/* JAY — 杂志横向展开：人物 + 专辑横排 + Live 单独一块 */}
+      {/* JAY — 杂志横向展开：人物 + 唱片架 */}
       {artist.id === "jay" && (
         <div className="artist-layout artist-layout--spread">
           <motion.div
@@ -26,7 +27,7 @@ export function ArtistScene({ artist, index }: { artist: Artist; index: number }
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: EASE }}
           >
-            <img src={artist.img} alt={artist.zh} />
+            <img src={artist.img} alt={artist.zh} loading="lazy" />
           </motion.div>
           <div className="artist-layout__side">
             <motion.h2 className="artist-layout__name" {...fade(0.6)}>
@@ -38,32 +39,14 @@ export function ArtistScene({ artist, index }: { artist: Artist; index: number }
             <motion.p className="meta artist-layout__meta" {...fade(1.2)}>
               {artist.meta}
             </motion.p>
-            <div className="artist-layout__albums artist-layout__albums--row">
-              {artist.albums.map((a, i) => (
-                <motion.figure className="artist-layout__album" key={a.name} {...fade(1.1 + i * 0.15)}>
-                  <img src={a.img} alt={a.name} />
-                  <figcaption>
-                    <span className="artist-layout__album-name serif">{a.name}</span>
-                    <span className="meta artist-layout__album-year">{a.year}</span>
-                  </figcaption>
-                </motion.figure>
-              ))}
-            </div>
-            <motion.figure className="artist-layout__live" {...fade(1.7)}>
-              <span className="meta artist-layout__live-tag">LIVE</span>
-              <div className="artist-layout__live-inner">
-                <img src={artist.live.img} alt={artist.live.name} />
-                <figcaption>
-                  <span className="artist-layout__live-name serif">{artist.live.name}</span>
-                  <span className="meta artist-layout__live-year">{artist.live.year}</span>
-                </figcaption>
-              </div>
-            </motion.figure>
+            <motion.div {...fade(1.3)}>
+              <RecordShelf artistId={artist.id} albums={artist.albums} live={artist.live} layout="spread" />
+            </motion.div>
           </div>
         </div>
       )}
 
-      {/* KHALIL — 唱片陈列：人物背景 + 4 封面（3 专辑 + 1 Live 居中） */}
+      {/* KHALIL — 唱片陈列：人物背景 + 唱片架 */}
       {artist.id === "khalil" && (
         <div className="artist-layout artist-layout--center">
           <motion.div
@@ -72,7 +55,7 @@ export function ArtistScene({ artist, index }: { artist: Artist; index: number }
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2, ease: EASE }}
           >
-            <img src={artist.img} alt={artist.zh} />
+            <img src={artist.img} alt={artist.zh} loading="lazy" />
             <div className="artist-layout__scrim" />
           </motion.div>
           <div className="artist-layout__center-copy">
@@ -83,40 +66,13 @@ export function ArtistScene({ artist, index }: { artist: Artist; index: number }
               {artist.zh} · <span className="meta">{artist.meta}</span>
             </motion.p>
           </div>
-          <div className="artist-layout__albums artist-layout__albums--records">
-            {artist.albums.map((a, i) => (
-              <motion.figure
-                className={`artist-layout__record ${i === 1 ? "artist-layout__record--lead" : ""}`}
-                key={a.name}
-                initial={{ opacity: 0, y: 34, rotate: i === 0 ? -2 : i === 1 ? 1.5 : -1 }}
-                animate={{ opacity: 1, y: 0, rotate: i === 0 ? -2 : i === 1 ? 1.5 : -1 }}
-                transition={{ duration: 0.9, delay: 0.9 + i * 0.18, ease: EASE }}
-              >
-                <img src={a.img} alt={a.name} />
-                <figcaption>
-                  <span className="artist-layout__album-name artist-layout__album-name--light serif">{a.name}</span>
-                  <span className="meta artist-layout__album-year">{a.year}</span>
-                </figcaption>
-              </motion.figure>
-            ))}
-            <motion.figure
-              className="artist-layout__record artist-layout__record--live"
-              initial={{ opacity: 0, y: 34, rotate: 2 }}
-              animate={{ opacity: 1, y: 0, rotate: 2 }}
-              transition={{ duration: 0.9, delay: 1.5, ease: EASE }}
-            >
-              <span className="meta artist-layout__live-tag artist-layout__live-tag--dark">LIVE</span>
-              <img src={artist.live.img} alt={artist.live.name} />
-              <figcaption>
-                <span className="artist-layout__album-name artist-layout__album-name--light serif">{artist.live.name}</span>
-                <span className="meta artist-layout__album-year">{artist.live.year}</span>
-              </figcaption>
-            </motion.figure>
-          </div>
+          <motion.div {...fade(1)}>
+            <RecordShelf artistId={artist.id} albums={artist.albums} live={artist.live} layout="records" />
+          </motion.div>
         </div>
       )}
 
-      {/* CHEER — 留白：portrait + 专辑错位 + Live 安静相伴 */}
+      {/* CHEER — 留白：portrait + 安静唱片架 */}
       {artist.id === "cheer" && (
         <div className="artist-layout artist-layout--quiet">
           <div className="artist-layout__quiet-copy">
@@ -129,6 +85,9 @@ export function ArtistScene({ artist, index }: { artist: Artist; index: number }
             <motion.p className="meta artist-layout__meta" {...fade(1)}>
               {artist.meta}
             </motion.p>
+            <motion.div {...fade(1.2)}>
+              <RecordShelf artistId={artist.id} albums={artist.albums} live={artist.live} layout="quiet" />
+            </motion.div>
           </div>
           <motion.div
             className="artist-layout__portrait"
@@ -136,38 +95,8 @@ export function ArtistScene({ artist, index }: { artist: Artist; index: number }
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.5, ease: EASE }}
           >
-            <img src={artist.img} alt={artist.zh} />
+            <img src={artist.img} alt={artist.zh} loading="lazy" />
           </motion.div>
-          <div className="artist-layout__albums artist-layout__albums--offset">
-            {artist.albums.map((a, i) => (
-              <motion.figure
-                className={`artist-layout__album artist-layout__album--q${i + 1}`}
-                key={a.name}
-                initial={{ opacity: 0, y: 26 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 + i * 0.16, ease: EASE }}
-              >
-                <img src={a.img} alt={a.name} />
-                <figcaption>
-                  <span className="artist-layout__album-name serif">{a.name}</span>
-                  <span className="meta artist-layout__album-year">{a.year}</span>
-                </figcaption>
-              </motion.figure>
-            ))}
-            <motion.figure
-              className="artist-layout__album artist-layout__album--live-q"
-              initial={{ opacity: 0, y: 26 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6, ease: EASE }}
-            >
-              <span className="meta artist-layout__live-tag">LIVE</span>
-              <img src={artist.live.img} alt={artist.live.name} />
-              <figcaption>
-                <span className="artist-layout__album-name serif">{artist.live.name}</span>
-                <span className="meta artist-layout__album-year">{artist.live.year}</span>
-              </figcaption>
-            </motion.figure>
-          </div>
         </div>
       )}
     </div>

@@ -8,17 +8,17 @@ export function MiaScene() {
     <div className="scene-inner mia-scene">
       <motion.div
         className="mia-scene__bg"
-        initial={{ scale: 1.1, opacity: 0.6 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.4, ease: EASE }}
+        initial={{ scale: 1.1, filter: "brightness(0.45) saturate(0.7)" }}
+        animate={{ scale: 1, filter: "brightness(1) saturate(1)" }}
+        transition={{ duration: 2.2, delay: 0.4, ease: EASE }}
       >
-        <img src={miaContent.img} alt="FC Bayern München" />
+        <img src={miaContent.img} alt="FC Bayern München" loading="lazy" />
         <div className="mia-scene__scrim" />
       </motion.div>
 
       <header className="scene-head scene-head--light">
-        <span className="meta">ACT III — FOOTBALL</span>
-        <span className="meta">01 / 03</span>
+        <span className="meta">ACT II — FOOTBALL</span>
+        <span className="meta">01 / 04</span>
       </header>
 
       <div className="mia-scene__copy">
@@ -26,7 +26,7 @@ export function MiaScene() {
           className="mia-scene__title"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.7, ease: EASE }}
+          transition={{ duration: 0.9, delay: 1.4, ease: EASE }}
         >
           {miaContent.title}
         </motion.h2>
@@ -34,7 +34,7 @@ export function MiaScene() {
           className="meta mia-scene__club"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.8, delay: 1.9 }}
         >
           {miaContent.club}
         </motion.p>

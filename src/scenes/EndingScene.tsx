@@ -14,23 +14,21 @@ export function EndingScene() {
 
   return (
     <div className="scene-inner ending-scene">
-      <motion.p className="ending-scene__line-1" {...seq(0.5)}>
-        {endingContent.madeIn}
-      </motion.p>
-      <motion.p className="ending-scene__line-2 serif" {...seq(1.7, 0.8)}>
-        {endingContent.notExactly}
-      </motion.p>
-      <motion.h2 className="ending-scene__line-3" {...seq(2.6, 1.2)}>
-        {endingContent.madeFor[0]}
-        <br />
-        {endingContent.madeFor[1]}
-      </motion.h2>
-      <motion.p className="ending-scene__name serif" {...seq(3.8)}>
-        {endingContent.name}
-      </motion.p>
-      <motion.button className="ending-scene__foot meta" {...seq(4.6)} onClick={() => setEgg((v) => !v)} title="深圳特产">
-        {endingContent.foot}
+      <motion.button className="ending-scene__title serif" {...seq(0.5)} onClick={() => setEgg((v) => !v)} title="深圳特产">
+        {endingContent.title}
       </motion.button>
+      <motion.p className="meta ending-scene__en" {...seq(1.4, 0.8)}>
+        {endingContent.en}
+      </motion.p>
+      <motion.p className="ending-scene__line serif" {...seq(2.3)}>
+        {endingContent.line}
+      </motion.p>
+      <motion.p className="ending-scene__name serif" {...seq(3.2)}>
+        {endingContent.madeFor}
+      </motion.p>
+      <motion.p className="ending-scene__foot meta" {...seq(4)}>
+        {endingContent.foot}
+      </motion.p>
       <motion.p
         className="ending-scene__egg serif"
         initial={{ opacity: 0 }}

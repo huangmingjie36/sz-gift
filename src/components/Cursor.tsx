@@ -1,10 +1,10 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 
-/** 极简光标微交互：小点 + 慢半拍的圆环。仅在精确指针设备上出现。 */
+/** 极简光标：小点 + 慢半拍圆环 + 克制的交互状态文字（OPEN / VIEW / NEXT / RACHEL / CLOSE） */
 export function Cursor() {
   const [enabled, setEnabled] = useState(false);
-  const [hovering, setHovering] = useState(false);
+  const [label, setLabel] = useState<string | null>(null);
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
@@ -20,7 +20,8 @@ export function Cursor() {
       x.set(e.clientX);
       y.set(e.clientY);
       const t = e.target as Element | null;
-      setHovering(!!t?.closest("a, button, [data-hover]"));
+      const hit = t?.closest("[data-cursor]") as HTMLElement | null;
+      setLabel(hit?.dataset.cursor ?? null);
     };
     window.addEventListener("mousemove", move, { passive: true });
     return () => window.removeEventListener("mousemove", move);
@@ -32,9 +33,18 @@ export function Cursor() {
     <div className="cursor" aria-hidden="true">
       <motion.div className="cursor__dot" style={{ x, y }} />
       <motion.div
-        className={`cursor__ring ${hovering ? "cursor__ring--hover" : ""}`}
+        className={`cursor__ring ${label ? "cursor__ring--label" : ""}`}
         style={{ x: rx, y: ry }}
       />
+      <motion.p
+        className="cursor__label meta"
+        style={{ x: rx, y: ry }}
+        initial={false}
+        animate={label ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        {label}
+      </motion.p>
     </div>
   );
 }

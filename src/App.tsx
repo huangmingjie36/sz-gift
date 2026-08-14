@@ -7,9 +7,10 @@ import { ArtistScene } from "./scenes/ArtistScene";
 import { DeutschlandScene } from "./scenes/DeutschlandScene";
 import { EndingScene } from "./scenes/EndingScene";
 import { FriendsScene } from "./scenes/FriendsScene";
-import { InterFootballScene, InterScreenScene, MusicIntroScene } from "./scenes/InterScene";
+import { InterFootballScene, InterScreenScene } from "./scenes/InterScene";
 import { MatchdayScene } from "./scenes/MatchdayScene";
 import { MiaScene } from "./scenes/MiaScene";
+import { OliseScene } from "./scenes/OliseScene";
 import { OpeningScene } from "./scenes/OpeningScene";
 import { RachelScene } from "./scenes/RachelScene";
 import { SheetScene } from "./scenes/SheetScene";
@@ -26,7 +27,6 @@ export default function App() {
       <SoundToggle />
       <Deck>
         <OpeningScene />
-        <MusicIntroScene />
         <ArtistScene artist={artists[0]} index={0} />
         <ArtistScene artist={artists[1]} index={1} />
         <ArtistScene artist={artists[2]} index={2} />
@@ -34,6 +34,7 @@ export default function App() {
         <InterFootballScene />
         <MiaScene />
         <MatchdayScene />
+        <OliseScene />
         <DeutschlandScene />
         <InterScreenScene />
         <FriendsScene />

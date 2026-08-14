@@ -9,9 +9,19 @@ type AudioCtx = {
   toggleMute: () => void;
   start: () => void;
   playAct: (act: Act) => void;
+  /** 进入内容层级：背景音乐轻微降低（约 8%） */
+  duck: () => void;
+  unduck: () => void;
 };
 
-const Ctx = createContext<AudioCtx>({ muted: false, toggleMute: () => {}, start: () => {}, playAct: () => {} });
+const Ctx = createContext<AudioCtx>({
+  muted: false,
+  toggleMute: () => {},
+  start: () => {},
+  playAct: () => {},
+  duck: () => {},
+  unduck: () => {},
+});
 export const useAudio = () => useContext(Ctx);
 
 const VOLUME = 0.55;
@@ -119,6 +129,20 @@ export function AudioDirector({ children }: { children: ReactNode }) {
     fadeTo(VOLUME, 600);
   }, [fadeTo, loadTrack, muted]);
 
+  const ducked = useRef(false);
+  const duck = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio || ducked.current || audio.volume <= 0) return;
+    ducked.current = true;
+    fadeTo(Math.max(audio.volume * 0.92, 0.02), 300);
+  }, [fadeTo]);
+  const unduck = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio || !ducked.current) return;
+    ducked.current = false;
+    if (!muted) fadeTo(VOLUME, 300);
+  }, [fadeTo, muted]);
+
   const toggleMute = useCallback(() => {
     setMuted((m) => {
       const next = !m;
@@ -142,7 +166,7 @@ export function AudioDirector({ children }: { children: ReactNode }) {
   }, [fadeTo]);
 
   return (
-    <Ctx.Provider value={{ muted, toggleMute, start, playAct }}>
+    <Ctx.Provider value={{ muted, toggleMute, start, playAct, duck, unduck }}>
       <audio ref={audioRef} preload="none" />
       {children}
     </Ctx.Provider>

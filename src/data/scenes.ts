@@ -45,6 +45,10 @@ import posterWallE from "../assets/photos/cover-movie-机器人总动员.jpg";
 import bayernTeam from "../assets/photos/bayern-teamfoto-2025-26.jpg";
 import allianzNight from "../assets/photos/allianz-night1.jpg";
 import musiala from "../assets/photos/musiala20261.jpg";
+import oliseBayern from "../assets/photos/olise-bayern.jpg";
+import oliseFr1 from "../assets/photos/olise-france-2026-1.jpg";
+import oliseFr2 from "../assets/photos/olise-france-2026-2.jpg";
+import oliseFr3 from "../assets/photos/olise-france-2026-3.jpg";
 
 export const person = { en: "CHEN BIAOCONG", zh: "陈标聪" };
 
@@ -62,7 +66,6 @@ export type Scene = {
 
 export const scenes: Scene[] = [
   { id: "opening", act: "opening", transition: "fade", theme: "paper" },
-  { id: "music-intro", act: "music", transition: "fade", theme: "paper" },
   { id: "jay", act: "music", transition: "slide", theme: "paper" },
   { id: "khalil", act: "music", transition: "coverOpen", theme: "paper" },
   { id: "cheer", act: "music", transition: "mask", theme: "paper" },
@@ -70,7 +73,8 @@ export const scenes: Scene[] = [
   { id: "inter-foot", act: "football", transition: "hardCut", theme: "black" },
   { id: "mia", act: "football", transition: "tunnel", theme: "night" },
   { id: "matchday", act: "football", transition: "slide", theme: "night" },
-  { id: "deutschland", act: "football", transition: "coverOpen", theme: "night" },
+  { id: "olise", act: "football", transition: "coverOpen", theme: "night" },
+  { id: "deutschland", act: "football", transition: "slide", theme: "night" },
   { id: "inter-screen", act: "screen", transition: "fade", theme: "black" },
   { id: "friends", act: "screen", transition: "curtain", theme: "sepia" },
   { id: "rachel", act: "screen", transition: "slide", theme: "sepia" },
@@ -93,9 +97,16 @@ export const openingContent = {
 // ------------------------------------------------------------
 //  MUSIC — 三人，各有构图。FEATURED RECORDS 有数据支撑。
 // ------------------------------------------------------------
-export type Album = { name: string; year: string; img: string };
+export type Album = {
+  name: string;
+  year: string;
+  img: string;
+  /** 有可靠证据的收藏歌曲（1-3 首，无则不展示） */
+  songs?: string[];
+  evidence?: string;
+};
 
-export type Live = { name: string; year: string; img: string };
+export type Live = { name: string; year: string; img: string; evidence?: string };
 
 export type Artist = {
   id: string;
@@ -117,11 +128,11 @@ export const artists: Artist[] = [
     meta: "2000 —",
     img: jayConcert,
     albums: [
-      { name: "十一月的萧邦", year: "2005", img: albumXiaobang },
-      { name: "叶惠美", year: "2003", img: albumYehuimei },
-      { name: "七里香", year: "2004", img: albumQilixiang },
+      { name: "十一月的萧邦", year: "2005", img: albumXiaobang, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
+      { name: "叶惠美", year: "2003", img: albumYehuimei, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
+      { name: "七里香", year: "2004", img: albumQilixiang, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
     ],
-    live: { name: "无与伦比演唱会", year: "2004", img: liveJay },
+    live: { name: "无与伦比演唱会", year: "2004", img: liveJay, evidence: "2004 · 公认最经典现场" },
     evidence: [
       "十一月的萧邦/叶惠美/七里香：豆瓣五星 + QQ「我喜欢」收藏",
       "无与伦比演唱会：公认为周杰伦最经典现场（2004），用户指定",
@@ -134,11 +145,11 @@ export const artists: Artist[] = [
     meta: "Soul · R&B",
     img: khalil,
     albums: [
-      { name: "爱爱爱", year: "2006", img: albumAiAiAi },
-      { name: "未来", year: "2007", img: albumWeilai },
-      { name: "橙月", year: "2008", img: albumChengyue },
+      { name: "爱爱爱", year: "2006", img: albumAiAiAi, songs: ["爱爱爱"], evidence: "QQ「我喜欢」收藏专辑 · 歌曲《爱爱爱》" },
+      { name: "未来", year: "2007", img: albumWeilai, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
+      { name: "橙月", year: "2008", img: albumChengyue, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
     ],
-    live: { name: "15 香港演唱会", year: "2011", img: liveKhalil },
+    live: { name: "15 香港演唱会", year: "2011", img: liveKhalil, evidence: "豆瓣 ★5 · 《15》专辑亦 ★5" },
     evidence: [
       "爱爱爱：QQ「我喜欢」收藏；未来/橙月：豆瓣五星 + QQ",
       "15 香港演唱会：豆瓣五星（2026-07-06）；《15》专辑亦五星",
@@ -151,11 +162,11 @@ export const artists: Artist[] = [
     meta: "2000s —",
     img: cheerLive,
     albums: [
-      { name: "让我想一想", year: "1998", img: albumRangWo },
-      { name: "Groupies 吉他手", year: "2002", img: albumGroupies },
-      { name: "华丽的冒险", year: "2005", img: albumHuaili },
+      { name: "让我想一想", year: "1998", img: albumRangWo, songs: ["会不会"], evidence: "豆瓣 ★5 · QQ「我喜欢」歌曲《会不会》" },
+      { name: "Groupies 吉他手", year: "2002", img: albumGroupies, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
+      { name: "华丽的冒险", year: "2005", img: albumHuaili, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
     ],
-    live: { name: "花的姿态演唱会", year: "2007", img: liveCheer },
+    live: { name: "花的姿态演唱会", year: "2007", img: liveCheer, evidence: "豆瓣 ★5 · 首场大型个唱" },
     evidence: [
       "让我想一想/吉他手/华丽的冒险：豆瓣五星 + QQ 收藏/歌曲",
       "花的姿态·演唱会经典实录：豆瓣五星（2026-04-21），首场大型个唱",
@@ -216,6 +227,17 @@ export const deutschlandContent = {
 };
 
 // ------------------------------------------------------------
+//  OLISE — 一个私人的选择
+// ------------------------------------------------------------
+export const oliseContent = {
+  name: "MICHAEL OLISE",
+  zh: "奥利塞",
+  img: oliseBayern,
+  sequence: [oliseFr1, oliseFr2, oliseFr3],
+  meta: "FC BAYERN · 2025",
+};
+
+// ------------------------------------------------------------
 //  SCREEN
 // ------------------------------------------------------------
 export const friendsContent = {
@@ -251,10 +273,10 @@ export const shelfContent = {
 //  ENDING
 // ------------------------------------------------------------
 export const endingContent = {
-  madeIn: "MADE IN SHENZHEN.",
-  notExactly: "Not exactly.",
-  madeFor: ["MADE FOR YOU,", "IN SHENZHEN."],
-  name: person.zh,
+  title: "深圳特产",
+  en: "YOUR SHENZHEN SPECIAL",
+  line: "No snacks. Just code.",
+  madeFor: "Compiled for Chen Biaocong.",
   foot: "Compiled with friendship.",
-  easterEgg: "苏州特产你随便带。深圳这份，已经编译好了。",
+  easterEgg: "苏州那份呢？",
 };

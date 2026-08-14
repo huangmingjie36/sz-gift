@@ -358,6 +358,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: clamp(1.6rem, 4vh, 2.6rem);
+  pointer-events: none;
 }
 .friends-scene__name {
   font-size: 12px;
@@ -835,9 +836,11 @@
 @media (max-width: 900px) {
   .artist-layout--spread { grid-template-columns: 1fr; grid-template-rows: auto auto; }
   .artist-layout--spread .artist-layout__photo { height: 42vh; }
-  .artist-layout--quiet { grid-template-columns: 1fr; grid-template-rows: auto auto; }
-  .artist-layout__portrait { grid-row: auto; grid-column: 1; height: 42vh; }
+  .artist-layout--quiet { grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 0.8rem; }
+  .artist-layout__portrait { grid-row: auto; grid-column: 1; height: 34vh; }
   .artist-layout__albums--offset { grid-row: auto; grid-column: 1; }
+  .shelf--quiet .shelf__cell { width: 4.2rem; }
+  .shelf--quiet .shelf__cell--live { width: 3.8rem; }
   .artist-layout__albums--records { flex-wrap: wrap; }
   .rachel-scene__copy { right: 1.25rem; bottom: 4.4rem; }
   .sound-toggle { right: 1.25rem; }
@@ -912,4 +915,372 @@
   .artist-layout--spread .artist-layout__live-inner { flex-wrap: wrap; }
   .artist-layout__record--live { width: min(22vw, 9rem); }
   .artist-layout__album--live-q { margin-left: 0; }
+}
+
+/* ============================================================
+   V6 — INTERACTION PASS
+   ============================================================ */
+
+/* ---------- cursor label ---------- */
+
+.cursor__label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 955;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: #fff;
+  mix-blend-mode: difference;
+  transform: translate(16px, 10px);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* ---------- Interactive Record Shelf ---------- */
+
+.shelf { position: relative; }
+.shelf__grid {
+  display: flex;
+  gap: clamp(0.8rem, 1.6vw, 1.4rem);
+  align-items: flex-end;
+}
+
+.shelf__cell {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: clamp(6.2rem, 9vw, 9rem);
+}
+.shelf__cell img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: 0 18px 34px -18px rgba(25, 22, 19, 0.55);
+  transition: box-shadow 0.35s ease;
+}
+.shelf__cell--live {
+  width: clamp(5.6rem, 8vw, 8rem);
+}
+.shelf__cell--live img {
+  aspect-ratio: 3 / 4;
+}
+.shelf__cell-name {
+  font-size: 13px;
+  color: var(--ink);
+  margin-top: 0.55rem;
+}
+.shelf__cell-year {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+.shelf__live-tag {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: #fff;
+  background: rgba(10, 8, 6, 0.72);
+  padding: 0.18rem 0.4rem;
+}
+.shelf__live-tag--dark { color: rgba(255, 255, 255, 0.85); }
+
+/* 唱片架 hover：其他唱片轻微退后 */
+.shelf__grid:hover .shelf__cell:not(:hover) {
+  opacity: 0.55;
+  filter: saturate(0.7);
+}
+
+/* 展开详情：从架中抽出一张唱片 */
+.shelf__detail {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.shelf__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 8, 6, 0.82);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+.shelf__cover {
+  position: relative;
+  z-index: 2;
+  width: min(30vh, 40vw);
+}
+.shelf__cover img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.8);
+}
+.shelf__cover--live {
+  width: min(26vh, 32vw);
+}
+.shelf__cover--live img { aspect-ratio: 3 / 4; }
+.shelf__copy {
+  position: relative;
+  z-index: 2;
+  max-width: 22rem;
+  color: #fff;
+}
+.shelf__copy-kind {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.5);
+}
+.shelf__copy-name {
+  font-size: clamp(28px, 3.4vw, 44px);
+  color: #fff;
+  margin-top: 0.5rem;
+}
+.shelf__copy-year {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.3rem;
+}
+.shelf__copy-songs {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  padding-top: 0.7rem;
+}
+.shelf__copy-songs li {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.22rem 0;
+}
+.shelf__song-dot { color: var(--bay-red); margin-right: 0.5rem; }
+.shelf__copy-evidence {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 1rem;
+}
+.shelf__close {
+  position: fixed;
+  top: clamp(1.2rem, 4vh, 2.4rem);
+  right: var(--pad-x);
+  z-index: 3;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+.shelf__close:hover { color: #fff; }
+.shelf__egg {
+  position: fixed;
+  right: var(--pad-x);
+  bottom: clamp(4.4rem, 9vh, 6rem);
+  z-index: 720;
+  font-style: italic;
+  font-size: 16px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* 三种布局微调 */
+.shelf--spread { margin-top: clamp(1.6rem, 4vh, 2.6rem); }
+.shelf--records {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding-bottom: clamp(0.8rem, 2vh, 1.4rem);
+}
+.shelf--records .shelf__cell img { box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.75); }
+.shelf--records .shelf__cell-name,
+.shelf--records .shelf__cell-year { color: #fff; }
+.shelf--records .shelf__cell-year { color: rgba(255, 255, 255, 0.55); }
+.shelf--quiet { margin-top: clamp(1.4rem, 3.5vh, 2.2rem); }
+.shelf--quiet .shelf__grid {
+  flex-wrap: wrap;
+  gap: clamp(0.7rem, 1.4vw, 1.2rem);
+}
+
+/* ---------- OLISE ---------- */
+
+.olise-scene__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.olise-scene__stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: saturate(0.9);
+}
+.olise-scene__stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 6, 5, 0.82), rgba(8, 6, 5, 0.2) 55%, rgba(8, 6, 5, 0.28) 100%);
+  pointer-events: none;
+}
+.olise-scene__copy {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(1.4rem, 4vh, 2.4rem);
+}
+.olise-scene__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(30px, 3.4vw, 52px);
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+}
+.olise-scene__zh {
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.3rem;
+}
+.olise-scene__meta {
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.8rem;
+}
+.olise-scene__strip {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.olise-scene__frame {
+  width: clamp(4rem, 7vw, 6.4rem);
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+.olise-scene__frame:hover { opacity: 0.9; }
+.olise-scene__frame.is-active { opacity: 1; border-color: #fff; }
+.olise-scene__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.olise-scene__ball {
+  position: absolute;
+  right: clamp(1.4rem, 3vw, 2.6rem);
+  bottom: clamp(4rem, 8vh, 5.4rem);
+  z-index: 3;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.olise-scene__ball:hover { opacity: 1; }
+.olise-scene__ball-icon { font-size: 14px; }
+.olise-scene__ball-label {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: #fff;
+}
+
+/* ---------- Friends hint ---------- */
+
+.friends-scene__hint {
+  position: absolute;
+  right: var(--pad-x);
+  bottom: clamp(3.6rem, 7vh, 4.8rem);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- Rachel egg ---------- */
+
+.rachel-scene__egg {
+  position: absolute;
+  left: var(--pad-x);
+  bottom: clamp(3.6rem, 7vh, 4.8rem);
+  font-style: italic;
+  font-size: 16px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Ending V6 ---------- */
+
+.ending-scene__title {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: clamp(44px, 7vw, 96px);
+  color: #EFEAE0;
+  line-height: 1;
+}
+.ending-scene__en {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: rgba(239, 234, 224, 0.55);
+  margin-top: 1.2rem;
+}
+.ending-scene__line {
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: rgba(239, 234, 224, 0.75);
+  margin-top: clamp(2.2rem, 6vh, 3.4rem);
+}
+.ending-scene__name {
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: rgba(239, 234, 224, 0.55);
+  margin-top: 0.8rem;
+}
+.ending-scene__foot {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: rgba(239, 234, 224, 0.4);
+  margin-top: clamp(2.4rem, 7vh, 4rem);
+  cursor: default;
+}
+.ending-scene__egg {
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(239, 234, 224, 0.6);
+  margin-top: 1rem;
+  min-height: 1.4rem;
+}
+
+@media (max-width: 900px) {
+  .shelf__cell { width: clamp(4.6rem, 22vw, 6rem); }
+  .shelf__cell--live { width: clamp(4rem, 19vw, 5.2rem); }
+  .shelf__detail { flex-direction: column; gap: 1.2rem; padding: 0 1.25rem; }
+  .shelf__cover { width: min(34vh, 64vw); }
+  .shelf__copy { text-align: left; width: 100%; }
+  .shelf__close { right: 1.25rem; }
+  .shelf__egg { right: 1.25rem; }
+  .olise-scene__ball { right: 1.25rem; }
+  .friends-scene__hint { right: 1.25rem; }
+  .rachel-scene__egg { left: 1.25rem; }
 }

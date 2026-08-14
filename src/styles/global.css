@@ -204,3 +204,11 @@ a { color: inherit; text-decoration: none; }
   html { scroll-behavior: auto; }
   .grain, .flicker { display: none; }
 }
+
+/* ---------- reduced motion：交互动画收敛 ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .shelf__cell { transition: none; }
+  .shelf__cell img { transition: none; }
+  .olise-scene__frame { transition: none; }
+}
