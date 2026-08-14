@@ -49,6 +49,7 @@ import oliseBayern from "../assets/photos/olise-bayern.jpg";
 import oliseFr1 from "../assets/photos/olise-france-2026-1.jpg";
 import oliseFr2 from "../assets/photos/olise-france-2026-2.jpg";
 import oliseFr3 from "../assets/photos/olise-france-2026-3.jpg";
+import chandler from "../assets/photos/chandler-0.jpg";
 
 export const person = { en: "CHEN BIAOCONG", zh: "陈标聪" };
 
@@ -70,12 +71,11 @@ export const scenes: Scene[] = [
   { id: "khalil", act: "music", transition: "coverOpen", theme: "paper" },
   { id: "cheer", act: "music", transition: "mask", theme: "paper" },
   { id: "sheet", act: "music", transition: "slide", theme: "paper" },
-  { id: "inter-foot", act: "football", transition: "hardCut", theme: "black" },
+  { id: "arrival", act: "football", transition: "hardCut", theme: "black" },
   { id: "mia", act: "football", transition: "tunnel", theme: "night" },
-  { id: "matchday", act: "football", transition: "slide", theme: "night" },
-  { id: "olise", act: "football", transition: "coverOpen", theme: "night" },
-  { id: "deutschland", act: "football", transition: "slide", theme: "night" },
-  { id: "inter-screen", act: "screen", transition: "fade", theme: "black" },
+  { id: "olise", act: "football", transition: "slide", theme: "night" },
+  { id: "deutschland", act: "football", transition: "coverOpen", theme: "night" },
+  { id: "tv", act: "screen", transition: "fade", theme: "black" },
   { id: "friends", act: "screen", transition: "curtain", theme: "sepia" },
   { id: "rachel", act: "screen", transition: "slide", theme: "sepia" },
   { id: "shelf", act: "screen", transition: "coverOpen", theme: "sepia" },
@@ -108,6 +108,8 @@ export type Album = {
 
 export type Live = { name: string; year: string; img: string; evidence?: string };
 
+export type ArtistInteraction = "cd" | "vinyl" | "book";
+
 export type Artist = {
   id: string;
   en: string;
@@ -116,6 +118,7 @@ export type Artist = {
   img: string;
   albums: Album[];
   live: Live;
+  interaction: ArtistInteraction;
   /** 内部研究依据（不显示在页面） */
   evidence?: string[];
 };
@@ -133,6 +136,7 @@ export const artists: Artist[] = [
       { name: "七里香", year: "2004", img: albumQilixiang, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
     ],
     live: { name: "无与伦比演唱会", year: "2004", img: liveJay, evidence: "2004 · 公认最经典现场" },
+    interaction: "cd",
     evidence: [
       "十一月的萧邦/叶惠美/七里香：豆瓣五星 + QQ「我喜欢」收藏",
       "无与伦比演唱会：公认为周杰伦最经典现场（2004），用户指定",
@@ -150,6 +154,7 @@ export const artists: Artist[] = [
       { name: "橙月", year: "2008", img: albumChengyue, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
     ],
     live: { name: "15 香港演唱会", year: "2011", img: liveKhalil, evidence: "豆瓣 ★5 · 《15》专辑亦 ★5" },
+    interaction: "vinyl",
     evidence: [
       "爱爱爱：QQ「我喜欢」收藏；未来/橙月：豆瓣五星 + QQ",
       "15 香港演唱会：豆瓣五星（2026-07-06）；《15》专辑亦五星",
@@ -167,6 +172,7 @@ export const artists: Artist[] = [
       { name: "华丽的冒险", year: "2005", img: albumHuaili, evidence: "豆瓣 ★5 · QQ 音乐收藏专辑" },
     ],
     live: { name: "花的姿态演唱会", year: "2007", img: liveCheer, evidence: "豆瓣 ★5 · 首场大型个唱" },
+    interaction: "book",
     evidence: [
       "让我想一想/吉他手/华丽的冒险：豆瓣五星 + QQ 收藏/歌曲",
       "花的姿态·演唱会经典实录：豆瓣五星（2026-04-21），首场大型个唱",
@@ -205,6 +211,25 @@ export const favouriteSeries = [
 ];
 
 // ------------------------------------------------------------
+//  THE CRATE — 唱片箱（次核心音乐人/收藏）
+// ------------------------------------------------------------
+export type CrateItem = { name: string; img?: string; tone?: string; note?: string };
+
+export const crateContent = {
+  items: [
+    { name: "王菲", img: faye, note: "天空" },
+    { name: "Adele", img: adele, note: "21" },
+    { name: "Billie Eilish", img: billie, note: "HIT ME HARD AND SOFT" },
+    { name: "Laufey", img: laufey, note: "Typical of Me" },
+    { name: "Norah Jones", img: norah, note: "Come Away with Me" },
+    { name: "天空", img: albumTiankong, note: "王菲 · 1994" },
+    { name: "收敛水", img: albumShoulian, note: "蛋堡 · 2009" },
+    { name: "完美的呻吟", tone: "#3A2A1E", note: "陈珊妮 · 2000" },
+    { name: "阿岳正传", tone: "#4C463F", note: "张震岳" },
+  ],
+};
+
+// ------------------------------------------------------------
 //  FOOTBALL
 // ------------------------------------------------------------
 export const miaContent = {
@@ -235,6 +260,33 @@ export const oliseContent = {
   img: oliseBayern,
   sequence: [oliseFr1, oliseFr2, oliseFr3],
   meta: "FC BAYERN · 2025",
+};
+
+// ------------------------------------------------------------
+//  MATCHDAY ARRIVAL — 进场
+// ------------------------------------------------------------
+export const arrivalContent = {
+  title: "MATCHDAY",
+  img: allianzNight,
+  note: "ARRIVAL",
+};
+
+// ------------------------------------------------------------
+//  TV — 客厅的电视
+// ------------------------------------------------------------
+export const tvContent = {
+  label: "TV",
+  hint: "turn it on",
+  friends: friends2,
+};
+
+// ------------------------------------------------------------
+//  CHANDLER — quiet like
+// ------------------------------------------------------------
+export const chandlerContent = {
+  name: "CHANDLER BING",
+  line: "could I BE more visible?",
+  img: chandler,
 };
 
 // ------------------------------------------------------------
@@ -274,9 +326,8 @@ export const shelfContent = {
 // ------------------------------------------------------------
 export const endingContent = {
   title: "深圳特产",
-  en: "YOUR SHENZHEN SPECIAL",
+  en: "01 / DIGITAL",
   line: "No snacks. Just code.",
-  madeFor: "Compiled for Chen Biaocong.",
   foot: "Compiled with friendship.",
   easterEgg: "苏州那份呢？",
 };

@@ -1284,3 +1284,626 @@
   .friends-scene__hint { right: 1.25rem; }
   .rachel-scene__egg { left: 1.25rem; }
 }
+
+/* ============================================================
+   V7 — EXPERIENCE FIRST：三个空间
+   ============================================================ */
+
+/* ---------- JAY：2000s CD EXPERIENCE ---------- */
+
+.cd-scene__copy { margin-top: clamp(1.2rem, 3vh, 2rem); }
+.cd-scene__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 3vw, 44px);
+}
+.cd-scene__zh { font-size: clamp(18px, 2vw, 26px); color: var(--ink-soft); margin-top: 0.2rem; }
+
+.cd-scene__desk {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(1.4rem, 3.5vw, 3rem);
+  padding: clamp(1.5rem, 4vh, 2.6rem) clamp(0.5rem, 2vw, 2rem);
+  margin-top: clamp(1rem, 3vh, 2rem);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.cd-case {
+  position: relative;
+  width: clamp(6.4rem, 10vw, 9.6rem);
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+}
+.cd-case__cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  overflow: hidden;
+  box-shadow: 0 18px 34px -16px rgba(25, 22, 19, 0.5);
+}
+.cd-case__cover img { width: 100%; height: 100%; object-fit: cover; }
+.cd-case__disc {
+  position: absolute;
+  left: 12%;
+  top: 12%;
+  width: 76%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #111 0 6%, transparent 6.5%),
+    repeating-radial-gradient(circle at 50% 50%, #d8d4ca 0 1px, #b8b3a6 1.5px 2.5px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.cd-case:hover .cd-case__disc { opacity: 0.35; }
+.cd-case__name {
+  font-size: 12px;
+  color: var(--ink);
+  margin-top: 0.7rem;
+}
+.cd-case__year { font-size: 10px; color: var(--muted); margin-top: 0.15rem; }
+
+.cd-scene__ticket {
+  position: absolute;
+  left: var(--pad-x);
+  bottom: clamp(3.4rem, 6vh, 4.6rem);
+  border: 0;
+  background: #E9DFC6;
+  padding: 0.8rem 1.1rem 0.7rem;
+  border-left: 2px dashed rgba(25, 22, 19, 0.35);
+  border-right: 2px dashed rgba(25, 22, 19, 0.35);
+  box-shadow: 0 14px 28px -14px rgba(25, 22, 19, 0.4);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transform: rotate(-2deg);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cd-scene__ticket:hover { transform: rotate(0deg) translateY(-4px); }
+.cd-scene__ticket-label { font-size: 9px; color: var(--snd-brown); }
+.cd-scene__ticket-name { font-size: 15px; color: var(--ink); margin-top: 0.25rem; }
+.cd-scene__ticket-year { font-size: 9px; color: var(--muted); margin-top: 0.2rem; }
+
+.cd-scene__open, .cd-scene__live {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.cd-scene__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 8, 6, 0.85);
+  cursor: pointer;
+}
+.cd-scene__case-open {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.cd-scene__case-cover {
+  width: min(24vh, 30vw);
+  overflow: hidden;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.8);
+}
+.cd-scene__case-cover img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.cd-scene__case-disc {
+  width: min(14vh, 18vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #111 0 7%, transparent 7.5%),
+    repeating-radial-gradient(circle at 50% 50%, #e6e2d8 0 1.5px, #b9b4a6 2px 3.5px);
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.7);
+  flex-shrink: 0;
+}
+.cd-scene__case-booklet { color: #fff; max-width: 18rem; }
+.cd-scene__case-kind { font-size: 10px; color: rgba(255, 255, 255, 0.5); }
+.cd-scene__case-name { font-size: clamp(24px, 3vw, 36px); margin-top: 0.4rem; }
+.cd-scene__case-year { font-size: 11px; color: rgba(255, 255, 255, 0.6); margin-top: 0.3rem; }
+.cd-scene__case-evidence { font-size: 10px; color: rgba(255, 255, 255, 0.45); margin-top: 0.9rem; }
+
+.cd-scene__live-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.cd-scene__live-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85) brightness(0.7); }
+.cd-scene__live-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 6, 5, 0.85), rgba(8, 6, 5, 0.25) 55%);
+}
+.cd-scene__live-copy {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+.cd-scene__live-tag { font-size: 10px; color: var(--snd-amber); }
+.cd-scene__live-name { font-size: clamp(28px, 4vw, 52px); margin-top: 0.4rem; }
+.cd-scene__live-year { font-size: 11px; color: rgba(255, 255, 255, 0.65); margin-top: 0.4rem; }
+
+/* ---------- KHALIL：RECORD STACK ---------- */
+
+.vinyl-scene { background: #171310; color: var(--bay-paper); }
+.vinyl-scene__copy { margin-top: clamp(1.2rem, 3vh, 2rem); }
+.vinyl-scene__name { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 3vw, 44px); color: #fff; }
+.vinyl-scene__zh { font-size: clamp(18px, 2vw, 26px); color: rgba(255, 255, 255, 0.75); margin-top: 0.2rem; }
+.vinyl-scene__pick { font-size: 10px; color: rgba(255, 255, 255, 0.45); margin-top: 0.6rem; letter-spacing: 0.28em; }
+
+.vinyl-scene__stack {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.4rem, 1vw, 0.8rem);
+  min-height: 0;
+  padding: 2rem 0;
+}
+.vinyl-record {
+  position: relative;
+  width: clamp(7rem, 11vw, 10rem);
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.vinyl-record img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: 0 24px 46px -20px rgba(0, 0, 0, 0.8);
+}
+.vinyl-record__name { font-size: 12px; color: #fff; margin-top: 0.6rem; }
+.vinyl-record__year { font-size: 10px; color: rgba(255, 255, 255, 0.5); margin-top: 0.15rem; }
+
+.vinyl-scene__live {
+  position: absolute;
+  left: clamp(1.2rem, 3vw, 2.6rem);
+  bottom: clamp(3.6rem, 7vh, 5rem);
+  width: clamp(5rem, 8vw, 7rem);
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.75;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.vinyl-scene__live:hover { opacity: 1; transform: translateX(8px); }
+.vinyl-scene__live img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  box-shadow: 0 18px 36px -16px rgba(0, 0, 0, 0.8);
+}
+.vinyl-scene__live-tag {
+  position: absolute;
+  top: 0.35rem;
+  left: 0.35rem;
+  font-size: 9px;
+  background: rgba(10, 8, 6, 0.75);
+  color: #fff;
+  padding: 0.16rem 0.36rem;
+}
+
+.vinyl-scene__picked, .vinyl-scene__live-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.vinyl-scene__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 6, 5, 0.88);
+  cursor: pointer;
+}
+.vinyl-scene__picked-cover {
+  position: relative;
+  z-index: 2;
+  width: min(28vh, 36vw);
+}
+.vinyl-scene__picked-cover img { width: 100%; aspect-ratio: 1; object-fit: cover; box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.85); }
+.vinyl-scene__picked-copy { color: #fff; max-width: 20rem; }
+.vinyl-scene__picked-kind { font-size: 10px; color: rgba(255, 255, 255, 0.5); }
+.vinyl-scene__picked-name { font-size: clamp(24px, 3vw, 38px); margin-top: 0.4rem; }
+.vinyl-scene__picked-year { font-size: 11px; color: rgba(255, 255, 255, 0.6); margin-top: 0.3rem; }
+.vinyl-scene__picked-evidence { font-size: 10px; color: rgba(255, 255, 255, 0.45); margin-top: 0.9rem; }
+
+.vinyl-scene__live-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.vinyl-scene__live-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85) brightness(0.65); }
+.vinyl-scene__live-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 6, 5, 0.85), rgba(8, 6, 5, 0.3) 55%);
+}
+.vinyl-scene__live-copy { position: relative; z-index: 2; text-align: center; color: #fff; }
+.vinyl-scene__live-copy .vinyl-scene__live-tag { position: static; display: inline-block; }
+.vinyl-scene__live-name { font-size: clamp(28px, 4vw, 52px); margin-top: 0.4rem; }
+.vinyl-scene__live-year { font-size: 11px; color: rgba(255, 255, 255, 0.65); margin-top: 0.4rem; }
+
+/* ---------- CHEER：BOOK / PHOTO ALBUM ---------- */
+
+.book-scene__copy { margin-top: clamp(1.2rem, 3vh, 2rem); }
+.book-scene__name { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 3vw, 44px); }
+.book-scene__zh { font-size: clamp(18px, 2vw, 26px); color: var(--ink-soft); margin-top: 0.2rem; }
+
+.book-scene__album {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  perspective: 1200px;
+}
+.book-scene__page {
+  width: min(30vh, 52vw);
+  aspect-ratio: 3 / 4;
+  background: #FAF6EC;
+  box-shadow: 0 30px 60px -24px rgba(25, 22, 19, 0.45);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.book-scene__cover {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: #EFE7D3;
+}
+.book-scene__cover-label { color: var(--snd-brown); }
+.book-scene__cover-name { font-size: clamp(28px, 4vw, 44px); color: var(--ink); }
+.book-scene__cover-meta { color: var(--muted); }
+
+.book-scene__page-inner, .book-scene__poster { height: 100%; position: relative; }
+.book-scene__page-inner img, .book-scene__poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.book-scene__page-meta, .book-scene__poster-meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.2rem;
+  background: linear-gradient(to top, rgba(10, 8, 6, 0.8), transparent);
+  color: #fff;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.book-scene__page-name { font-size: clamp(18px, 2.4vw, 26px); }
+.book-scene__page-year { font-size: 10px; color: rgba(255, 255, 255, 0.65); }
+.book-scene__poster-tag { font-size: 9px; color: var(--snd-amber); }
+.book-scene__poster-name { font-size: clamp(18px, 2.4vw, 26px); }
+.book-scene__poster-year { font-size: 10px; color: rgba(255, 255, 255, 0.65); }
+
+.book-scene__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.book-scene__nav-btn {
+  font-size: 14px;
+  color: var(--ink);
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+.book-scene__nav-btn:hover { border-color: var(--ink); }
+.book-scene__nav-btn:disabled { opacity: 0.3; cursor: default; }
+.book-scene__nav-pos { color: var(--muted); }
+
+/* ---------- THE CRATE ---------- */
+
+.crate-scene__copy { margin-top: clamp(1.2rem, 3vh, 2rem); display: flex; align-items: baseline; justify-content: space-between; }
+.crate-scene__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 3vw, 40px); text-transform: uppercase; }
+.crate-scene__hint { font-size: 10px; color: var(--muted); }
+
+.crate-scene__stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  perspective: 1200px;
+  cursor: grab;
+  position: relative;
+}
+.crate-scene__card {
+  position: absolute;
+  width: min(30vh, 44vw);
+  aspect-ratio: 1;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -24px rgba(25, 22, 19, 0.5);
+}
+.crate-scene__card img { width: 100%; height: 100%; object-fit: cover; }
+.crate-scene__card--back {
+  transform: translateX(-46px) rotateY(18deg);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.crate-scene__card--prev {
+  transform: translateX(46px) rotateY(-14deg);
+  opacity: 0.35;
+  pointer-events: none;
+}
+.crate-scene__card--front { position: relative; }
+.crate-scene__card-name {
+  position: absolute;
+  left: 1rem;
+  bottom: 0.9rem;
+  font-size: 15px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+.crate-scene__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.crate-scene__pos { color: var(--muted); }
+.crate-scene__dots { display: flex; gap: 0.4rem; }
+.crate-scene__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--line-strong);
+  padding: 0;
+  cursor: pointer;
+}
+.crate-scene__dot.is-active { background: var(--ink); }
+
+/* ---------- ARRIVAL ---------- */
+
+.arrival-scene__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.arrival-scene__bg img { width: 100%; height: 100%; object-fit: cover; }
+.arrival-scene__scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 60%, transparent 30%, rgba(8, 6, 5, 0.7) 100%);
+}
+.arrival-scene__title {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  margin: auto;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 64px);
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 3px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- TV ---------- */
+
+.tv-scene__room {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(90% 70% at 50% 45%, #141210 0%, #050403 100%);
+}
+.tv-scene__tv {
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: min(46vh, 70vw);
+}
+.tv-scene__screen {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: clamp(8px, 1.4vw, 16px) solid #0B0A08;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 80px rgba(255, 255, 255, 0.08), 0 40px 90px -30px rgba(0, 0, 0, 0.9);
+  background: #000;
+}
+.tv-scene__screen img { width: 100%; height: 100%; object-fit: cover; }
+.tv-scene__hint {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: rgba(239, 234, 224, 0.5);
+}
+
+/* ---------- Friends 名字与 Chandler ---------- */
+
+.friends-scene__names {
+  position: absolute;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: clamp(3.6rem, 7vh, 4.8rem);
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.6rem, 1.6vw, 1.4rem);
+  z-index: 3;
+}
+.friends-scene__name-btn {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.friends-scene__name-btn:hover { color: #fff; }
+.friends-scene__name-btn.is-hot { color: #fff; border-color: rgba(255, 255, 255, 0.6); }
+.friends-scene__name-btn--quiet { opacity: 0.8; }
+
+.friends-scene__chandler-line {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(7rem, 12vh, 9rem);
+  transform: translateX(-50%);
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+  z-index: 4;
+  white-space: nowrap;
+}
+
+.friends-scene__moment {
+  position: fixed;
+  inset: 0;
+  z-index: 720;
+  background: rgba(8, 6, 5, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.friends-scene__moment img {
+  max-width: min(60vh, 70vw);
+  max-height: 70vh;
+  object-fit: contain;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.9);
+}
+.friends-scene__moment-copy h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(24px, 3.4vw, 40px);
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Shelf：客厅 DVD 架 ---------- */
+
+.shelf-scene__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 3vw, 40px); margin-top: clamp(1.2rem, 3vh, 2rem); }
+.shelf-scene__hint { font-size: 10px; color: var(--muted); margin-top: 0.5rem; }
+
+.shelf-scene__rack {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(0.5rem, 1.1vw, 1rem);
+  min-height: 0;
+  margin-top: clamp(1.4rem, 4vh, 2.4rem);
+  padding: clamp(1rem, 3vh, 2rem) clamp(0.6rem, 1.6vw, 1.4rem);
+  background: rgba(25, 22, 19, 0.06);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.shelf-scene__dvd {
+  position: relative;
+  width: clamp(3.4rem, 5.5vw, 5rem);
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shelf-scene__dvd img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  box-shadow: 0 14px 26px -14px rgba(25, 22, 19, 0.55);
+}
+.shelf-scene__dvd-spine {
+  margin-top: 0.4rem;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.16em;
+}
+
+.shelf-scene__picked {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.shelf-scene__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 8, 6, 0.86);
+  cursor: pointer;
+}
+.shelf-scene__picked-cover {
+  position: relative;
+  z-index: 2;
+  width: min(24vh, 30vw);
+}
+.shelf-scene__picked-cover img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.85); }
+.shelf-scene__picked-copy { color: #fff; max-width: 20rem; }
+.shelf-scene__picked-kind { font-size: 10px; color: rgba(255, 255, 255, 0.5); }
+.shelf-scene__picked-name { font-size: clamp(24px, 3vw, 38px); margin-top: 0.4rem; }
+.shelf-scene__picked-year { font-size: 11px; color: rgba(255, 255, 255, 0.6); margin-top: 0.3rem; }
+
+@media (max-width: 900px) {
+  .cd-scene__desk { gap: 0.8rem; }
+  .cd-case { width: clamp(5rem, 26vw, 6.4rem); }
+  .cd-scene__ticket { left: 1.25rem; }
+  .cd-scene__case-open { flex-direction: column; gap: 1rem; }
+  .cd-scene__case-cover { width: min(30vh, 60vw); }
+  .cd-scene__case-disc { width: min(18vh, 34vw); }
+  .vinyl-scene__stack { gap: 0.3rem; }
+  .vinyl-record { width: clamp(5rem, 24vw, 6.4rem); }
+  .vinyl-scene__live { left: 1rem; bottom: 4rem; }
+  .vinyl-scene__picked, .vinyl-scene__live-stage { flex-direction: column; gap: 1rem; padding: 0 1.25rem; }
+  .vinyl-scene__picked-cover { width: min(30vh, 60vw); }
+  .book-scene__page { width: min(34vh, 74vw); }
+  .crate-scene__card { width: min(34vh, 74vw); }
+  .crate-scene__card--back { transform: translateX(-26px) rotateY(14deg); }
+  .crate-scene__card--prev { transform: translateX(26px) rotateY(-10deg); }
+  .friends-scene__names { flex-wrap: wrap; gap: 0.3rem 0.7rem; }
+  .friends-scene__chandler-line { white-space: normal; width: 90%; text-align: center; }
+  .shelf-scene__rack { overflow-x: auto; }
+  .shelf-scene__dvd { flex-shrink: 0; }
+  .shelf-scene__picked { flex-direction: column; gap: 1rem; padding: 0 1.25rem; }
+  .shelf-scene__picked-cover { width: min(30vh, 60vw); }
+}
