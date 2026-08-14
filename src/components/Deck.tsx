@@ -10,33 +10,33 @@ type VariantDef = ((d: number) => import("framer-motion").TargetAndTransition) |
 const variants: Record<TransitionKind, { enter: VariantDef; center: import("framer-motion").TargetAndTransition; exit: VariantDef }> = {
   fade: {
     enter: { opacity: 0 },
-    center: { opacity: 1, transition: { duration: 0.9, ease: EASE } },
-    exit: { opacity: 0, transition: { duration: 0.5, ease: EASE } },
+    center: { opacity: 1, transition: { duration: 0.6, ease: EASE } },
+    exit: { opacity: 0, transition: { duration: 0.4, ease: EASE } },
   },
   slide: {
     enter: (d: number) => ({ x: d > 0 ? "100%" : "-100%", opacity: 1 }),
-    center: { x: "0%", opacity: 1, transition: { duration: 0.8, ease: EASE } },
-    exit: (d: number) => ({ x: d > 0 ? "-28%" : "28%", opacity: 0.25, transition: { duration: 0.45, ease: EASE } }),
+    center: { x: "0%", opacity: 1, transition: { duration: 0.7, ease: EASE } },
+    exit: (d: number) => ({ x: d > 0 ? "-26%" : "26%", opacity: 0.2, transition: { duration: 0.38, ease: EASE } }),
   },
   coverOpen: {
-    enter: { scale: 0.94, opacity: 0 },
-    center: { scale: 1, opacity: 1, transition: { duration: 0.85, ease: EASE } },
-    exit: { scale: 1.06, opacity: 0, transition: { duration: 0.45, ease: EASE } },
+    enter: { scale: 0.95, opacity: 0 },
+    center: { scale: 1, opacity: 1, transition: { duration: 0.75, ease: EASE } },
+    exit: { scale: 1.05, opacity: 0, transition: { duration: 0.4, ease: EASE } },
   },
   curtain: {
     enter: { clipPath: "inset(0 0 100% 0)" },
-    center: { clipPath: "inset(0 0 0% 0)", transition: { duration: 0.95, ease: EASE } },
-    exit: { clipPath: "inset(100% 0 0 0)", transition: { duration: 0.5, ease: EASE } },
+    center: { clipPath: "inset(0 0 0% 0)", transition: { duration: 0.8, ease: EASE } },
+    exit: { clipPath: "inset(100% 0 0 0)", transition: { duration: 0.45, ease: EASE } },
   },
   hardCut: {
     enter: { opacity: 0 },
-    center: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
-    exit: { opacity: 0, transition: { duration: 0.18, ease: "easeIn" } },
+    center: { opacity: 1, transition: { duration: 0.25, ease: "easeOut" } },
+    exit: { opacity: 0, transition: { duration: 0.15, ease: "easeIn" } },
   },
   tunnel: {
-    enter: { scale: 1.16, opacity: 0 },
-    center: { scale: 1, opacity: 1, transition: { duration: 1, ease: EASE } },
-    exit: { scale: 0.94, opacity: 0, transition: { duration: 0.5, ease: EASE } },
+    enter: { scale: 1.15, opacity: 0 },
+    center: { scale: 1, opacity: 1, transition: { duration: 0.9, ease: EASE } },
+    exit: { scale: 0.95, opacity: 0, transition: { duration: 0.4, ease: EASE } },
   },
 };
 
@@ -150,6 +150,7 @@ export function Deck({ children }: DeckProps) {
         <AnimatePresence mode="wait" custom={dir} initial={false}>
           <motion.section
             key={current.id}
+            data-scene={current.id}
             className={`scene scene--${current.theme}`}
             custom={dir}
             variants={variants[current.transition]}

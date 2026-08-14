@@ -8,9 +8,9 @@ export function MatchdayScene() {
     <div className="scene-inner matchday-scene">
       <motion.div
         className="matchday-scene__bg"
-        initial={{ opacity: 0.5, scale: 1.06 }}
+        initial={{ opacity: 0.5, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.6, ease: EASE }}
+        transition={{ duration: 1.4, ease: EASE }}
       >
         <img src={matchdayContent.img} alt="Allianz Arena" />
         <div className="matchday-scene__scrim" />
@@ -21,33 +21,24 @@ export function MatchdayScene() {
         <span className="meta">02 / 03</span>
       </header>
 
-      <motion.div
-        className="matchday-scene__score"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, delay: 0.6, ease: EASE }}
-      >
-        <p className="meta matchday-scene__label">MATCHDAY — {matchdayContent.arena}</p>
-        <div className="matchday-scene__nums">
-          <span className="matchday-scene__team">{matchdayContent.home}</span>
-          <span className="matchday-scene__num">
-            <em>{matchdayContent.score}</em>
-            <span className="matchday-scene__dash">{matchdayContent.dash}</span>
-            {matchdayContent.away}
-          </span>
-          <span className="matchday-scene__team">{matchdayContent.away === "0" ? "SGE" : ""}</span>
-        </div>
-        <p className="meta matchday-scene__foot">{matchdayContent.foot}</p>
-      </motion.div>
-
-      <motion.p
-        className="matchday-scene__zh serif"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 1.3 }}
-      >
-        {matchdayContent.zh}
-      </motion.p>
+      <div className="matchday-scene__copy">
+        <motion.h2
+          className="matchday-scene__title"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.6, ease: EASE }}
+        >
+          {matchdayContent.title}
+        </motion.h2>
+        <motion.p
+          className="meta matchday-scene__arena"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+        >
+          {matchdayContent.arena}
+        </motion.p>
+      </div>
     </div>
   );
 }

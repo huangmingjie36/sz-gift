@@ -1,20 +1,18 @@
 import { Cursor } from "./components/Cursor";
 import { Deck } from "./components/Deck";
 import { Grain } from "./components/Grain";
-import { ActMusicScene } from "./scenes/ActMusicScene";
-import { AfterScene } from "./scenes/AfterScene";
-import { AlbumScene } from "./scenes/AlbumScene";
-import { DeepCutsScene } from "./scenes/DeepCutsScene";
+import { ArtistScene } from "./scenes/ArtistScene";
 import { DeutschlandScene } from "./scenes/DeutschlandScene";
 import { EndingScene } from "./scenes/EndingScene";
+import { FriendsArchiveScene } from "./scenes/FriendsArchiveScene";
 import { FriendsScene } from "./scenes/FriendsScene";
 import { InterFootballScene, InterScreenScene } from "./scenes/InterScene";
 import { MatchdayScene } from "./scenes/MatchdayScene";
 import { MiaScene } from "./scenes/MiaScene";
 import { OpeningScene } from "./scenes/OpeningScene";
-import { ScreenScene } from "./scenes/ScreenScene";
-import { ThreeScene } from "./scenes/ThreeScene";
-import { VoicesScene } from "./scenes/VoicesScene";
+import { SheetScene } from "./scenes/SheetScene";
+import { ShelfScene } from "./scenes/ShelfScene";
+import { artists } from "./data/scenes";
 import "./styles/global.css";
 import "./styles/scenes.css";
 
@@ -25,15 +23,14 @@ export default function App() {
       <Cursor />
       <Deck>
         <OpeningScene />
-        <ActMusicScene />
-        <ThreeScene />
-        <VoicesScene />
-        <AlbumScene />
-        <DeepCutsScene />
+        <ArtistScene artist={artists[0]} index={0} />
+        <ArtistScene artist={artists[1]} index={1} />
+        <ArtistScene artist={artists[2]} index={2} />
+        <SheetScene />
         <InterScreenScene />
         <FriendsScene />
-        <AfterScene />
-        <ScreenScene />
+        <ShelfScene />
+        <FriendsArchiveScene />
         <InterFootballScene />
         <MiaScene />
         <MatchdayScene />

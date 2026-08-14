@@ -1,5 +1,10 @@
 /* ============================================================
-   V2 — DECK / SCENE SYSTEM
+   V3 — DECK / SCENE SYSTEM
+   Typography Scale（V3）：
+   Hero  clamp(64px, 8vw, 128px) — 仅 Opening
+   Display clamp(42px, 5vw, 80px) — 幕间 / MIA / CONTACT SHEET 级
+   Primary clamp(30px, 3vw, 52px) — JAY CHOU / FRIENDS 级
+   Secondary 18–28px · Body 16–20px · Meta 11–14px
    ============================================================ */
 
 .deck {
@@ -21,13 +26,12 @@
 .scene--sepia { background: var(--frn-sepia); color: var(--ink); }
 .scene--black { background: var(--black); color: #EFEAE0; }
 .scene--night { background: #0E0C0A; color: var(--bay-paper); }
-.scene--red   { background: var(--bay-red); color: #FFF; }
 
 .scene-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: clamp(1.1rem, 3vh, 2.2rem) var(--pad-x) clamp(3.4rem, 6vh, 4rem);
+  padding: clamp(1.1rem, 3vh, 2rem) var(--pad-x) clamp(3.4rem, 6vh, 4rem);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -40,11 +44,13 @@
   justify-content: space-between;
   gap: 1rem;
   border-top: 1px solid var(--line);
-  padding-top: 0.9rem;
+  padding-top: 0.8rem;
   color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.22em;
   flex-shrink: 0;
 }
-.scene-head--light { border-color: rgba(237, 231, 218, 0.22); color: rgba(237, 231, 218, 0.55); }
+.scene-head--light { border-color: rgba(237, 231, 218, 0.2); color: rgba(237, 231, 218, 0.5); }
 
 /* ---------- deck nav ---------- */
 
@@ -58,19 +64,19 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.9rem var(--pad-x) 1rem;
+  padding: 0.8rem var(--pad-x) 0.9rem;
   pointer-events: none;
   mix-blend-mode: difference;
   color: #fff;
 }
-.decknav__pos { color: rgba(255, 255, 255, 0.75); }
+.decknav__pos { font-size: 11px; color: rgba(255, 255, 255, 0.7); }
 .decknav__acts { display: flex; gap: clamp(0.8rem, 2vw, 1.6rem); pointer-events: auto; }
 .decknav__act {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.26em;
-  color: rgba(255, 255, 255, 0.55);
-  transition: color 0.3s ease;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.25s ease;
 }
 .decknav__act.is-active { color: #fff; }
 .decknav__bar {
@@ -79,7 +85,7 @@
   right: var(--pad-x);
   bottom: 0;
   height: 2px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
 }
 .decknav__bar span {
   display: block;
@@ -89,77 +95,54 @@
 }
 
 /* ============================================================
-   OPENING
+   OPENING — 一个名字，几件事，一个入口。
    ============================================================ */
 
-.opening-scene__wm {
-  position: absolute;
-  inset: -6%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.opening-scene { justify-content: center; }
+.opening-scene__name {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(6rem, 20vw, 20rem);
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(25, 22, 19, 0.05);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-}
-.opening-scene__top {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-}
-.opening-scene__body {
-  position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.opening-scene__kicker { color: var(--muted); margin-bottom: 1.2rem; }
-.opening-scene__name { margin: 0; }
-.opening-scene__en {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(3rem, 10.5vw, 10rem);
-  line-height: 0.92;
+  font-size: clamp(64px, 8vw, 128px);
+  line-height: 0.95;
   letter-spacing: -0.015em;
-  display: inline-block;
+  color: var(--ink);
 }
 .opening-scene__zh {
-  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-size: clamp(24px, 3vw, 40px);
   color: var(--ink-soft);
-  margin-top: 1.4rem;
+  margin-top: 0.9rem;
 }
-.opening-scene__tagline {
-  font-style: italic;
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
+.opening-scene__things {
+  font-size: 13px;
+  letter-spacing: 0.3em;
   color: var(--muted);
-  margin-top: 0.5rem;
+  margin-top: 2.4rem;
 }
+.opening-scene__foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: clamp(3rem, 9vh, 5rem);
+}
+.opening-scene__foot .meta { font-size: 12px; color: var(--muted); }
+
 .enter-btn {
-  margin-top: clamp(2.2rem, 6vh, 3.5rem);
   display: inline-flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 0.9rem;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.42em;
+  font-size: 12px;
+  letter-spacing: 0.36em;
   text-transform: uppercase;
   color: var(--ink);
 }
 .enter-btn i {
   display: block;
-  width: 2.6rem;
+  width: 2.2rem;
   height: 1px;
   background: currentColor;
   position: relative;
-  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .enter-btn i::after {
   content: "";
@@ -172,12 +155,7 @@
   border-bottom: 1px solid currentColor;
   transform: rotate(45deg);
 }
-.enter-btn:hover i { width: 4.2rem; }
-.opening-scene__bottom {
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-}
+.enter-btn:hover i { width: 3.4rem; }
 
 /* ============================================================
    ACT 幕间
@@ -186,576 +164,356 @@
 .act-scene {
   align-items: flex-start;
   justify-content: center;
-  padding-bottom: clamp(4rem, 10vh, 8rem);
 }
-.act-scene--dark { background: var(--ink); color: var(--paper); }
 .act-scene__roman {
-  font-size: clamp(4rem, 12vw, 10rem);
+  font-size: clamp(56px, 9vw, 110px);
   line-height: 1;
   color: var(--muted);
 }
-.act-scene--dark .act-scene__roman { color: rgba(241, 236, 226, 0.25); }
+.act-scene--dark .act-scene__roman { color: rgba(241, 236, 226, 0.22); }
 .act-scene__title {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2.6rem, 8vw, 7rem);
+  font-weight: 800;
+  font-size: clamp(42px, 5vw, 80px);
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  margin-top: 0.4rem;
+  margin-top: 0.3rem;
 }
 .act-scene__title--dark { color: var(--paper); }
-.act-scene__zh {
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  color: var(--ink-soft);
-  margin-top: 1.6rem;
-}
-.act-scene__zh--dark { color: rgba(241, 236, 226, 0.65); }
 
 /* ============================================================
-   THE THREE
+   MUSIC — 三人各一屏。照片是主角，文字让路。
    ============================================================ */
 
-.three-scene__grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1.35fr 1fr 0.9fr;
-  grid-template-rows: 1fr 1fr;
-  gap: clamp(0.6rem, 1.4vw, 1.2rem);
-  margin-top: clamp(1rem, 3vh, 1.8rem);
-  min-height: 0;
-}
-.three-scene__card { margin: 0; position: relative; overflow: hidden; min-height: 0; }
-.three-scene__card--jay {
-  grid-row: 1 / 3;
-  grid-column: 1;
-}
-.three-scene__card--khalil { grid-row: 1; grid-column: 2; }
-.three-scene__card--cheer { grid-row: 2; grid-column: 2; }
-
-.three-scene__img {
+.artist-scene__bg {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  z-index: 0;
 }
-.three-scene__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.92);
-}
-.three-scene__card figcaption {
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1.1rem;
-  pointer-events: none;
-}
-.three-scene__card--jay figcaption { left: 0; bottom: 0; }
-.three-scene__card--khalil figcaption { left: 0; bottom: 0; }
-.three-scene__card--cheer figcaption { left: 0; top: 0; }
-
-.three-scene__tag { color: #fff; opacity: 0.85; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); }
-.three-scene__en {
-  font-size: clamp(1.4rem, 3vw, 3rem);
-  color: #fff;
-  margin-top: 0.2rem;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
-}
-.three-scene__card--jay .three-scene__en { font-size: clamp(2.4rem, 5.6vw, 6rem); }
-.three-scene__zh {
-  font-size: clamp(1rem, 1.8vw, 1.6rem);
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-}
-.three-scene__line { color: rgba(255, 255, 255, 0.75); margin-top: 0.35rem; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5); }
-
-/* 第三张卡：右侧下方，用透明渐变文字背景保证可读 */
-.three-scene__card--cheer::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(10, 8, 6, 0.55), transparent 55%);
-  pointer-events: none;
-}
-.three-scene__card--jay::after,
-.three-scene__card--khalil::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(10, 8, 6, 0.6), transparent 55%);
-  pointer-events: none;
-}
-
-.three-scene__note {
-  font-style: italic;
-  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
-  color: var(--ink-soft);
-  margin-top: 1rem;
-  flex-shrink: 0;
-}
-
-/* ============================================================
-   OTHER VOICES
-   ============================================================ */
-
-.voices-scene__grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  align-items: center;
-  min-height: 0;
-}
-.voices-scene__copy { align-self: center; }
-.voices-scene__title { font-size: clamp(2.2rem, 5.5vw, 5rem); }
-.voices-scene__zh {
-  font-size: clamp(1.05rem, 1.9vw, 1.45rem);
-  color: var(--ink-soft);
-  margin-top: 1.4rem;
-  line-height: 1.8;
-}
-.voices-scene__note { color: var(--muted); margin-top: 1.2rem; line-height: 2; }
-
-.voices-scene__wall {
-  position: relative;
-  height: 100%;
-  min-height: 0;
-}
-.voices-scene__photo,
-.voices-scene__album {
-  position: absolute;
-  overflow: hidden;
-  box-shadow: 0 18px 36px -18px rgba(25, 22, 19, 0.45);
-}
-.voices-scene__photo img,
-.voices-scene__album img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.voices-scene__photo figcaption {
-  position: absolute;
-  left: 0.5rem;
-  bottom: 0.4rem;
-  color: #fff;
-  font-size: 0.58rem;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-}
-
-.voices-scene__photo--1 { width: 30%; height: 52%; left: 0; top: 4%; }
-.voices-scene__photo--2 { width: 26%; height: 46%; left: 33%; top: 2%; }
-.voices-scene__photo--3 { width: 26%; height: 42%; left: 61%; top: 6%; }
-.voices-scene__photo--4 { width: 24%; height: 40%; left: 8%; top: 58%; }
-.voices-scene__photo--5 { width: 24%; height: 40%; left: 36%; top: 54%; }
-
-.voices-scene__album--1 { width: 18%; aspect-ratio: 1; right: 0; top: 40%; }
-.voices-scene__album--2 { width: 15%; aspect-ratio: 1; right: 13%; top: 20%; }
-.voices-scene__album--3 { width: 14%; aspect-ratio: 1; right: 0; top: 4%; }
-.voices-scene__album--4 { width: 15%; aspect-ratio: 1; right: 22%; top: 62%; }
-.voices-scene__album--5 { width: 13%; aspect-ratio: 1; right: 6%; top: 72%; }
-.voices-scene__album--6 { width: 14%; aspect-ratio: 1; right: 40%; top: 4%; }
-
-/* ============================================================
-   ONE ALBUM / ONE NIGHT
-   ============================================================ */
-
-.album-scene__grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-  min-height: 0;
-}
-.album-scene__cover {
-  justify-self: center;
-  width: min(34vh, 60vw);
-  aspect-ratio: 1;
-  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7);
-}
-.album-scene__cover img { width: 100%; height: 100%; object-fit: cover; }
-.album-scene__cover-meta { display: block; margin-top: 1rem; color: rgba(237, 231, 218, 0.5); }
-.album-scene__kicker { color: var(--snd-amber); }
-.album-scene__name {
-  font-size: clamp(2rem, 4.5vw, 4rem);
-  color: var(--bay-paper);
-  margin-top: 0.8rem;
-}
-.album-scene__zh {
-  font-size: clamp(1.05rem, 1.9vw, 1.4rem);
-  color: rgba(237, 231, 218, 0.75);
-  margin-top: 1.4rem;
-}
-.album-scene__line {
-  font-style: italic;
-  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
-  color: rgba(237, 231, 218, 0.55);
-  margin-top: 1.2rem;
-}
-
-/* ============================================================
-   DEEP CUTS
-   ============================================================ */
-
-.deepcuts-scene__title { font-size: clamp(2.2rem, 5vw, 4.6rem); }
-.deepcuts-scene__zh {
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
-  color: var(--ink-soft);
-  margin-top: 1rem;
-}
-.deepcuts-scene__grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0 clamp(1.5rem, 3vw, 3rem);
-  align-content: center;
-  min-height: 0;
-}
-.deepcuts-scene__item {
-  border-top: 1px solid var(--line);
-  padding: 1.1rem 0 1.4rem;
-  position: relative;
-}
-.deepcuts-scene__no { position: absolute; right: 0; top: 1.1rem; color: var(--faint); }
-.deepcuts-scene__name { font-size: clamp(1.2rem, 2.2vw, 1.9rem); color: var(--ink); }
-.deepcuts-scene__work { color: var(--ink-soft); margin-top: 0.3rem; font-size: 0.95rem; }
-.deepcuts-scene__tag { color: var(--snd-brown); margin-top: 0.5rem; display: inline-block; }
-
-/* ============================================================
-   FRIENDS
-   ============================================================ */
-
-.friends-scene__grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-  min-height: 0;
-}
-.friends-scene__kicker {
-  color: var(--frn-brown);
-  letter-spacing: 0.4em;
-}
-.friends-scene__title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(1.9rem, 4.4vw, 4rem);
-  line-height: 0.95;
-  margin-top: 1rem;
-  letter-spacing: -0.015em;
-}
-.friends-scene__title em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--frn-red);
-}
-.friends-scene__zh {
-  font-size: clamp(1.05rem, 1.9vw, 1.4rem);
-  color: var(--ink-soft);
-  margin-top: 1.4rem;
-  line-height: 1.8;
-}
-.friends-scene__meta { color: var(--frn-brown); margin-top: 1.1rem; }
-.friends-scene__quote {
-  font-style: italic;
-  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
-  color: var(--ink);
-  margin-top: 1.4rem;
-}
-.friends-scene__visual { min-height: 0; display: flex; flex-direction: column; gap: 0.7rem; }
-.friends-scene__main {
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-  box-shadow: 0 24px 50px -22px rgba(25, 22, 19, 0.45);
-}
-.friends-scene__main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-}
-.friends-scene__strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  flex-shrink: 0;
-}
-.friends-scene__strip-img {
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-}
-.friends-scene__strip-img img {
+.artist-scene__bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: saturate(0.9);
 }
-
-/* ============================================================
-   AFTER CENTRAL PERK
-   ============================================================ */
-
-.after-scene__title { font-size: clamp(2.2rem, 5vw, 4.6rem); }
-.after-scene__zh {
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
-  color: var(--ink-soft);
-  margin-top: 0.9rem;
-}
-.after-scene__wall {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(1rem, 2.4vw, 2rem);
-  align-items: end;
-  min-height: 0;
-}
-.after-scene__poster { margin: 0; }
-.after-scene__poster-img {
-  aspect-ratio: 2 / 3;
-  overflow: hidden;
-  box-shadow: 0 22px 44px -20px rgba(25, 22, 19, 0.5);
-  background: #171310;
-}
-.after-scene__poster-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.after-scene__poster:nth-child(2) .after-scene__poster-img { transform: translateY(-1.4rem); }
-.after-scene__poster:nth-child(4) .after-scene__poster-img { transform: translateY(-2.2rem); }
-.after-scene__poster figcaption {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.6rem;
-  margin-top: 0.7rem;
-}
-.after-scene__name { font-size: 1.05rem; color: var(--ink); }
-.after-scene__note { color: var(--frn-brown); }
-
-/* ============================================================
-   YOUR SCREEN
-   ============================================================ */
-
-.screen-scene__grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-  min-height: 0;
-}
-.screen-scene__title { font-size: clamp(2.2rem, 5vw, 4.6rem); }
-.screen-scene__statement {
-  font-style: italic;
-  font-size: clamp(1.05rem, 1.9vw, 1.45rem);
-  color: var(--ink-soft);
-  margin-top: 1.4rem;
-  line-height: 1.8;
-}
-.screen-scene__meta { color: var(--muted); margin-top: 1.2rem; }
-
-.screen-scene__wall {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(0.8rem, 1.6vw, 1.4rem);
-}
-.screen-scene__film {
-  margin: 0;
-  overflow: hidden;
-  box-shadow: 0 18px 36px -18px rgba(25, 22, 19, 0.4);
-  position: relative;
-  aspect-ratio: 2 / 3;
-}
-.screen-scene__film img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.screen-scene__film figcaption {
-  position: absolute;
-  left: 0.5rem;
-  bottom: 0.4rem;
-  color: #fff;
-  font-size: 0.58rem;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65);
-}
-.screen-scene__film--2 { transform: translateY(-1rem); }
-.screen-scene__film--5 { transform: translateY(1rem); }
-
-/* ============================================================
-   MIA SAN MIA
-   ============================================================ */
-
-.mia-scene__bg {
+.artist-scene__scrim {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10, 8, 6, 0.55) 0%,
+    rgba(10, 8, 6, 0.18) 45%,
+    rgba(10, 8, 6, 0.05) 70%,
+    rgba(10, 8, 6, 0.3) 100%
+  );
 }
-.mia-scene__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.82) contrast(1.06);
-}
-.mia-scene__scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(8, 6, 5, 0.82) 0%, rgba(8, 6, 5, 0.25) 45%, rgba(8, 6, 5, 0.35) 100%);
-}
-.mia-scene__copy {
+.artist-scene__copy {
   position: relative;
   z-index: 2;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-bottom: clamp(2rem, 5vh, 3.5rem);
+  padding-bottom: clamp(1.6rem, 4vh, 2.6rem);
 }
-.mia-scene__title {
+.artist-scene__name {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2.8rem, 8vw, 8rem);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 0.9;
+  font-weight: 800;
+  font-size: clamp(30px, 3.2vw, 52px);
   color: #fff;
-  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.01em;
 }
-.mia-scene__club { color: #fff; opacity: 0.9; margin-top: 0.9rem; }
-.mia-scene__zh {
-  font-size: clamp(1.05rem, 1.9vw, 1.4rem);
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 1.1rem;
-  max-width: 30rem;
+.artist-scene__zh {
+  font-size: clamp(20px, 2.4vw, 30px);
+  color: rgba(255, 255, 255, 0.92);
+  margin-top: 0.35rem;
 }
-.mia-scene__meta { color: rgba(255, 255, 255, 0.55); margin-top: 1rem; }
+.artist-scene__meta {
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1rem;
+}
 
 /* ============================================================
-   MATCHDAY
+   CONTACT SHEET — 只放人。hover 才给信息。
    ============================================================ */
 
-.matchday-scene__bg {
+.sheet-scene__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 44px);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: clamp(1.2rem, 3vh, 2rem);
+}
+.sheet-scene__grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(0.5rem, 1vw, 0.9rem);
+  align-content: center;
+  min-height: 0;
+  margin-top: clamp(1rem, 2.5vh, 1.6rem);
+}
+.sheet-scene__cell {
+  margin: 0;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #171310;
+}
+.sheet-scene__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.9);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sheet-scene__cell figcaption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.7rem;
+  background: linear-gradient(to top, rgba(10, 8, 6, 0.78), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.sheet-scene__cell:hover img { transform: scale(1.04); }
+.sheet-scene__cell:hover figcaption { opacity: 1; }
+.sheet-scene__cell-name { font-size: 16px; color: #fff; }
+.sheet-scene__cell-info { font-size: 10px; letter-spacing: 0.16em; color: rgba(255, 255, 255, 0.7); margin-top: 0.2rem; }
+
+.sheet-scene__lately {
+  position: absolute;
+  right: var(--pad-x);
+  bottom: clamp(3.6rem, 7vh, 4.6rem);
+  width: min(22rem, 40vw);
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+  background: linear-gradient(to top, var(--paper) 75%, transparent);
+}
+.sheet-scene__lately-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--snd-brown);
+}
+.sheet-scene__lately ul { margin-top: 0.6rem; }
+.sheet-scene__lately li {
+  display: grid;
+  grid-template-columns: 1.8rem 1fr auto;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 15px;
+  color: var(--ink);
+}
+.sheet-scene__lately li .meta { font-size: 10px; color: var(--muted); }
+.sheet-scene__lately-note {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--faint);
+  margin-top: 0.6rem;
+}
+.sheet-scene__favourites {
+  position: absolute;
+  left: var(--pad-x);
+  bottom: clamp(3.6rem, 7vh, 4.6rem);
+  max-width: 34vw;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  line-height: 2;
+  color: var(--muted);
+}
+
+/* ============================================================
+   SCREEN
+   ============================================================ */
+
+.friends-scene__bg {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
-.matchday-scene__bg img {
+.friends-scene__bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.8) brightness(0.85);
+  filter: saturate(0.92);
 }
-.matchday-scene__scrim {
+.friends-scene__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(8, 6, 5, 0.85) 0%, rgba(8, 6, 5, 0.2) 55%);
+  background: linear-gradient(to top, rgba(20, 14, 8, 0.75) 0%, rgba(20, 14, 8, 0.2) 45%, rgba(20, 14, 8, 0.25) 100%);
 }
-.matchday-scene__score {
+.friends-scene__copy {
   position: relative;
   z-index: 2;
-  margin-top: auto;
-}
-.matchday-scene__label { color: rgba(255, 255, 255, 0.7); }
-.matchday-scene__nums {
+  flex: 1;
   display: flex;
-  align-items: baseline;
-  gap: clamp(0.8rem, 2vw, 1.4rem);
-  margin-top: 0.6rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(1.6rem, 4vh, 2.6rem);
 }
-.matchday-scene__team {
+.friends-scene__name {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.75);
+}
+.friends-scene__line {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(1.1rem, 2.6vw, 2rem);
+  font-size: clamp(42px, 5vw, 80px);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
   color: #fff;
-  letter-spacing: 0.12em;
+  margin-top: 0.6rem;
+  text-shadow: 0 3px 30px rgba(0, 0, 0, 0.4);
 }
-.matchday-scene__num {
+
+/* ON YOUR SHELF */
+
+.shelf-scene__title {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(3rem, 9vw, 8rem);
-  line-height: 1;
-  color: #fff;
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 44px);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: clamp(1.2rem, 3vh, 2rem);
 }
-.matchday-scene__num em { color: var(--bay-red); font-style: normal; }
-.matchday-scene__dash {
-  font-size: 0.4em;
-  color: rgba(255, 255, 255, 0.4);
-  padding: 0 0.2em;
-  font-weight: 500;
-}
-.matchday-scene__foot { color: rgba(255, 255, 255, 0.6); margin-top: 0.8rem; }
-.matchday-scene__zh {
-  position: relative;
-  z-index: 2;
-  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.75);
-  margin-top: 1.2rem;
-}
-
-/* ============================================================
-   DEUTSCHLAND
-   ============================================================ */
-
-.deutschland-scene__grid {
+.shelf-scene__wall {
   flex: 1;
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(0.8rem, 1.8vw, 1.6rem);
+  align-content: center;
+  min-height: 0;
+  margin-top: clamp(1rem, 2.5vh, 1.6rem);
+}
+.shelf-scene__poster {
+  margin: 0;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: #171310;
+  box-shadow: 0 16px 32px -18px rgba(25, 22, 19, 0.45);
+}
+.shelf-scene__poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.shelf-scene__poster figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+.shelf-scene__name { font-size: 15px; color: var(--ink); }
+.shelf-scene__meta { font-size: 10px; color: var(--frn-brown); }
+
+/* FRIENDS ARCHIVE */
+
+.friends-archive-scene__grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
   min-height: 0;
 }
-.deutschland-scene__title {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2.2rem, 5vw, 5rem);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  color: var(--bay-paper);
-}
-.deutschland-scene__sub { color: rgba(237, 231, 218, 0.55); margin-top: 0.8rem; }
-.deutschland-scene__zh {
-  font-size: clamp(1.05rem, 1.9vw, 1.4rem);
-  color: rgba(237, 231, 218, 0.8);
-  margin-top: 1.4rem;
-  line-height: 1.8;
-}
-.deutschland-scene__meta { color: rgba(237, 231, 218, 0.5); margin-top: 1rem; }
-.deutschland-scene__extra {
-  margin-top: 1.6rem;
-  width: min(9rem, 30%);
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  border: 1px solid rgba(237, 231, 218, 0.2);
-}
-.deutschland-scene__extra img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.4);
-}
-.deutschland-scene__extra figcaption {
-  color: rgba(237, 231, 218, 0.5);
-  margin-top: 0.4rem;
-  font-size: 0.58rem;
-}
-.deutschland-scene__photo {
+.friends-archive-scene__photo {
   height: 100%;
   min-height: 0;
   overflow: hidden;
-  box-shadow: 0 30px 70px -28px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 26px 54px -24px rgba(25, 22, 19, 0.5);
 }
-.deutschland-scene__photo img {
+.friends-archive-scene__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.88);
+  filter: saturate(0.9);
+}
+.friends-archive-scene__fact {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  color: var(--frn-brown);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(25, 22, 19, 0.14);
+}
+.friends-archive-scene__quote {
+  font-style: italic;
+  font-size: clamp(24px, 3vw, 36px);
+  color: var(--ink);
+  margin-top: 1.6rem;
+}
+
+/* ============================================================
+   FOOTBALL — 照片为主，几乎不说话。
+   ============================================================ */
+
+.mia-scene__bg,
+.matchday-scene__bg,
+.deutschland-scene__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.mia-scene__bg img,
+.matchday-scene__bg img,
+.deutschland-scene__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mia-scene__bg img { filter: saturate(0.86) contrast(1.05); }
+.matchday-scene__bg img { filter: saturate(0.82) brightness(0.9); }
+.deutschland-scene__bg img { filter: saturate(0.9); }
+
+.mia-scene__scrim,
+.matchday-scene__scrim,
+.deutschland-scene__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 6, 5, 0.78) 0%, rgba(8, 6, 5, 0.15) 50%, rgba(8, 6, 5, 0.3) 100%);
+}
+
+.mia-scene__copy,
+.matchday-scene__copy,
+.deutschland-scene__copy {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(1.6rem, 4vh, 2.6rem);
+}
+
+.mia-scene__title,
+.matchday-scene__title,
+.deutschland-scene__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(42px, 5vw, 80px);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  color: #fff;
+  text-shadow: 0 3px 32px rgba(0, 0, 0, 0.45);
+}
+.mia-scene__title .dot { color: var(--bay-red); }
+.mia-scene__club,
+.matchday-scene__arena,
+.deutschland-scene__sub {
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 0.8rem;
 }
 
 /* ============================================================
@@ -770,37 +528,36 @@
 .ending-scene__line-1 {
   font-family: var(--font-display);
   font-weight: 700;
+  font-size: clamp(26px, 3.4vw, 48px);
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  font-size: clamp(1.6rem, 4vw, 3.4rem);
 }
 .ending-scene__line-2 {
   font-style: italic;
-  font-size: clamp(1rem, 1.9vw, 1.4rem);
+  font-size: clamp(18px, 2vw, 26px);
   color: rgba(239, 234, 224, 0.5);
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
 }
 .ending-scene__line-3 {
   font-family: var(--font-display);
   font-weight: 800;
+  font-size: clamp(30px, 4.4vw, 64px);
   text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 0.95;
-  font-size: clamp(1.9rem, 5.6vw, 5rem);
-  margin-top: clamp(2rem, 6vh, 4rem);
+  line-height: 1;
+  margin-top: clamp(2rem, 6vh, 3.6rem);
 }
 .ending-scene__name {
-  font-size: clamp(1.3rem, 2.8vw, 2.4rem);
+  font-size: clamp(22px, 2.8vw, 34px);
   color: rgba(239, 234, 224, 0.85);
-  margin-top: 1.4rem;
+  margin-top: 1.1rem;
 }
 .ending-scene__foot {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.34em;
+  font-size: 12px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(239, 234, 224, 0.55);
-  margin-top: clamp(2.4rem, 7vh, 4rem);
+  margin-top: clamp(2.2rem, 6vh, 3.4rem);
   cursor: pointer;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s ease, color 0.3s ease;
@@ -808,46 +565,39 @@
 .ending-scene__foot:hover { color: #fff; border-color: rgba(239, 234, 224, 0.5); }
 .ending-scene__egg {
   font-style: italic;
-  font-size: 0.95rem;
+  font-size: 15px;
   color: rgba(239, 234, 224, 0.6);
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   min-height: 1.4rem;
 }
 
 /* ============================================================
-   RESPONSIVE — DECK
+   RESPONSIVE
    ============================================================ */
 
 @media (max-width: 900px) {
   .scene-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
 
-  .three-scene__grid { grid-template-columns: 1fr 1fr; grid-template-rows: 1.2fr 1fr 1fr; }
-  .three-scene__card--jay { grid-row: 1; grid-column: 1 / 3; }
-  .three-scene__card--khalil { grid-row: 2; grid-column: 1; }
-  .three-scene__card--cheer { grid-row: 2; grid-column: 2; }
+  .artist-scene__scrim {
+    background: linear-gradient(to top, rgba(10, 8, 6, 0.6), rgba(10, 8, 6, 0.12) 60%);
+  }
 
-  .voices-scene__grid { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 1rem; }
-  .voices-scene__copy { text-align: left; }
-  .voices-scene__wall { min-height: 40vh; }
+  .sheet-scene__grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .sheet-scene__lately {
+    position: static;
+    width: 100%;
+    margin-top: 1.2rem;
+    background: none;
+  }
+  .sheet-scene__favourites {
+    position: static;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
 
-  .album-scene__grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .album-scene__cover { width: min(36vh, 70vw); }
+  .shelf-scene__wall { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  .shelf-scene__poster:nth-child(n + 10) { display: none; }
 
-  .deepcuts-scene__grid { grid-template-columns: repeat(2, 1fr); align-content: start; overflow-y: auto; }
-
-  .friends-scene__grid { grid-template-columns: 1fr; gap: 1.2rem; }
-  .friends-scene__visual { min-height: 34vh; }
-
-  .after-scene__wall { grid-template-columns: repeat(2, 1fr); align-content: start; overflow-y: auto; }
-  .after-scene__poster:nth-child(2) .after-scene__poster-img,
-  .after-scene__poster:nth-child(4) .after-scene__poster-img { transform: none; }
-
-  .screen-scene__grid { grid-template-columns: 1fr; gap: 1.2rem; }
-  .screen-scene__wall { grid-template-columns: repeat(3, 1fr); }
-  .screen-scene__film--2, .screen-scene__film--5 { transform: none; }
-
-  .deutschland-scene__grid { grid-template-columns: 1fr; gap: 1.2rem; }
-  .deutschland-scene__photo { height: 42vh; }
-
-  .decknav__acts { gap: 0.8rem; }
+  .friends-archive-scene__grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .friends-archive-scene__photo { height: 44vh; }
 }

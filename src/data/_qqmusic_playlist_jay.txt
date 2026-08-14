@@ -1,0 +1,259 @@
+Window: "", App: QQ音乐.
+0 标准窗口 ID: QQMianWindow, Secondary Actions: Raise
+	1 面板 标题栏
+		2 按钮 关闭
+		3 按钮 最小化
+	4 滚动区
+		5 外框
+			6 row (selectable, expanded) Secondary Actions: Collapse, Description: 推荐
+乐馆
+刷歌
+AI伴听
+areaAddDarkThin
+			7 row (selectable, expanded) Description: 我的音乐, Secondary Actions: Collapse
+			8 row (selectable) 喜欢
+			9 row (selectable) 最近
+			10 row (selectable) 本地
+			11 row (selectable, expanded) Value: |, Secondary Actions: Collapse, 自建歌单
+收藏歌单, Description: 自建歌单
+收藏歌单
+添加新歌单
+	12 面板 个人中心
+		13 文本 Description: 用户名:点击登录, Value: Adores
+	14 面板 标题栏
+		15 按钮 Description: 上一步, Help: 后退
+		16 按钮 Description: 下一步, Help: 前进
+		17 按钮 刷新
+		18 文本框 搜索
+	19 面板 播放控制栏
+		20 按钮 上一首
+		21 按钮 播放
+		22 按钮 下一首
+		23 按钮 Description: 播放模式（顺序播放）, Help: 顺序播放
+		24 文本 QQ音乐 - 听我想听
+		25 按钮 Description: 添加到我喜欢, Help: 喜欢
+		26 按钮 更多操作
+		27 按钮 评论
+		28 按钮 音效选择（音效未打开）
+		29 按钮 播放列表
+	30 按钮 更多
+	31 按钮 Description: 皮肤, Help: 换肤
+	32 滚动区
+		33 HTML内容 Description: QQ音乐, URL: y.qq.com/wk_v17/#/profile?uin=ownkow-loe4qNv**
+			34 标题 ppppettis_ 83 勋章, Value: 1
+				35 文本 ppppettis_
+				36 图像
+				37 图像
+				38 text 83 勋章
+			39 文本 暂无
+			40 container
+				41 文本 粉丝：
+				42 link 3, Value: javascript:;
+				43 文本 关注：
+				44 link 32, Value: javascript:;
+			45 文本 关注
+			46 container
+				47 text 我喜欢 创建的歌单 32
+			48 container
+				49 container
+					50 图像 ALL
+					51 文本 播放
+				52 标题 ALL, Value: 3
+					53 container ALL
+						54 文本 ALL
+				55 container
+					56 图像 THIS MOMENT
+					57 文本 播放
+				58 标题 THIS MOMENT, Value: 3
+					59 container THIS MOMENT
+						60 文本 THIS MOMENT
+				61 container
+					62 图像 QUIET
+					63 文本 播放
+				64 标题 QUIET, Value: 3
+					65 container QUIET
+						66 文本 QUIET
+				67 container
+					68 图像 BLUE
+					69 文本 播放
+				70 标题 BLUE, Value: 3
+					71 container BLUE
+						72 文本 BLUE
+				73 container
+					74 图像 CHORUS
+					75 文本 播放
+				76 标题 CHORUS, Value: 3
+					77 container CHORUS
+						78 文本 CHORUS
+				79 container
+					80 图像 ENG
+					81 文本 播放
+				82 标题 ENG, Value: 3
+					83 container ENG
+						84 文本 ENG
+				85 container
+					86 图像 JAZZ🎷
+					87 文本 播放
+				88 标题 JAZZ🎷, Value: 3
+					89 container JAZZ🎷
+						90 文本 JAZZ🎷
+				91 container
+					92 图像 R&B
+					93 文本 播放
+				94 标题 R&B, Value: 3
+					95 container R&B
+						96 文本 R&B
+				97 container
+					98 图像 JOY
+					99 文本 播放
+				100 标题 JOY, Value: 3
+					101 container JOY
+						102 文本 JOY
+				103 container
+					104 图像 Positive healing
+					105 文本 播放
+				106 标题 Positive healing, Value: 3
+					107 container Positive healing
+						108 文本 Positive healing
+				109 container
+					110 图像 经典
+					111 文本 播放
+				112 标题 经典, Value: 3
+					113 container 经典
+						114 文本 经典
+				115 container
+					116 图像 ROCK
+					117 文本 播放
+				118 标题 ROCK, Value: 3
+					119 container ROCK
+						120 文本 ROCK
+				121 container
+					122 图像 soul&funk
+					123 文本 播放
+				124 标题 soul&funk, Value: 3
+					125 container soul&funk
+						126 文本 soul&funk
+				127 container
+					128 图像 lively
+					129 文本 播放
+				130 标题 lively, Value: 3
+					131 container lively
+						132 文本 lively
+				133 container
+					134 图像 Rap HipHop
+					135 文本 播放
+				136 标题 Rap HipHop, Value: 3
+					137 container Rap HipHop
+						138 文本 Rap HipHop
+				139 container
+					140 图像 Jazz-Hiphop
+					141 文本 播放
+				142 标题 Jazz-Hiphop, Value: 3
+					143 container Jazz-Hiphop
+						144 文本 Jazz-Hiphop
+				145 container
+					146 图像 Pure music
+					147 文本 播放
+				148 标题 Pure music, Value: 3
+					149 container Pure music
+						150 文本 Pure music
+				151 container
+					152 图像 SWEET
+					153 文本 播放
+				154 标题 SWEET, Value: 3
+					155 container SWEET
+						156 文本 SWEET
+				157 container
+					158 图像 最·周杰伦
+					159 文本 播放
+				160 标题 最·周杰伦, Value: 3
+					161 container 最·周杰伦
+						162 文本 最·周杰伦
+				163 container
+					164 图像 最·方大同
+					165 文本 播放
+				166 标题 最·方大同, Value: 3
+					167 container 最·方大同
+						168 文本 最·方大同
+				169 container
+					170 图像 最·王菲
+					171 文本 播放
+				172 标题 最·王菲, Value: 3
+					173 container 最·王菲
+						174 文本 最·王菲
+				175 container
+					176 图像 最·陈绮贞
+					177 文本 播放
+				178 标题 最·陈绮贞, Value: 3
+					179 container 最·陈绮贞
+						180 文本 最·陈绮贞
+				181 container
+					182 图像 最·莫文蔚
+					183 文本 播放
+				184 标题 最·莫文蔚, Value: 3
+					185 container 最·莫文蔚
+						186 文本 最·莫文蔚
+				187 container
+					188 图像 最·陈奕迅
+					189 文本 播放
+				190 标题 最·陈奕迅, Value: 3
+					191 container 最·陈奕迅
+						192 文本 最·陈奕迅
+				193 container
+					194 图像 最·孙燕姿
+					195 文本 播放
+				196 标题 最·孙燕姿, Value: 3
+					197 container 最·孙燕姿
+						198 文本 最·孙燕姿
+				199 container
+					200 图像 最·蔡依林
+					201 文本 播放
+				202 标题 最·蔡依林, Value: 3
+					203 container 最·蔡依林
+						204 文本 最·蔡依林
+				205 container
+					206 图像 Mackenzie的2025年度音乐歌单
+					207 文本 播放
+				208 标题 Mackenzie的2025年度音乐歌单, Value: 3
+					209 container Mackenzie的2025年度音乐歌单
+						210 文本 Mackenzie的2025年度音乐歌单
+				211 container
+					212 图像 Mackenzie的2024年度音乐歌单
+					213 文本 播放
+				214 标题 Mackenzie的2024年度音乐歌单, Value: 3
+					215 container Mackenzie的2024年度音乐歌单
+						216 文本 Mackenzie的2024年度音乐歌单
+				217 container
+					218 图像 Pettis#的2022年度音乐歌单
+					219 文本 播放
+				220 标题 Pettis#的2022年度音乐歌单, Value: 3
+					221 container Pettis#的2022年度音乐歌单
+						222 文本 Pettis#的2022年度音乐歌单
+				223 container
+					224 图像 Pettis#的2021年度歌单
+					225 文本 播放
+				226 标题 Pettis#的2021年度歌单, Value: 3
+					227 container Pettis#的2021年度歌单
+						228 文本 Pettis#的2021年度歌单
+				229 container
+					230 图像 Pettis#的2020年度歌单
+					231 文本 播放
+				232 标题 Pettis#的2020年度歌单, Value: 3
+					233 container Pettis#的2020年度歌单
+						234 文本 Pettis#的2020年度歌单
+				235 container
+					236 图像 小🐟
+					237 文本 播放
+				238 标题 小🐟, Value: 3
+					239 container 小🐟
+						240 文本 小🐟
+			241 link 返回顶部, Value: javascript:;
+	242 全屏幕按钮 Help: 此按钮也可以执行缩放窗口的操作, Secondary Actions: 缩放窗口
+243 menu bar
+	244 QQ音乐
+	245 编辑
+	246 播放控制
+	247 窗口
+	248 帮助
+
+The focused UI element is 33 HTML内容 Description: QQ音乐, URL: y.qq.com/wk_v17/#/profile?uin=ownkow-loe4qNv**
