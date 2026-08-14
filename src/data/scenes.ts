@@ -24,6 +24,9 @@ import albumHuaili from "../assets/photos/cover-music-华丽的冒险.jpg";
 import albumGroupies from "../assets/photos/cover-music-Groupies 吉他手.jpg";
 import albumTiankong from "../assets/photos/cover-music-天空.jpg";
 import albumShoulian from "../assets/photos/cover-music-收敛水.jpg";
+import liveJay from "../assets/photos/live-jay-wulunbi.jpg";
+import liveKhalil from "../assets/photos/live-khalil-15.jpg";
+import liveCheer from "../assets/photos/live-cheer-huazitai.jpg";
 import friends1 from "../assets/photos/friends-1.jpg";
 import friends2 from "../assets/photos/friends-2.jpg";
 import friends3 from "../assets/photos/friends-3.jpg";
@@ -92,6 +95,8 @@ export const openingContent = {
 // ------------------------------------------------------------
 export type Album = { name: string; year: string; img: string };
 
+export type Live = { name: string; year: string; img: string };
+
 export type Artist = {
   id: string;
   en: string;
@@ -99,6 +104,9 @@ export type Artist = {
   meta: string;
   img: string;
   albums: Album[];
+  live: Live;
+  /** 内部研究依据（不显示在页面） */
+  evidence?: string[];
 };
 
 export const artists: Artist[] = [
@@ -113,6 +121,11 @@ export const artists: Artist[] = [
       { name: "叶惠美", year: "2003", img: albumYehuimei },
       { name: "七里香", year: "2004", img: albumQilixiang },
     ],
+    live: { name: "无与伦比演唱会", year: "2004", img: liveJay },
+    evidence: [
+      "十一月的萧邦/叶惠美/七里香：豆瓣五星 + QQ「我喜欢」收藏",
+      "无与伦比演唱会：公认为周杰伦最经典现场（2004），用户指定",
+    ],
   },
   {
     id: "khalil",
@@ -125,6 +138,11 @@ export const artists: Artist[] = [
       { name: "未来", year: "2007", img: albumWeilai },
       { name: "橙月", year: "2008", img: albumChengyue },
     ],
+    live: { name: "15 香港演唱会", year: "2011", img: liveKhalil },
+    evidence: [
+      "爱爱爱：QQ「我喜欢」收藏；未来/橙月：豆瓣五星 + QQ",
+      "15 香港演唱会：豆瓣五星（2026-07-06）；《15》专辑亦五星",
+    ],
   },
   {
     id: "cheer",
@@ -136,6 +154,11 @@ export const artists: Artist[] = [
       { name: "让我想一想", year: "1998", img: albumRangWo },
       { name: "Groupies 吉他手", year: "2002", img: albumGroupies },
       { name: "华丽的冒险", year: "2005", img: albumHuaili },
+    ],
+    live: { name: "花的姿态演唱会", year: "2007", img: liveCheer },
+    evidence: [
+      "让我想一想/吉他手/华丽的冒险：豆瓣五星 + QQ 收藏/歌曲",
+      "花的姿态·演唱会经典实录：豆瓣五星（2026-04-21），首场大型个唱",
     ],
   },
 ];

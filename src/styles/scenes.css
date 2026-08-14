@@ -397,7 +397,7 @@
 .shelf-scene__poster {
   margin: 0;
   aspect-ratio: 2 / 3;
-  max-height: 40vh;
+  max-height: 38vh;
   overflow: hidden;
   background: #171310;
   box-shadow: 0 16px 32px -18px rgba(25, 22, 19, 0.45);
@@ -841,4 +841,75 @@
   .artist-layout__albums--records { flex-wrap: wrap; }
   .rachel-scene__copy { right: 1.25rem; bottom: 4.4rem; }
   .sound-toggle { right: 1.25rem; }
+}
+
+/* ============================================================
+   V5 — FEATURED LIVE（每位音乐人一场代表演唱会）
+   ============================================================ */
+
+.artist-layout__live-tag {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--snd-brown);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.artist-layout__live-tag--dark { color: rgba(255, 255, 255, 0.6); }
+
+/* JAY — 杂志展开右侧的 Live 块 */
+.artist-layout--spread .artist-layout__live {
+  margin: 0;
+  margin-top: clamp(1.4rem, 3vh, 2rem);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.artist-layout--spread .artist-layout__live-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.artist-layout--spread .artist-layout__live img {
+  width: clamp(3.6rem, 5vw, 5.4rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: 0 14px 28px -14px rgba(25, 22, 19, 0.5);
+}
+.artist-layout--spread .artist-layout__live-name {
+  font-size: 15px;
+  color: var(--ink);
+  display: block;
+}
+.artist-layout--spread .artist-layout__live-year {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* KHALIL — 唱片陈列里的 Live（居中偏大） */
+.artist-layout__record--live {
+  width: min(18vw, 13rem);
+  transform: translateY(-1.2rem);
+  position: relative;
+}
+.artist-layout__record--live img {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* CHEER — 留白里的 Live 小图 */
+.artist-layout__album--live-q {
+  width: min(8rem, 24%);
+  align-self: flex-end;
+  margin-left: auto;
+  transform: translateY(-0.8rem);
+}
+.artist-layout__album--live-q img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: 0 14px 28px -14px rgba(25, 22, 19, 0.4);
+}
+
+@media (max-width: 900px) {
+  .artist-layout--spread .artist-layout__live-inner { flex-wrap: wrap; }
+  .artist-layout__record--live { width: min(22vw, 9rem); }
+  .artist-layout__album--live-q { margin-left: 0; }
 }
