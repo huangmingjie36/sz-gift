@@ -29,6 +29,6 @@ async function art(path, W, H) {
   }, { b64, chars, W, H });
 }
 for (const id of process.argv.slice(2)) {
-  console.log(`===== ${id} =====\n` + await art(`.shots/v3-${id}.png`, 96, 30));
+  console.log(`===== ${id} =====\n` + await art(`.shots/${id}.png`, 96, 30));
 }
 await browser.close();

@@ -1,43 +1,53 @@
-# THE PRIVATE UNIVERSE OF 陈标聪
+# 陈标聪的私人数字作品 — V4
 
-一份编译于深圳的私人数字礼物。V3 — Art Direction Pass。
+一份编译于深圳的私人礼物。三幕：MUSIC → FOOTBALL → SCREEN。
 
-> CHEN BIAOCONG · 陈标聪 · Music / Screen / Football · 2026 Shenzhen
+> CHEN BIAOCONG · 陈标聪 · 2026 · Shenzhen
 
 ## 运行
 
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # tsc + vite 构建
+npm run build
 ```
 
 ## 体验
 
-全屏交互 Deck（14 个 Scene），滚轮 / 方向键 / 空格 / 触屏翻页。
+全屏交互 Deck（15 Scene）：滚轮 / 方向键 / 空格 / 触屏。
 
 ```
-OPENING  CHEN BIAOCONG · 陈标聪 · Music / Screen / Football · ENTER
-
-ACT I    JAY CHOU → KHALIL FONG → CHEER CHEN → CONTACT SHEET
-ACT II   FRIENDS (1994–2004 · AGAIN?) → ON YOUR SHELF → 档案（2023.07.19→08.16 · 十季 · 全五星）
-ACT III  MIA SAN MIA. → MATCHDAY → DEUTSCHLAND
-ENDING   MADE IN SHENZHEN. / Not exactly. / MADE FOR YOU, IN SHENZHEN. 陈标聪
-         （点击 Compiled with friendship. 有彩蛋）
+OPENING   CHEN BIAOCONG · 陈标聪 · MUSIC / FOOTBALL / SCREEN · ENTER
+ACT I     MUSIC → JAY CHOU → KHALIL FONG → CHEER CHEN → CONTACT SHEET
+ACT II    FOOTBALL → MIA SAN MIA. → MATCHDAY → DEUTSCHLAND
+ACT III   SCREEN → FRIENDS (AGAIN?) → RACHEL GREEN → ON YOUR SHELF
+ENDING    MADE IN SHENZHEN. / Not exactly. / MADE FOR YOU, IN SHENZHEN. 陈标聪
 ```
 
-## V3 原则
+ENTER 后启动声音。右下角 ♪ 开关，mute 状态被记住。
 
-- **SHOW, DON'T EXPLAIN**：无解释、无总结、无「你的关键词」
-- **CURATION, NOT INTERPRETATION**：数据只用于筛选，不出现在主视觉
-- **Typography Scale**：Hero 8vw（仅 Opening）/ Display 5vw / Primary 3vw / Body 16–20px
-- **每屏一个核心**：一张照片 + 一个名字 + 一句很短的话
-- **照片 60–75%**：音乐人演唱会/见面会、Friends 剧照、影视海报、拜仁 2025/26 官方全家福、安联球场、Musiala 2026 世界杯
-- **Transition Grammar**：MUSIC=slide/cover · SCREEN=curtain · FOOTBALL=tunnel/hardCut · 500–900ms
-- **数据原则**：QQ「我喜欢」顺序不当作排名（LATELY = 最近收藏，三首）；不虚构比分/球员/入坑年份
+## 音频（Audio Director）
 
-## 数据与素材
+三幕配乐，单音频源统一管理（fadeIn/Out、幕切换、startAt、mute 记忆）：
 
-- 豆瓣 111 音乐 / 118 影视（原始采集在 `src/data/_douban_*`）
-- QQ 音乐「我喜欢」+ 32 个歌单（`src/data/_qqmusic_*`），含 8 个「最·」系列与 5 个年度歌单
-- 照片均带 `assets/photos/*.json` 来源元数据（Wikimedia Commons / 豆瓣公开相册 / 拜仁官方 2025/26）
+| 幕 | 曲目 | 起点 |
+|---|---|---|
+| ACT I MUSIC | 方大同《才二十三》 | 0:00 |
+| ACT II FOOTBALL | FC Bayern 队歌 | `startAt: null`（待人工填高潮秒数） |
+| ACT III SCREEN | Eric Clapton《Wonderful Tonight》 | 0:00（开头吉他） |
+
+音频文件放入 `public/audio/`：`music.mp3` / `bayern.mp3` / `screen.mp3`。
+配置在 `src/audio/audioConfig.ts`。切换逻辑在 `src/audio/AudioDirector.tsx`：
+MUSIC→FOOTBALL 快速 fadeout + 停顿 + 硬进；FOOTBALL→SCREEN 渐退 + 吉他进入。
+
+## 专辑（FEATURED RECORDS，均有数据支撑）
+
+- JAY：十一月的萧邦 / 叶惠美 / 七里香（豆瓣五星 + QQ 收藏）
+- KHALIL：爱爱爱 / 未来 / 橙月（QQ 收藏 / 豆瓣五星 + QQ）
+- CHEER：让我想一想 / Groupies 吉他手 / 华丽的冒险（豆瓣五星 + QQ）
+
+## 数据
+
+- 豆瓣 111 音乐 / 118 影视原始采集：`src/data/_douban_*`
+- QQ 音乐「我喜欢」+ 32 歌单：`src/data/_qqmusic_*`
+- 照片来源元数据：`src/assets/photos/*.json`

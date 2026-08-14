@@ -1,24 +1,25 @@
 import { motion } from "framer-motion";
-import { interScreen, interFootball } from "../data/scenes";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-function Inter({ act, title }: { act: string; title: string }) {
+type InterProps = { act: string; title: string; dark?: boolean };
+
+function Inter({ act, title, dark = true }: InterProps) {
   return (
-    <div className="scene-inner act-scene act-scene--dark">
+    <div className={`scene-inner act-scene ${dark ? "act-scene--dark" : ""}`}>
       <motion.span
         className="act-scene__roman serif"
-        initial={{ opacity: 0, y: 26 }}
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+        transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
       >
         {act}
       </motion.span>
       <motion.h2
-        className="act-scene__title act-scene__title--dark"
-        initial={{ opacity: 0, y: 18 }}
+        className={`act-scene__title ${dark ? "act-scene__title--dark" : ""}`}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
+        transition={{ duration: 0.7, delay: 0.4, ease: EASE }}
       >
         {title}
       </motion.h2>
@@ -26,10 +27,14 @@ function Inter({ act, title }: { act: string; title: string }) {
   );
 }
 
-export function InterScreenScene() {
-  return <Inter act={interScreen.act} title={interScreen.title} />;
+export function MusicIntroScene() {
+  return <Inter act="I" title="MUSIC" dark={false} />;
 }
 
 export function InterFootballScene() {
-  return <Inter act={interFootball.act} title={interFootball.title} />;
+  return <Inter act="II" title="FOOTBALL" />;
+}
+
+export function InterScreenScene() {
+  return <Inter act="III" title="SCREEN" />;
 }

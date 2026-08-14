@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
 import { openingContent } from "../data/scenes";
 import { useDeck } from "../components/Deck";
+import { useAudio } from "../audio/AudioDirector";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function OpeningScene() {
   const { goNext } = useDeck();
+  const { start } = useAudio();
+  const enter = () => {
+    start();
+    goNext();
+  };
   return (
     <div className="scene-inner opening-scene">
       <motion.h1
@@ -39,7 +45,7 @@ export function OpeningScene() {
         transition={{ duration: 1, delay: 2.2 }}
       >
         <span className="meta">{openingContent.year} · {openingContent.city}</span>
-        <button className="enter-btn" onClick={goNext}>
+        <button className="enter-btn" onClick={enter}>
           {openingContent.enter}
           <i />
         </button>

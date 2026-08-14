@@ -1,7 +1,7 @@
 // ============================================================
-//  V3 — curatedContent（Scene 数据层）
-//  原则：SHOW, DON'T EXPLAIN. / CURATION, NOT INTERPRETATION.
-//  所有图片带 source / year / context（见 assets/photos/*.json）
+//  V4 — curatedContent
+//  三幕：MUSIC → FOOTBALL → SCREEN（WARM → PEAK → AFTERGLOW）
+//  原则：SHOW, DON'T EXPLAIN · 数据只用于筛选
 // ============================================================
 
 import jayConcert from "../assets/photos/jay-concert.jpg";
@@ -13,16 +13,22 @@ import billie from "../assets/photos/billie-1.jpg";
 import laufey from "../assets/photos/laufey-1.jpg";
 import norah from "../assets/photos/norah-2.jpg";
 import albumYehuimei from "../assets/photos/cover-music-叶惠美.jpg";
-import albumSoulboy from "../assets/photos/cover-music-Soulboy.jpg";
+import albumQilixiang from "../assets/photos/cover-music-七里香.jpg";
+import albumXiaobang from "../assets/photos/cover-music-十一月的萧邦.jpg";
+import albumAiAiAi from "../assets/photos/cover-music-爱爱爱.jpg";
+import albumWeilai from "../assets/photos/cover-music-未来.jpg";
 import albumChengyue from "../assets/photos/cover-music-橙月.jpg";
+import albumSoulboy from "../assets/photos/cover-music-Soulboy.jpg";
+import albumRangWo from "../assets/photos/cover-music-让我想一想.jpg";
 import albumHuaili from "../assets/photos/cover-music-华丽的冒险.jpg";
+import albumGroupies from "../assets/photos/cover-music-Groupies 吉他手.jpg";
 import albumTiankong from "../assets/photos/cover-music-天空.jpg";
 import albumShoulian from "../assets/photos/cover-music-收敛水.jpg";
-import albumGroupies from "../assets/photos/cover-music-Groupies 吉他手.jpg";
 import friends1 from "../assets/photos/friends-1.jpg";
 import friends2 from "../assets/photos/friends-2.jpg";
 import friends3 from "../assets/photos/friends-3.jpg";
 import friends5 from "../assets/photos/friends-5.jpg";
+import rachel from "../assets/photos/rachel-0.jpg";
 import posterTbbt from "../assets/photos/cover-movie-生活大爆炸 第一季.jpg";
 import posterStranger from "../assets/photos/cover-movie-怪奇物语 第一季.jpg";
 import posterLongSeason from "../assets/photos/cover-movie-漫长的季节.jpg";
@@ -37,70 +43,103 @@ import bayernTeam from "../assets/photos/bayern-teamfoto-2025-26.jpg";
 import allianzNight from "../assets/photos/allianz-night1.jpg";
 import musiala from "../assets/photos/musiala20261.jpg";
 
-export const person = {
-  en: "CHEN BIAOCONG",
-  zh: "陈标聪",
-};
+export const person = { en: "CHEN BIAOCONG", zh: "陈标聪" };
 
 // ------------------------------------------------------------
-//  Scene 定义（14）
+//  Scene 定义（15）
 // ------------------------------------------------------------
-export type TransitionKind = "fade" | "slide" | "coverOpen" | "curtain" | "hardCut" | "tunnel";
+export type TransitionKind = "fade" | "slide" | "coverOpen" | "curtain" | "hardCut" | "tunnel" | "mask";
 
 export type Scene = {
   id: string;
-  act: "opening" | "music" | "screen" | "football" | "ending";
+  act: "opening" | "music" | "football" | "screen" | "ending";
   transition: TransitionKind;
   theme: "paper" | "dark" | "sepia" | "black" | "night";
 };
 
 export const scenes: Scene[] = [
   { id: "opening", act: "opening", transition: "fade", theme: "paper" },
+  { id: "music-intro", act: "music", transition: "fade", theme: "paper" },
   { id: "jay", act: "music", transition: "slide", theme: "paper" },
-  { id: "khalil", act: "music", transition: "slide", theme: "paper" },
-  { id: "cheer", act: "music", transition: "coverOpen", theme: "paper" },
+  { id: "khalil", act: "music", transition: "coverOpen", theme: "paper" },
+  { id: "cheer", act: "music", transition: "mask", theme: "paper" },
   { id: "sheet", act: "music", transition: "slide", theme: "paper" },
-  { id: "inter-screen", act: "screen", transition: "curtain", theme: "black" },
-  { id: "friends", act: "screen", transition: "curtain", theme: "sepia" },
-  { id: "shelf", act: "screen", transition: "slide", theme: "sepia" },
-  { id: "friends-archive", act: "screen", transition: "coverOpen", theme: "sepia" },
   { id: "inter-foot", act: "football", transition: "hardCut", theme: "black" },
   { id: "mia", act: "football", transition: "tunnel", theme: "night" },
   { id: "matchday", act: "football", transition: "slide", theme: "night" },
   { id: "deutschland", act: "football", transition: "coverOpen", theme: "night" },
+  { id: "inter-screen", act: "screen", transition: "fade", theme: "black" },
+  { id: "friends", act: "screen", transition: "curtain", theme: "sepia" },
+  { id: "rachel", act: "screen", transition: "slide", theme: "sepia" },
+  { id: "shelf", act: "screen", transition: "coverOpen", theme: "sepia" },
   { id: "ending", act: "ending", transition: "fade", theme: "black" },
 ];
 
 // ------------------------------------------------------------
-//  OPENING — 只有名字，几件事，一个入口。
+//  OPENING
 // ------------------------------------------------------------
 export const openingContent = {
   en: person.en,
   zh: person.zh,
-  things: ["Music", "Screen", "Football"],
+  things: ["MUSIC", "FOOTBALL", "SCREEN"],
   year: "2026",
-  city: "Shenzhen",
+  city: "SHENZHEN",
   enter: "ENTER",
 };
 
 // ------------------------------------------------------------
-//  MUSIC — 三个人，每人一屏。不解释。
+//  MUSIC — 三人，各有构图。FEATURED RECORDS 有数据支撑。
 // ------------------------------------------------------------
+export type Album = { name: string; year: string; img: string };
+
 export type Artist = {
   id: string;
   en: string;
   zh: string;
   meta: string;
   img: string;
+  albums: Album[];
 };
 
 export const artists: Artist[] = [
-  { id: "jay", en: "JAY CHOU", zh: "周杰伦", meta: "2000 —", img: jayConcert },
-  { id: "khalil", en: "KHALIL FONG", zh: "方大同", meta: "Soul · R&B", img: khalil },
-  { id: "cheer", en: "CHEER CHEN", zh: "陈绮贞", meta: "2000s —", img: cheerLive },
+  {
+    id: "jay",
+    en: "JAY CHOU",
+    zh: "周杰伦",
+    meta: "2000 —",
+    img: jayConcert,
+    albums: [
+      { name: "十一月的萧邦", year: "2005", img: albumXiaobang },
+      { name: "叶惠美", year: "2003", img: albumYehuimei },
+      { name: "七里香", year: "2004", img: albumQilixiang },
+    ],
+  },
+  {
+    id: "khalil",
+    en: "KHALIL FONG",
+    zh: "方大同",
+    meta: "Soul · R&B",
+    img: khalil,
+    albums: [
+      { name: "爱爱爱", year: "2006", img: albumAiAiAi },
+      { name: "未来", year: "2007", img: albumWeilai },
+      { name: "橙月", year: "2008", img: albumChengyue },
+    ],
+  },
+  {
+    id: "cheer",
+    en: "CHEER CHEN",
+    zh: "陈绮贞",
+    meta: "2000s —",
+    img: cheerLive,
+    albums: [
+      { name: "让我想一想", year: "1998", img: albumRangWo },
+      { name: "Groupies 吉他手", year: "2002", img: albumGroupies },
+      { name: "华丽的冒险", year: "2005", img: albumHuaili },
+    ],
+  },
 ];
 
-// CONTACT SHEET — 只放人，不放解释。hover 才给一点信息。
 export const sheetContent = {
   title: "CONTACT SHEET",
   meta: "QQ Music playlists · 32",
@@ -110,17 +149,12 @@ export const sheetContent = {
     { img: billie, name: "Billie Eilish", info: "HIT ME HARD AND SOFT" },
     { img: laufey, name: "Laufey", info: "Typical of Me" },
     { img: norah, name: "Norah Jones", info: "Come Away with Me" },
-    { img: albumYehuimei, name: "叶惠美", info: "JAY · 2003" },
-    { img: albumSoulboy, name: "Soulboy", info: "KHALIL · 2005" },
-    { img: albumChengyue, name: "橙月", info: "KHALIL · 2008" },
-    { img: albumHuaili, name: "华丽的冒险", info: "CHEER · 2005" },
     { img: albumTiankong, name: "天空", info: "FAYE · 1994" },
     { img: albumShoulian, name: "收敛水", info: "蛋堡 · 2009" },
-    { img: albumGroupies, name: "吉他手", info: "CHEER · 2002" },
+    { img: albumSoulboy, name: "Soulboy", info: "KHALIL · 2005" },
   ],
 };
 
-// LATELY — 最近收藏，三首。不做排名。
 export const lately = {
   label: "LATELY",
   note: "Recently saved on QQ Music",
@@ -131,51 +165,14 @@ export const lately = {
   ],
 };
 
-// 最· 系列（来自他的 QQ 歌单名）
 export const favouriteSeries = [
   "最·周杰伦", "最·方大同", "最·王菲", "最·陈绮贞",
   "最·莫文蔚", "最·陈奕迅", "最·孙燕姿", "最·蔡依林",
 ];
 
 // ------------------------------------------------------------
-//  SCREEN
+//  FOOTBALL
 // ------------------------------------------------------------
-export const interScreen = { act: "II", title: "SCREEN" };
-
-export const friendsContent = {
-  name: "FRIENDS",
-  years: "1994 – 2004",
-  line: "AGAIN?",
-  img: [friends1, friends2, friends3, friends5],
-};
-
-export const shelfContent = {
-  title: "ON YOUR SHELF",
-  items: [
-    { img: posterTbbt, name: "生活大爆炸", meta: "S1–5" },
-    { img: posterStranger, name: "怪奇物语", meta: "S1–5" },
-    { img: posterLongSeason, name: "漫长的季节", meta: "2023" },
-    { img: posterEndgame, name: "终局之战", meta: "2019" },
-    { img: posterKungFu, name: "功夫", meta: "2004" },
-    { img: posterLetBullets, name: "让子弹飞", meta: "2010" },
-    { img: posterInMood, name: "花样年华", meta: "2000" },
-    { img: posterChungking, name: "重庆森林", meta: "1994" },
-    { img: posterPulp, name: "低俗小说", meta: "1994" },
-    { img: posterWallE, name: "机器人总动员", meta: "2008" },
-  ],
-};
-
-export const friendsArchive = {
-  img: friends5,
-  facts: ["2023.07.19 → 08.16", "TEN SEASONS", "ALL 5★"],
-  quote: "amazing！",
-};
-
-// ------------------------------------------------------------
-//  FOOTBALL — 少说话。
-// ------------------------------------------------------------
-export const interFootball = { act: "III", title: "FOOTBALL" };
-
 export const miaContent = {
   title: "MIA SAN MIA.",
   club: "FC BAYERN MÜNCHEN",
@@ -193,6 +190,38 @@ export const deutschlandContent = {
   sub: "DIE MANNSCHAFT",
   img: musiala,
   meta: "2026 · World Cup",
+};
+
+// ------------------------------------------------------------
+//  SCREEN
+// ------------------------------------------------------------
+export const friendsContent = {
+  name: "FRIENDS",
+  years: "1994 – 2004",
+  line: "AGAIN?",
+  img: [friends1, friends2, friends3, friends5],
+};
+
+export const rachelContent = {
+  name: "RACHEL GREEN",
+  line: "of course.",
+  img: rachel,
+};
+
+export const shelfContent = {
+  title: "ON YOUR SHELF",
+  items: [
+    { img: posterTbbt, name: "生活大爆炸", meta: "S1–5" },
+    { img: posterStranger, name: "怪奇物语", meta: "S1–5" },
+    { img: posterLongSeason, name: "漫长的季节", meta: "2023" },
+    { img: posterEndgame, name: "终局之战", meta: "2019" },
+    { img: posterKungFu, name: "功夫", meta: "2004" },
+    { img: posterLetBullets, name: "让子弹飞", meta: "2010" },
+    { img: posterInMood, name: "花样年华", meta: "2000" },
+    { img: posterChungking, name: "重庆森林", meta: "1994" },
+    { img: posterPulp, name: "低俗小说", meta: "1994" },
+    { img: posterWallE, name: "机器人总动员", meta: "2008" },
+  ],
 };
 
 // ------------------------------------------------------------

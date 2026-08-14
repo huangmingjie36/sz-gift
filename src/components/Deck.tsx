@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { scenes, type TransitionKind } from "../data/scenes";
+import { useAudio } from "../audio/AudioDirector";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -38,6 +39,11 @@ const variants: Record<TransitionKind, { enter: VariantDef; center: import("fram
     center: { scale: 1, opacity: 1, transition: { duration: 0.9, ease: EASE } },
     exit: { scale: 0.95, opacity: 0, transition: { duration: 0.4, ease: EASE } },
   },
+  mask: {
+    enter: { clipPath: "inset(0 0 100% 0)", opacity: 0.5 },
+    center: { clipPath: "inset(0 0 0% 0)", opacity: 1, transition: { duration: 0.85, ease: EASE } },
+    exit: { clipPath: "inset(100% 0 0 0)", opacity: 0.4, transition: { duration: 0.4, ease: EASE } },
+  },
 };
 
 type DeckCtx = {
@@ -66,6 +72,7 @@ type DeckProps = {
 
 export function Deck({ children }: DeckProps) {
   const [index, setIndex] = useState(0);
+  const { playAct } = useAudio();
   const [dir, setDir] = useState(1);
   const lock = useRef(false);
 
@@ -143,6 +150,13 @@ export function Deck({ children }: DeckProps) {
   }, [goNext, goPrev, goTo]);
 
   const current = scenes[index];
+
+  // 幕切换 → Audio Director（opening / ending 不切曲目）
+  useEffect(() => {
+    if (current.act === "music" || current.act === "football" || current.act === "screen") {
+      playAct(current.act);
+    }
+  }, [current.act, playAct]);
 
   return (
     <DeckContext.Provider value={{ index, total: scenes.length, goNext, goPrev, goTo, actIndex }}>
