@@ -1,41 +1,45 @@
-import { useEffect } from "react";
-import { ChapterBar } from "./components/ChapterBar";
 import { Cursor } from "./components/Cursor";
+import { Deck } from "./components/Deck";
 import { Grain } from "./components/Grain";
-import { destroyLenis, initLenis } from "./lib/scroll";
-import { Core } from "./sections/Core";
-import { DeepCuts } from "./sections/DeepCuts";
-import { Dna } from "./sections/Dna";
-import { Ending } from "./sections/Ending";
-import { LivingRoom } from "./sections/LivingRoom";
-import { Matchday } from "./sections/Matchday";
-import { Opening } from "./sections/Opening";
-import { RecordRoom } from "./sections/RecordRoom";
-import { You } from "./sections/You";
+import { ActMusicScene } from "./scenes/ActMusicScene";
+import { AfterScene } from "./scenes/AfterScene";
+import { AlbumScene } from "./scenes/AlbumScene";
+import { DeepCutsScene } from "./scenes/DeepCutsScene";
+import { DeutschlandScene } from "./scenes/DeutschlandScene";
+import { EndingScene } from "./scenes/EndingScene";
+import { FriendsScene } from "./scenes/FriendsScene";
+import { InterFootballScene, InterScreenScene } from "./scenes/InterScene";
+import { MatchdayScene } from "./scenes/MatchdayScene";
+import { MiaScene } from "./scenes/MiaScene";
+import { OpeningScene } from "./scenes/OpeningScene";
+import { ScreenScene } from "./scenes/ScreenScene";
+import { ThreeScene } from "./scenes/ThreeScene";
+import { VoicesScene } from "./scenes/VoicesScene";
 import "./styles/global.css";
+import "./styles/scenes.css";
 
 export default function App() {
-  useEffect(() => {
-    initLenis();
-    return () => destroyLenis();
-  }, []);
-
   return (
     <>
       <Grain />
       <Cursor />
-      <ChapterBar />
-      <main>
-        <Opening />
-        <Core />
-        <RecordRoom />
-        <LivingRoom />
-        <Matchday />
-        <DeepCuts />
-        <Dna />
-        <You />
-        <Ending />
-      </main>
+      <Deck>
+        <OpeningScene />
+        <ActMusicScene />
+        <ThreeScene />
+        <VoicesScene />
+        <AlbumScene />
+        <DeepCutsScene />
+        <InterScreenScene />
+        <FriendsScene />
+        <AfterScene />
+        <ScreenScene />
+        <InterFootballScene />
+        <MiaScene />
+        <MatchdayScene />
+        <DeutschlandScene />
+        <EndingScene />
+      </Deck>
     </>
   );
 }

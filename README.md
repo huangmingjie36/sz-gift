@@ -1,44 +1,57 @@
-# THE PRIVATE UNIVERSE OF A FRIEND
+# THE PRIVATE UNIVERSE OF 陈标聪
 
-一份编译于深圳的私人数字礼物 —— 基于豆瓣 + QQ 音乐真实收藏数据。
+一份编译于深圳的私人数字礼物 —— 陈标聪的私人文化宇宙。
 
-> A map of the things he kept coming back to.
+> A PRIVATE CULTURAL UNIVERSE
+> THE THINGS YOU KEPT
 
 ## 运行
 
 ```bash
 npm install
-npm run dev      # 本地开发 http://localhost:5173
-npm run build    # 产物构建（tsc + vite）
-npm run preview  # 预览构建产物
+npm run dev      # http://localhost:5173
+npm run build    # tsc + vite 构建
 ```
 
-## 章节
+## 体验方式（Desktop First）
 
-OPENING → THE CORE → THE RECORD ROOM → THE LIVING ROOM → MATCHDAY → DEEP CUTS → CULTURAL DNA → YOU, ACCORDING TO ME → MADE IN SHENZHEN
+全屏交互 Deck（15 个 Scene），滚轮 / 方向键 / 空格 / 触屏翻页。
+底部导航：MUSIC / SCREEN / FOOTBALL 三幕 + 页码进度。
+
+- 打开首页 → ENTER 进入 ACT I — MUSIC
+- THE THREE → OTHER VOICES → ONE ALBUM → DEEP CUTS
+- II / SCREEN 幕间 → FRIENDS → AFTER CENTRAL PERK → YOUR SCREEN
+- III / FOOTBALL 幕间 → MIA SAN MIA → MATCHDAY → DEUTSCHLAND
+- ENDING：MADE IN SHENZHEN → Not exactly → MADE FOR YOU, IN SHENZHEN.
+  - 点击 "Compiled with friendship." 有彩蛋
 
 ## 目录
 
 ```
 src/
-  data/content.ts        ← 全部展示数据（真实收藏，便于替换）
-  data/_douban_music_raw.json  ← 豆瓣音乐 111 张原始采集
-  data/_douban_movie_raw.json  ← 豆瓣影视 118 部原始采集
-  data/_qqmusic_*.txt    ← QQ音乐「我喜欢」采集记录
-  components/            ← Grain / Cursor / Reveal / Ticker / ChapterBar / Stadium …
-  sections/              ← Core / RecordRoom / LivingRoom / Matchday / DeepCuts / Dna / You / Ending
-  styles/global.css      ← 设计系统
-CULTURAL_PROFILE.md      ← 文化分析档案
+  data/scenes.ts        ← curatedContent：三幕 15 个 Scene 的全部文案与图片引用
+  data/_douban_*        ← 豆瓣原始采集（111 音乐 / 118 影视，评分/短评）
+  data/_qqmusic_*       ← QQ 音乐「我喜欢」采集记录
+  components/Deck.tsx   ← Scene 控制器：wheel/key/touch、Transition Grammar、导航
+  components/Grain.tsx / Cursor.tsx
+  scenes/               ← 15 个 Scene 组件
+  styles/scenes.css     ← 场景排版与转场
+  styles/global.css     ← 设计系统基础（token/字体/颗粒/光标）
+  assets/photos/        ← 真实摄影素材（附 source/year/context JSON）
+CULTURAL_PROFILE.md     ← 文化分析档案（研究层）
 ```
 
-## 数据来源（只读采集，2026-08）
+## Transition Grammar
 
-- 豆瓣：听过的音乐 111 张 / 看过的影视 118 部（含评分、短评、收藏日期）
-- QQ 音乐「我喜欢」：专辑 56 张 / 歌曲 44 首（采集时 Mac 锁屏，歌单未采）
-- 分析结论见 `CULTURAL_PROFILE.md`
+- MUSIC：Horizontal Slide / Cover Open（唱片架语言）
+- SCREEN：Curtain（幕布拉开）+ Slide（剧照墙）
+- FOOTBALL：Hard Cut / Tunnel（硬切进入球场）
+- ENDING：Fade（黑场）
 
-## 预览截图
+连续场景不使用相同转场。
 
-```bash
-node scripts/shoot.mjs   # 生成 .shots/ 下各章节截图（需要本机 Chrome）
-```
+## 数据原则
+
+- QQ 音乐「我喜欢」顺序不当作排名，仅用于理解审美（不做 On Repeat / Top Songs）
+- 所有评分、收藏数量属于 Evidence Layer，不出现在主视觉（除克制小字）
+- 照片均来自 Wikimedia Commons / 豆瓣公开相册 / 拜仁官方 2025/26 全家福，附来源
