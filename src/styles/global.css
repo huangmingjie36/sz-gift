@@ -99,7 +99,7 @@ a { color: inherit; text-decoration: none; }
   inset: -60%;
   z-index: 900;
   pointer-events: none;
-  background-image: url("/noise.svg");
+  background-image: url("../assets/noise.svg");
   background-size: 180px 180px;
   opacity: 0.05;
   mix-blend-mode: overlay;

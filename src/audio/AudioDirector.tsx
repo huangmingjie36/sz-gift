@@ -65,6 +65,12 @@ export function AudioDirector({ children }: { children: ReactNode }) {
     }, 30);
   }, []);
 
+  const preloadTrack = useCallback((src: string) => {
+    const a = new Audio();
+    a.src = src;
+    a.preload = "auto";
+  }, []);
+
   const loadTrack = useCallback((track: TrackConfig, autoplay: boolean) => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -86,6 +92,10 @@ export function AudioDirector({ children }: { children: ReactNode }) {
       const prev = currentAct.current;
       currentAct.current = act;
       const track = audioConfig[act];
+
+      // 后台预加载下一幕曲目（避免切换时卡顿）
+      if (act === "music") preloadTrack(audioConfig.football.src);
+      if (act === "football") preloadTrack(audioConfig.screen.src);
 
       // MUSIC → FOOTBALL：快速 fade out + 短停顿 + 高潮硬进
       if (prev === "music" && act === "football") {
