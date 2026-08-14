@@ -212,3 +212,6 @@ a { color: inherit; text-decoration: none; }
   .shelf__cell img { transition: none; }
   .olise-scene__frame { transition: none; }
 }
+
+/* ---------- 图片加载失败 fallback：深色底，避免破图白块 ---------- */
+img { background-color: #171310; }

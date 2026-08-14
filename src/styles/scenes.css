@@ -1704,11 +1704,13 @@
   inset: 0;
   background: radial-gradient(120% 90% at 50% 60%, transparent 30%, rgba(8, 6, 5, 0.7) 100%);
 }
+.arrival-scene {
+  justify-content: center;
+}
 .arrival-scene__title {
   position: relative;
   z-index: 2;
-  align-self: center;
-  margin: auto;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(32px, 5vw, 64px);
