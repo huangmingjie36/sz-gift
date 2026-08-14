@@ -57,6 +57,16 @@ ENTER 后启动声音。右下角 ♪ 开关，mute 状态被记住。
 
 ---
 
+## V9 — ppppettis Identity System
+
+CHEN BIAOCONG 是这个人，ppppettis 是签名——两个层级，不并排：
+1. Opening 右下角微埋 `ppppettis`（像 catalogue number）
+2. 首次选择专辑后轻出现 `picked by ppppettis`（仅一次）
+3. THE CRATE 唱片箱上手写标签 `ppppettis`
+4. MATCHDAY 进场票卡持票人 `ppppettis`
+5. Rachel 页右下 `ppppettis.`
+6. Ending 最后只剩 `ppppettis_`（光标闪烁），与 Opening 呼应
+
 ## Production（V8）
 
 - **线上地址**：https://huangmingjie36.github.io/sz-gift/

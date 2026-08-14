@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { arrivalContent } from "../data/scenes";
+import { arrivalContent, signature } from "../data/scenes";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -16,6 +16,16 @@ export function ArrivalScene() {
         <img src={arrivalContent.img} alt="Allianz Arena" loading="lazy" />
         <div className="arrival-scene__scrim" />
       </motion.div>
+      <motion.div
+        className="arrival-scene__ticket"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 2 }}
+      >
+        <span className="meta">MATCHDAY</span>
+        <span className="signature">{signature}</span>
+      </motion.div>
+
       <motion.h2
         className="arrival-scene__title"
         initial={{ opacity: 0, letterSpacing: "0.4em" }}

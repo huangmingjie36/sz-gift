@@ -53,6 +53,9 @@ import chandler from "../assets/photos/chandler-0.jpg";
 
 export const person = { en: "CHEN BIAOCONG", zh: "陈标聪" };
 
+/** 私人签名（小写，mono，克制出现 3–6 次） */
+export const signature = "ppppettis";
+
 // ------------------------------------------------------------
 //  Scene 定义（15）
 // ------------------------------------------------------------

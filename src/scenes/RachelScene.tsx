@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
-import { rachelContent } from "../data/scenes";
+import { rachelContent, signature } from "../data/scenes";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -71,6 +71,10 @@ export function RachelScene() {
           {rachelContent.line}
         </motion.p>
       </div>
+
+      <span className="rachel-scene__sig signature" aria-hidden="true">
+        {signature}.
+      </span>
 
       <motion.p
         className="rachel-scene__egg serif"

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { crateContent } from "../data/scenes";
+import { crateContent, signature } from "../data/scenes";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -77,6 +77,10 @@ export function CrateScene() {
           </div>
         )}
       </div>
+
+      <span className="crate-scene__label signature" aria-hidden="true">
+        {signature}
+      </span>
 
       <div className="crate-scene__nav">
         <span className="meta crate-scene__pos">{String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</span>

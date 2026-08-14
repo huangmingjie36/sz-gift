@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { openingContent } from "../data/scenes";
+import { openingContent, signature } from "../data/scenes";
 import { useDeck } from "../components/Deck";
 import { useAudio } from "../audio/AudioDirector";
 
@@ -38,6 +38,15 @@ export function OpeningScene() {
       >
         {openingContent.things.join(" · ")}
       </motion.p>
+      <motion.span
+        className="opening-scene__sig signature"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 2.8 }}
+      >
+        {signature}
+      </motion.span>
+
       <motion.div
         className="opening-scene__foot"
         initial={{ opacity: 0 }}

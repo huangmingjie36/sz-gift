@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { artists } from "../data/scenes";
+import { artists, signature } from "../data/scenes";
+import { shouldShowPickSignature } from "../lib/sig";
 import { useAudio } from "../audio/AudioDirector";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -33,8 +34,14 @@ export function JayScene() {
     else unduck();
   }, [opened, live, duck, unduck]);
 
+  const [sig, setSig] = useState(false);
+
   const openAlbum = (i: number) => {
     setOpened(i);
+    if (shouldShowPickSignature()) {
+      setSig(true);
+      window.setTimeout(() => setSig(false), 2600);
+    }
     const all = (() => { try { return JSON.parse(localStorage.getItem(CHOICES_KEY) || "{}"); } catch { return {}; } })();
     all.jay = artist.albums[i].name;
     try { localStorage.setItem(CHOICES_KEY, JSON.stringify(all)); } catch {}
@@ -136,6 +143,14 @@ export function JayScene() {
             </div>
             <button className="shelf__close meta" onClick={() => setLive(false)} aria-label="收起">×</button>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {sig && (
+          <motion.p className="pick-sig signature" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+            picked by {signature}
+          </motion.p>
         )}
       </AnimatePresence>
 

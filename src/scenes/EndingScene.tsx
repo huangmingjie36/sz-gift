@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { endingContent } from "../data/scenes";
+import { endingContent, signature } from "../data/scenes";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -32,6 +32,11 @@ export function EndingScene() {
       </motion.p>
       <motion.p className="ending-scene__foot meta" {...seq(3.2)}>
         {endingContent.foot}
+      </motion.p>
+
+      <motion.p className="ending-scene__sig signature" {...seq(4.2, 1.4)}>
+        {signature}
+        <span className="caret" aria-hidden="true" />
       </motion.p>
       <motion.p
         className="ending-scene__egg serif"
