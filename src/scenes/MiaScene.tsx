@@ -16,11 +16,6 @@ export function MiaScene() {
         <div className="mia-scene__scrim" />
       </motion.div>
 
-      <header className="scene-head scene-head--light">
-        <span className="meta">ACT II — FOOTBALL</span>
-        <span className="meta">01 / 04</span>
-      </header>
-
       <div className="mia-scene__copy">
         <motion.h2
           className="mia-scene__title"

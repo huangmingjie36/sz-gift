@@ -48,10 +48,6 @@ export function KhalilScene() {
 
   return (
     <div className="scene-inner vinyl-scene">
-      <header className="scene-head scene-head--light">
-        <span className="meta">ACT I — THE RECORD ROOM</span>
-        <span className="meta">KHALIL · 02 / 04</span>
-      </header>
 
       <div className="vinyl-scene__copy">
         <motion.h2 className="vinyl-scene__name" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3, ease: EASE }}>

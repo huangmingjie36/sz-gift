@@ -45,10 +45,6 @@ export function CheerScene() {
 
   return (
     <div className="scene-inner book-scene">
-      <header className="scene-head">
-        <span className="meta">ACT I — THE RECORD ROOM</span>
-        <span className="meta">CHEER · 03 / 04</span>
-      </header>
 
       <div className="book-scene__copy">
         <motion.h2 className="book-scene__name" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3, ease: EASE }}>

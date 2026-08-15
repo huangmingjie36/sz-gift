@@ -804,8 +804,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
-  filter: saturate(0.92);
+  object-position: center 22%;
+  filter: saturate(0.96);
 }
 .rachel-scene__copy {
   position: absolute;
@@ -816,10 +816,10 @@
 }
 .rachel-scene__name {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(30px, 3.4vw, 52px);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 40px);
   color: #fff;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
 }
 .rachel-scene__line {
   font-style: italic;
@@ -1123,8 +1123,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
-  filter: saturate(0.9);
+  object-position: center 42%;
+  filter: saturate(1);
 }
 .olise-scene__stage::after {
   content: "";
@@ -1144,10 +1144,11 @@
 }
 .olise-scene__name {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(30px, 3.4vw, 52px);
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 30px);
   color: #fff;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.08em;
 }
 .olise-scene__zh {
   font-size: clamp(18px, 2.2vw, 26px);
@@ -1311,7 +1312,7 @@
 }
 .cd-case {
   position: relative;
-  width: clamp(6.4rem, 10vw, 9.6rem);
+  width: clamp(11rem, 15vw, 14rem);
   border: 0;
   background: none;
   cursor: pointer;
@@ -1345,11 +1346,11 @@
 }
 .cd-case:hover .cd-case__disc { opacity: 0.35; }
 .cd-case__name {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink);
-  margin-top: 0.7rem;
+  margin-top: 0.8rem;
 }
-.cd-case__year { font-size: 10px; color: var(--muted); margin-top: 0.15rem; }
+.cd-case__year { font-size: 12px; color: var(--muted); margin-top: 0.2rem; }
 
 .cd-scene__ticket {
   position: absolute;
@@ -1357,7 +1358,7 @@
   bottom: clamp(3.4rem, 6vh, 4.6rem);
   border: 0;
   background: #E9DFC6;
-  padding: 0.8rem 1.1rem 0.7rem;
+  padding: 1rem 1.4rem 0.9rem;
   border-left: 2px dashed rgba(25, 22, 19, 0.35);
   border-right: 2px dashed rgba(25, 22, 19, 0.35);
   box-shadow: 0 14px 28px -14px rgba(25, 22, 19, 0.4);
@@ -1458,7 +1459,7 @@
 }
 .vinyl-record {
   position: relative;
-  width: clamp(7rem, 11vw, 10rem);
+  width: clamp(11rem, 15vw, 13.5rem);
   border: 0;
   background: none;
   cursor: pointer;
@@ -1480,7 +1481,7 @@
   position: absolute;
   left: clamp(1.2rem, 3vw, 2.6rem);
   bottom: clamp(3.6rem, 7vh, 5rem);
-  width: clamp(5rem, 8vw, 7rem);
+  width: clamp(8rem, 12vw, 11rem);
   border: 0;
   background: none;
   cursor: pointer;
@@ -1564,7 +1565,7 @@
   perspective: 1200px;
 }
 .book-scene__page {
-  width: min(30vh, 52vw);
+  width: min(42vh, 62vw);
   aspect-ratio: 3 / 4;
   background: #FAF6EC;
   box-shadow: 0 30px 60px -24px rgba(25, 22, 19, 0.45);
@@ -1646,7 +1647,7 @@
 }
 .crate-scene__card {
   position: absolute;
-  width: min(30vh, 44vw);
+  width: min(40vh, 56vw);
   aspect-ratio: 1;
   overflow: hidden;
   box-shadow: 0 30px 60px -24px rgba(25, 22, 19, 0.5);
@@ -1838,7 +1839,7 @@
 }
 .shelf-scene__dvd {
   position: relative;
-  width: clamp(3.4rem, 5.5vw, 5rem);
+  width: clamp(5.6rem, 8vw, 7.2rem);
   border: 0;
   background: none;
   cursor: pointer;
@@ -1847,6 +1848,8 @@
   flex-direction: column;
   align-items: center;
 }
+.shelf-scene__dvd:nth-child(2n) { transform: translateY(-0.7rem); }
+.shelf-scene__dvd:nth-child(3n) { transform: translateY(0.5rem); }
 .shelf-scene__dvd img {
   width: 100%;
   aspect-ratio: 2 / 3;

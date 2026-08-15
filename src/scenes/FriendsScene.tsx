@@ -46,11 +46,6 @@ export function FriendsScene() {
         <div className="friends-scene__scrim" />
       </motion.div>
 
-      <header className="scene-head scene-head--light">
-        <span className="meta">ACT III — THE LIVING ROOM</span>
-        <span className="meta">01 / 03</span>
-      </header>
-
       <div className="friends-scene__copy">
         <motion.p className="meta friends-scene__name" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.7 }}>
           {friendsContent.name} · {friendsContent.years}

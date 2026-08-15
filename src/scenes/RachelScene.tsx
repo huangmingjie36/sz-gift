@@ -28,10 +28,6 @@ export function RachelScene() {
 
   return (
     <div className="scene-inner rachel-scene">
-      <header className="scene-head">
-        <span className="meta">ACT III — SCREEN</span>
-        <span className="meta">02 / 03</span>
-      </header>
 
       <motion.div
         className="rachel-scene__photo"

@@ -329,8 +329,7 @@ export const shelfContent = {
 // ------------------------------------------------------------
 export const endingContent = {
   title: "深圳特产",
-  en: "01 / DIGITAL",
   line: "No snacks. Just code.",
-  foot: "Compiled with friendship.",
+  foot: "for Chen Biaocong",
   easterEgg: "苏州那份呢？",
 };

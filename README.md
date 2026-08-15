@@ -57,6 +57,16 @@ ENTER 后启动声音。右下角 ♪ 开关，mute 状态被记住。
 
 ---
 
+## ART DIRECTION REBUILD — IMAGE FIRST
+
+- 删除全部顶部 scene-head（ACT/编号/小标签）与大部分装饰性 metadata
+- Navigation 弱化为 I / II / III 三段指示 + 细进度线
+- 主体大幅放大：CD 盒 / 唱片 / 摄影书 / 唱片箱 / DVD 均达到可真正欣赏的尺寸
+  （专辑封面 180px+，人物 40–80% viewport）
+- Metadata 全局提升到 12px+；每屏一个 Hero
+- Rachel 保持角色图（Friends 剧中语义）；Olise 全屏强摄影 + 名字弱化
+- Ending 精简：深圳特产 / No snacks. Just code. / for Chen Biaocong + ppppettis_
+
 ## V9 — ppppettis Identity System
 
 CHEN BIAOCONG 是这个人，ppppettis 是签名——两个层级，不并排：

@@ -16,11 +16,6 @@ export function DeutschlandScene() {
         <div className="deutschland-scene__scrim" />
       </motion.div>
 
-      <header className="scene-head scene-head--light">
-        <span className="meta">ACT III — FOOTBALL</span>
-        <span className="meta">03 / 03</span>
-      </header>
-
       <div className="deutschland-scene__copy">
         <motion.h2
           className="deutschland-scene__title"

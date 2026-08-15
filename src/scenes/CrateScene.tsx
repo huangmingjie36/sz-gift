@@ -25,10 +25,6 @@ export function CrateScene() {
 
   return (
     <div className="scene-inner crate-scene">
-      <header className="scene-head">
-        <span className="meta">ACT I — THE RECORD ROOM</span>
-        <span className="meta">04 / 04</span>
-      </header>
 
       <div className="crate-scene__copy">
         <motion.h2 className="crate-scene__title" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: EASE }}>

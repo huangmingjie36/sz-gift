@@ -24,9 +24,6 @@ export function EndingScene() {
       <motion.button className="ending-scene__title serif" {...seq(0.5)} onClick={pop} title="深圳特产">
         {endingContent.title}
       </motion.button>
-      <motion.p className="meta ending-scene__en" {...seq(1.4, 0.8)}>
-        {endingContent.en}
-      </motion.p>
       <motion.p className="ending-scene__line serif" {...seq(2.2)}>
         {endingContent.line}
       </motion.p>

@@ -20,10 +20,6 @@ export function OliseScene() {
 
   return (
     <div className="scene-inner olise-scene">
-      <header className="scene-head scene-head--light">
-        <span className="meta">ACT II — MATCHDAY</span>
-        <span className="meta">03 / 04</span>
-      </header>
 
       <motion.div
         className="olise-scene__stage"

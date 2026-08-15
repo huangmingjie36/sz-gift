@@ -182,35 +182,27 @@ export function Deck({ children }: DeckProps) {
 }
 
 function DeckNav() {
-  const { index, total, goTo, actIndex } = useDeck();
-  const current = scenes[index];
-  const acts = [
-    { key: "music", label: "MUSIC" },
-    { key: "screen", label: "SCREEN" },
-    { key: "football", label: "FOOTBALL" },
-  ];
-
+  const { index, goTo, actIndex } = useDeck();
+  const currentAct = scenes[index].act;
   return (
-    <nav className="decknav" aria-label="deck navigation">
-      <span className="meta decknav__pos">
-        {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-      </span>
+    <nav className="decknav" aria-label="三幕导航">
       <div className="decknav__acts">
-        {acts.map((a) => {
-          const activeAct = current.act === a.key;
+        {(["music", "football", "screen"] as const).map((key, i) => {
+          const roman = ["I", "II", "III"][i];
           return (
             <button
-              key={a.key}
-              className={`meta decknav__act ${activeAct ? "is-active" : ""}`}
-              onClick={() => goTo(actIndex(a.key))}
+              key={key}
+              className={`meta decknav__act ${currentAct === key ? "is-active" : ""}`}
+              onClick={() => goTo(actIndex(key))}
+              aria-label={`第 ${roman} 幕`}
             >
-              {a.label}
+              {roman}
             </button>
           );
         })}
       </div>
       <div className="decknav__bar">
-        <span style={{ width: `${((index + 1) / total) * 100}%` }} />
+        <span style={{ width: `${((index + 1) / scenes.length) * 100}%` }} />
       </div>
     </nav>
   );

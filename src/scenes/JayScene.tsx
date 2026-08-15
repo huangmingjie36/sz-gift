@@ -52,10 +52,6 @@ export function JayScene() {
 
   return (
     <div className="scene-inner cd-scene">
-      <header className="scene-head">
-        <span className="meta">ACT I — THE RECORD ROOM</span>
-        <span className="meta">JAY · 01 / 04</span>
-      </header>
 
       <div className="cd-scene__copy">
         <motion.h2 className="cd-scene__name" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3, ease: EASE }}>
